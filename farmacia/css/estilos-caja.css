@@ -34,7 +34,7 @@ html {
 	justify-items: center;
 	opacity:0;
 	transition: 0.8s all;
-	z-index:100;
+	z-index:101;
 }
 
 .fondo_mensajeActivo {
