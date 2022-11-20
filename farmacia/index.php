@@ -28,7 +28,7 @@
 		<div class="cont_1">
 			<div class="sub_cont_1"><img src="img/logo_empresa.jpg" alt=""></div>
 			<div><p class="nombre_empresa">NOMBRE DE LA EMPRESA</p></div>
-			<div><p class="nit">NIT 00.000.000</p></div>
+			<div><p class="nit">NIT</p></div>
 			<div><p class="direccion">DIRECCION DE LA EMPRESA</p></div>
 			<div><p class="responsable">NOMBRE RESPONSABLE EMPRESA</p></div>
 		</div>
