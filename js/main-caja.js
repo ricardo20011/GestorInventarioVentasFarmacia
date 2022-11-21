@@ -68,7 +68,7 @@ function multiplicarinputs(){
             //console.log(i);
             tabla.rows[i].cells[7].innerHTML = total;
         }
-        //
+        
         inputs[0].addEventListener('blur',()=>{
             if(inputs[0].value == '' || inputs[0].value == '0' || inputs[0].value < 1){
                 //inputs[0].value = '1';
