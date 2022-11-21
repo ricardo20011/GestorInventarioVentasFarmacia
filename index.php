@@ -105,6 +105,7 @@
 					setInterval(() => {
 						if(tabla.rows.length > 1){
             				multiplicarinputs();
+							e.preventDefault()
         				}
 					}, 1000);
 				}
