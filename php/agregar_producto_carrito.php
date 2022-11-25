@@ -14,7 +14,7 @@ if($campo != null){
 
     $cont = count($colums);
     for($i = 0; $i < $cont; $i++){
-        $where .= $colums[$i] . " LIKE '%". $campo . "%' OR ";
+        $where .= $colums[0] . " LIKE '%". $campo . "%' OR ";
     }
     $where = substr_replace($where,"", -3);
     $where .= ")";
@@ -46,7 +46,7 @@ if($num_rows > 0){
 } else {
     $html .= '<tr>';
     $html .= '<td colspan="7" > Producto no encontrado </td>';
-    $html .= '<tr>';
+    $html .= '</tr>';
 
 }
 

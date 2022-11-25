@@ -42,9 +42,9 @@
 
 	<div class="contenedor">
 		<div class="sub_cont">
-			<form action="" method="POST" class="cont_buscador">
+			<form action="" method="POST" class="cont_buscador" id="formulario">
 				<input type="text" name="campo" id="campo">
-				<button id="addProducto" class="btn btn-outline-success">Añadir Producto</button>
+				<button type="submit" id="addProducto" class="btn btn-outline-success">Añadir Producto</button>
 			</form>
 			
 
@@ -61,8 +61,8 @@
 						<th>Precio venta</th>
 					</tr> 
 				</thead> 
-				<tbody id="content" class="content">
 
+				<tbody id="content" class="content">
 				</tbody>
 			</table>	
 		</div>
@@ -86,13 +86,16 @@
 	<script>
 		input_agregar = document.getElementById('campo')
 		tabla = document.getElementById('tabla')
+		formulario = document.getElementById('formulario')
 
-		document.getElementById('addProducto').addEventListener("click", (e)=>{
+		formulario.addEventListener("submit", (e)=>{
+			e.preventDefault();
 			if(input_agregar.value == ""){
 				e.preventDefault()
 			} else {
 				e.preventDefault()
 				for(i=0; i < tabla.rows.length ; i++){
+					e.preventDefault();
 					if(input_agregar.value == tabla.rows[i].cells[0].innerHTML){
 						e.preventDefault()
 						console.log('si')
@@ -104,8 +107,14 @@
 				
 					setInterval(() => {
 						if(tabla.rows.length > 1){
-            				multiplicarinputs();
-							e.preventDefault()
+							let inputs = tabla.rows[1].cells[6].children;
+							let dato = inputs[0].value;
+							
+            				multiplicarinputs(e);
+							
+							inputs[0].value = dato;
+							console.log(dato);
+							e.preventDefault();
         				}
 					}, 1000);
 				}
@@ -118,6 +127,7 @@
 			let url = "php/agregar_producto_carrito.php"
 			let formaData = new FormData()
 			formaData.append('campo', input)
+			console.log(formaData.append('campo', input))
 
 
 			fetch(url, {
