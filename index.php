@@ -44,12 +44,11 @@
 		<div class="sub_cont">
 			<form action="" method="POST" class="cont_buscador" id="formulario">
 				<input type="text" name="campo" id="campo">
-				<button type="submit" id="addProducto" class="btn btn-outline-success">Añadir Producto</button>
+				<button id="addProducto" class="btn btn-outline-success">Añadir Producto</button>
 			</form>
 			
 
 			<table class="content-table" id="tabla"> 
-				<thead> 
 					<tr> 
 						<th>Codigo Barras</th> 
 						<th>Nombre Producto</th>
@@ -58,13 +57,10 @@
 						<th>Concentracion</th> 
 						<th>Precio U</th> 
 						<th>Cantidad</th>
-						<th>Precio venta</th>
-					</tr> 
-				</thead> 
-
-				<tbody id="content" class="content">
-				</tbody>
-			</table>	
+						<th>Precio venta</th> 
+					</tr>
+				</table>	
+				<div class="loader" id="loader"></div>
 		</div>
 
 		<table class="content-table contador"> 
@@ -84,60 +80,60 @@
 	</div>
 	<script src="js/main-caja.js"></script>
 	<script>
-		input_agregar = document.getElementById('campo')
-		tabla = document.getElementById('tabla')
-		formulario = document.getElementById('formulario')
-
-		formulario.addEventListener("submit", (e)=>{
-			e.preventDefault();
-			if(input_agregar.value == ""){
-				e.preventDefault()
-			} else {
-				e.preventDefault()
-				for(i=0; i < tabla.rows.length ; i++){
-					e.preventDefault();
-					if(input_agregar.value == tabla.rows[i].cells[0].innerHTML){
-						e.preventDefault()
-						console.log('si')
-					} else{
-						e.preventDefault()
-						getData()
-						console.log('no')
-					}
-				
-					setInterval(() => {
-						if(tabla.rows.length > 1){
-							let inputs = tabla.rows[1].cells[6].children;
-							let dato = inputs[0].value;
-							
-            				multiplicarinputs(e);
-							
-							inputs[0].value = dato;
-							console.log(dato);
-							e.preventDefault();
-        				}
-					}, 1000);
-				}
-			}
-		})
-
-		function getData(){
-			let input = document.getElementById('campo').value
-			let content = document.getElementById('content')
-			let url = "php/agregar_producto_carrito.php"
-			let formaData = new FormData()
-			formaData.append('campo', input)
-			console.log(formaData.append('campo', input))
-
-
-			fetch(url, {
-				method: "POST",
-				body: formaData
-			}).then (response => response.json())
-			.then(data => {
-				content.innerHTML += data
-			}).catch(err => console.log(err))
-		}
+		//input_agregar = document.getElementById('campo')
+		//tabla = document.getElementById('tabla')
+		//formulario = document.getElementById('formulario')
+//
+		//formulario.addEventListener("submit", (e)=>{
+		//	e.preventDefault();
+		//	if(input_agregar.value == ""){
+		//		e.preventDefault()
+		//	} else {
+		//		e.preventDefault()
+		//		for(i=0; i < tabla.rows.length ; i++){
+		//			e.preventDefault();
+		//			if(input_agregar.value == tabla.rows[i].cells[0].innerHTML){
+		//				e.preventDefault()
+		//				console.log('si')
+		//			} else{
+		//				e.preventDefault()
+		//				getData()
+		//				console.log('no')
+		//			}
+		//		
+		//			setInterval(() => {
+		//				if(tabla.rows.length > 1){
+		//					let inputs = tabla.rows[1].cells[6].children;
+		//					let dato = inputs[0].value;
+		//					
+        //    				multiplicarinputs(e);
+		//					
+		//					inputs[0].value = dato;
+		//					console.log(dato);
+		//					e.preventDefault();
+        //				}
+		//			}, 1000);
+		//		}
+		//	}
+		//})
+//
+		//function getData(){
+		//	let input = document.getElementById('campo').value
+		//	let content = document.getElementById('content')
+		//	let url = "php/agregar_producto_carrito.php"
+		//	let formaData = new FormData()
+		//	formaData.append('campo', input)
+		//	console.log(formaData.append('campo', input))
+//
+//
+		//	fetch(url, {
+		//		method: "POST",
+		//		body: formaData
+		//	}).then (response => response.json())
+		//	.then(data => {
+		//		content.innerHTML += data
+		//	}).catch(err => console.log(err))
+		//}
 	</script>
 </body>
 </html>
