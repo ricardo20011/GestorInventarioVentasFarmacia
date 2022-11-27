@@ -78,7 +78,7 @@
 			
 		</table>
 	</div>
-	<script src="js/main-caja.js"></script>
+	
 	<script>
 		//input_agregar = document.getElementById('campo')
 		//tabla = document.getElementById('tabla')
@@ -134,7 +134,48 @@
 		//		content.innerHTML += data
 		//	}).catch(err => console.log(err))
 		//}
+		
+
+	//function buscar_datos(){
+	//	campo = $("#campo").val();
+	//	console.log(campo);
+	//	if(!campo == ""){
+	//		var parametros = 
+	//		{
+	//		"campo" : campo
+	//		};
+	//		$.ajax(
+	//		{
+	//		data:  parametros,
+	//		dataType: 'json',
+	//		url:   'php/leer-datos-caja.php',
+	//		type:  'post',
+	//		beforeSend: function() {
+	//			$('.formularioVender').hide();
+	//			$('.cargando').show();
+	//		}, 
+	//		error: function()
+	//		{
+	//			console.log("Error");
+	//		},
+	//		complete: function() 
+	//		{
+	//			$('.formularioVender').show();
+	//			$('.cargando').hide();
+	//		},
+	//		success:  function (valores) 
+	//		{
+	//		
+	//		}
+	//		}) 
+	//	}
+	//}
+	//
+	//document.getElementById('addProducto').addEventListener('click',()=>{
+	//	buscar_datos();
+	//});
 	</script>
+	<script src="js/main-caja.js"></script>
 </body>
 </html>
 

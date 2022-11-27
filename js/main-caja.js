@@ -53,8 +53,9 @@ function multiplicarinputs(){
             let total = precio * inputs[0].value ;
             
             total = agregarSeparadorMiles(total);
+
             //console.log(i);
-            tabla.rows[i].cells[7].innerHTML = total;
+            tabla.rows[i].cells[7].innerHTML = '$' + total;
         }
         
         inputs[0].addEventListener('blur',()=>{
@@ -90,16 +91,18 @@ function multiplicarinputs(){
 //    document.getElementById("results").innerHTML = textMessages;
 //}
 
-
+campoValor = document.getElementById('campo').value
 
 function cargarUsuarios(){
     //document.getElementById('tabla').innerHTML = "<tr><th>Codigo Barras</th><th>Nombre Producto</th<th>Existencia</th><th>Vencimiento</th<th>Concentracion</th><th>Precio U</th><th>Cantidad</th<th>Precio venta</th></tr>";
 
     let peticion = new XMLHttpRequest();
-    peticion.open('POST', 'php/leer-datos.php');
+    peticion.open('POST', 'php/leer-datos-caja.php');
 
     peticion.onload = ()=>{
         let datos = JSON.parse(peticion.responseText);
+
+        console.log(datos);
 
         if(datos.error == true){
             error_box.classList.add('active');
