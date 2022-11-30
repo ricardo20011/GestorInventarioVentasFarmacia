@@ -213,10 +213,6 @@ function agregarUsuarios(e){
 
 
 
-
-
-
-
 //-------------DESPLEGAR EL FORMULARIO DE VENTA DE PRODUCTOS --------------//
 //function cargarFormularioVenta(){
 //    formularioVender.classList.toggle('formularioActivo');

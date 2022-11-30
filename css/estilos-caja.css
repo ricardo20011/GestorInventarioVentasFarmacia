@@ -253,3 +253,12 @@ tr {
 	box-sizing: border-box;
 	text-align: center;
 }
+
+.icon_borrar {
+	text-align: center;
+	cursor: pointer;
+}
+.filaBorrar {
+	text-align: center;
+}
+

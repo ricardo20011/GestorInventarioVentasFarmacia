@@ -17,7 +17,12 @@ tabla = document.getElementById('tabla');
 btn_cargar = document.getElementById('addProducto');
 campoValor = document.getElementById('campo').value;
 campo = document.getElementById('campo');
+let icon_borrar ="<iconify-icon icon='tabler:trash-x' style='color: #bd2626;' width='23'></iconify-icon>";
 
+
+function eliminarProductoCesta(){
+
+}
 
 function multiplicarinputs(){
     cellTotal = 0;
@@ -75,7 +80,6 @@ function multiplicarinputs(){
 
 }
 
-
 function cargarUsuarios(){
 
     let peticion = new XMLHttpRequest();
@@ -103,6 +107,7 @@ function cargarUsuarios(){
                 elemento.innerHTML += ("<td>" + datos[i].precio + "</td>");
                 elemento.innerHTML += ("<td><input type='number' min='1' value='1'></input></td>");
                 elemento.innerHTML += ("<td>" + datos[i].precio + "</td>");
+                elemento.innerHTML += ("<td class='filaBorrar'><span class='icon_borrar' id='N" + [i] + "' onclick=eliminarProductoCesta("+datos[i].codigo+");>"+ icon_borrar + "</span></td>");
                 document.getElementById('tabla').appendChild(elemento);
             }
         }
@@ -119,10 +124,6 @@ function cargarUsuarios(){
     
 }
 
-document.getElementById('formulario').addEventListener('submit',(e)=>{
-    e.preventDefault();
-});
-
 function validarRepetidos(){
     for(i=0 ; i < tabla.rows.length ; i++){
         let codigo = tabla.rows[i].cells[0].innerHTML;
@@ -135,6 +136,14 @@ function validarRepetidos(){
         }
     }
 }
+
+
+
+
+document.getElementById('formulario').addEventListener('submit',(e)=>{
+    e.preventDefault();
+});
+
 btn_cargar.addEventListener('click', ()=>{
     validarRepetidos();
     cargarUsuarios();

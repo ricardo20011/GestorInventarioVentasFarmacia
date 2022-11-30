@@ -58,6 +58,7 @@
 					<th>Precio U</th> 
 					<th>Cantidad</th>
 					<th>Precio venta</th> 
+					<th>Eliminar</th> 
 				</tr>
 			</table>
 		</div>
