@@ -42,139 +42,41 @@
 
 	<div class="contenedor">
 		<div class="sub_cont">
-			<form action="" method="GET" class="cont_buscador" id="formulario">
+			<form action="" method="POST" class="cont_buscador" id="formulario">
 				<input type="text" name="campo" id="campo">
 				<button id="addProducto" class="btn btn-outline-success">Añadir Producto</button>
 			</form>
 			
 
 			<table class="content-table" id="tabla"> 
-					<tr> 
-						<th>Codigo Barras</th> 
-						<th>Nombre Producto</th>
-						<th>Existencia</th> 
-						<th>Vencimiento</th>
-						<th>Concentracion</th> 
-						<th>Precio U</th> 
-						<th>Cantidad</th>
-						<th>Precio venta</th> 
-					</tr>
-				</table>	
-				<div class="loader" id="loader"></div>
+				<tr> 
+					<th>Codigo Barras</th> 
+					<th>Nombre Producto</th>
+					<th>Existencia</th> 
+					<th>Vencimiento</th>
+					<th>Concentracion</th> 
+					<th>Precio U</th> 
+					<th>Cantidad</th>
+					<th>Precio venta</th> 
+				</tr>
+			</table>
 		</div>
 
-		<table class="content-table contador"> 
-			<thead> 
+		<table class="content-table contador" id="table-total"> 
+			<tbody> 
 				<tr> 
-					<th class="sub-total">Sub Total:</th>
-					<th class="sub-total-number">$3.200</th> 
+					<th class="sub-total">Nombre Empresa</th>
+					<th class="sub-total-number">Nit 2012.123.11</th> 
 					<th class="total">Total:</th>
-					<th class="total-number">$3.800</th>
+					<th class="total-number">$ 0</th>
 					<th class="th-vender">
 						<button class="btn btn-success btn-vender">Vender</button>
 					</th>
 				</tr> 
-			</thead>
+			</tbody>
 			
 		</table>
 	</div>
-	
-	<script>
-		//input_agregar = document.getElementById('campo')
-		//tabla = document.getElementById('tabla')
-		//formulario = document.getElementById('formulario')
-//
-		//formulario.addEventListener("submit", (e)=>{
-		//	e.preventDefault();
-		//	if(input_agregar.value == ""){
-		//		e.preventDefault()
-		//	} else {
-		//		e.preventDefault()
-		//		for(i=0; i < tabla.rows.length ; i++){
-		//			e.preventDefault();
-		//			if(input_agregar.value == tabla.rows[i].cells[0].innerHTML){
-		//				e.preventDefault()
-		//				console.log('si')
-		//			} else{
-		//				e.preventDefault()
-		//				getData()
-		//				console.log('no')
-		//			}
-		//		
-		//			setInterval(() => {
-		//				if(tabla.rows.length > 1){
-		//					let inputs = tabla.rows[1].cells[6].children;
-		//					let dato = inputs[0].value;
-		//					
-        //    				multiplicarinputs(e);
-		//					
-		//					inputs[0].value = dato;
-		//					console.log(dato);
-		//					e.preventDefault();
-        //				}
-		//			}, 1000);
-		//		}
-		//	}
-		//})
-//
-		//function getData(){
-		//	let input = document.getElementById('campo').value
-		//	let content = document.getElementById('content')
-		//	let url = "php/agregar_producto_carrito.php"
-		//	let formaData = new FormData()
-		//	formaData.append('campo', input)
-		//	console.log(formaData.append('campo', input))
-//
-//
-		//	fetch(url, {
-		//		method: "POST",
-		//		body: formaData
-		//	}).then (response => response.json())
-		//	.then(data => {
-		//		content.innerHTML += data
-		//	}).catch(err => console.log(err))
-		//}
-		
-
-	//function buscar_datos(){
-	//	campo = $("#campo").val();
-	//	console.log(campo);
-	//	if(!campo == ""){
-	//		var parametros = 
-	//		{
-	//		"campo" : campo
-	//		};
-	//		$.ajax(
-	//		{
-	//		data:  parametros,
-	//		dataType: 'json',
-	//		url:   'php/leer-datos-caja.php',
-	//		type:  'post',
-	//		beforeSend: function() {
-	//			$('.formularioVender').hide();
-	//			$('.cargando').show();
-	//		}, 
-	//		error: function()
-	//		{
-	//			console.log("Error");
-	//		},
-	//		complete: function() 
-	//		{
-	//			$('.formularioVender').show();
-	//			$('.cargando').hide();
-	//		},
-	//		success:  function (valores) 
-	//		{
-	//		
-	//		}
-	//		}) 
-	//	}
-	//}
-	//
-	//document.getElementById('addProducto').addEventListener('click',()=>{
-	//	buscar_datos();
-	//});
-	</script>
 	<script src="js/main-caja.js"></script>
 </body>
 </html>

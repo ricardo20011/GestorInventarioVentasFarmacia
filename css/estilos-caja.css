@@ -4,8 +4,7 @@
 	box-sizing: border-box;
 }
 input:focus {
-	border:none;
-	outline:none;
+
 }
 
 body {
@@ -247,7 +246,7 @@ tr {
 	text-align: center;
 	width:100px;
 }
-.content tr td input {
+.content-table tr td input {
 	width: 70px;
 	border:1px solid gray;
 	border-radius:5px;
