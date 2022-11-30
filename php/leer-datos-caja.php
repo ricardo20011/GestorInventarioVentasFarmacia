@@ -4,7 +4,7 @@ header('Content-type: application/json; charset=utf-8');
 
 $conexion = new mysqli('162.241.60.251', 'rickbrok_previs_ips', '1006690431', 'rickbrok_farmacia');
 
-//$campoo = $_POST['campo'];
+$campo = $_REQUEST['campo'];
 
 
 if($conexion->connect_errno){
@@ -14,7 +14,7 @@ if($conexion->connect_errno){
     ];
 } else {
     $conexion->set_charset("utf8");
-    $statement = $conexion->prepare("SELECT * FROM usuarios WHERE codigo = " . "3211");
+    $statement = $conexion->prepare("SELECT * FROM usuarios WHERE codigo = $campo");
     $statement->execute();
     $resultados = $statement->get_result();
 

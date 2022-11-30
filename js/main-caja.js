@@ -49,18 +49,18 @@ function multiplicarinputs(){
             tabla.rows[i].cells[7].innerHTML = subprecio;
             //console.log('se solto1');
         } 
-        if(inputs[0].value > 1){
+        if(inputs[0].value > 0){
             let total = precio * inputs[0].value ;
             
             total = agregarSeparadorMiles(total);
 
             //console.log(i);
-            tabla.rows[i].cells[7].innerHTML = '$' + total;
+            tabla.rows[i].cells[7].innerHTML = '$ ' + total;
         }
         
         inputs[0].addEventListener('blur',()=>{
             if(inputs[0].value == '' || inputs[0].value == '0' || inputs[0].value < 1){
-                //inputs[0].value = '1';
+                inputs[0].value = '1';
                 let subprecio = agregarSeparadorMiles(precio);
                 tabla.rows[i].cells[7].innerHTML = subprecio;
             }
@@ -97,7 +97,16 @@ function cargarUsuarios(){
     //document.getElementById('tabla').innerHTML = "<tr><th>Codigo Barras</th><th>Nombre Producto</th<th>Existencia</th><th>Vencimiento</th<th>Concentracion</th><th>Precio U</th><th>Cantidad</th<th>Precio venta</th></tr>";
 
     let peticion = new XMLHttpRequest();
-    peticion.open('POST', 'php/leer-datos-caja.php');
+
+    peticion.onreadystatechange = ()=>{
+        if(peticion.readyState == 4 && peticion.status == 200){
+            console.log('algo salio mal con la conexion');
+        }
+    }
+    
+    let input = document.getElementById('campo').value;
+
+    peticion.open('GET', 'php/leer-datos-caja.php?campo=' + input, true);
 
     peticion.onload = ()=>{
         let datos = JSON.parse(peticion.responseText);
@@ -122,11 +131,6 @@ function cargarUsuarios(){
         }
     }
 
-    peticion.onreadystatechange = ()=>{
-        if(peticion.readyState == 4 && peticion.status == 200){
-            loader.classList.remove('active');
-        }
-    }
 
     peticion.send();
     
