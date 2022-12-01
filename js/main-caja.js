@@ -89,7 +89,8 @@ function multiplicarinputs(){
 function cargarUsuarios(){
     if(campo.value == ""){
         alert('Ingresa un codigo de barras :)');
-    } else {
+    } else if(campo.value != "Repetido"){
+
         let peticion = new XMLHttpRequest();
         
         let input = document.getElementById('campo').value;
@@ -135,22 +136,14 @@ function cargarUsuarios(){
 function validarRepetidos(e){
     for(i=0 ; i < tabla.rows.length ; i++){
         let codigo = tabla.rows[i].cells[0].innerHTML;
-        
-        while(campo.value != codigo){
-            if(campo.value == codigo){
-                console.log(campo.value + " h" + codigo);
-                break;
+         if(campo.value == codigo){
+            campo.value = 'Repetido';
+            if(campo.value == 'Repetido'){
+                alert('Producto ya esta ingresado');
             }
-            if (campo.value != codigo) {
-                console.log(campo.value + " d" + codigo);
-                cargarUsuarios();
-                break;
-            }
-            
-        }
+         }
     }
 }
-
 
 
 
@@ -160,7 +153,7 @@ document.getElementById('formulario').addEventListener('submit',(e)=>{
 
 btn_cargar.addEventListener('click', (e)=>{
     validarRepetidos(e);
-    
+    cargarUsuarios();
     setInterval(()=>{
         multiplicarinputs();
     },500);
