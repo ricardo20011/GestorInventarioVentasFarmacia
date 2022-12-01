@@ -24,6 +24,12 @@ function eliminarProductoCesta(){
 
 }
 
+tabla.addEventListener('click', (e)=>{
+    if(e.target.parentNode.parentNode.tagName == 'TD'){
+        e.target.parentNode.parentNode.parentNode.remove();
+    }
+});
+
 function multiplicarinputs(){
     cellTotal = 0;
     for(i=1; i < tabla.rows.length; i++){
@@ -81,57 +87,65 @@ function multiplicarinputs(){
 }
 
 function cargarUsuarios(){
-
-    let peticion = new XMLHttpRequest();
-
-
+    if(campo.value == ""){
+        alert('Ingresa un codigo de barras :)');
+    } else {
+        let peticion = new XMLHttpRequest();
+        
+        let input = document.getElementById('campo').value;
     
-    let input = document.getElementById('campo').value;
-
-    peticion.open('GET', 'php/leer-datos-caja.php?campo=' + input, true);
-
-    peticion.onload = ()=>{
-        let datos = JSON.parse(peticion.responseText);
-
-
-        if(datos.error == true){
-            error_box.classList.add('active');
-        } else {
-            for(i=0; i < datos.length ; i++){
-                let elemento = document.createElement('tr');
-                elemento.innerHTML += ("<td>" + datos[i].codigo + "</td>");
-                elemento.innerHTML += ("<td>" + datos[i].nombre + "</td>");
-                elemento.innerHTML += ("<td>" + datos[i].cantidad + "</td>");
-                elemento.innerHTML += ("<td>" + datos[i].vencimiento + "</td>");
-                elemento.innerHTML += ("<td>" + datos[i].concentracion + "</td>");
-                elemento.innerHTML += ("<td>" + datos[i].precio + "</td>");
-                elemento.innerHTML += ("<td><input type='number' min='1' value='1'></input></td>");
-                elemento.innerHTML += ("<td>" + datos[i].precio + "</td>");
-                elemento.innerHTML += ("<td class='filaBorrar'><span class='icon_borrar' id='N" + [i] + "' onclick=eliminarProductoCesta("+datos[i].codigo+");>"+ icon_borrar + "</span></td>");
-                document.getElementById('tabla').appendChild(elemento);
+        peticion.open('GET', 'php/leer-datos-caja.php?campo=' + input, true);
+    
+        peticion.onload = ()=>{
+            let datos = JSON.parse(peticion.responseText);
+    
+    
+            if(datos.error == true){
+                error_box.classList.add('active');
+            } else {
+                for(i=0; i < datos.length ; i++){
+                    let elemento = document.createElement('tr');
+                    elemento.innerHTML += ("<td>" + datos[i].codigo + "</td>");
+                    elemento.innerHTML += ("<td>" + datos[i].nombre + "</td>");
+                    elemento.innerHTML += ("<td>" + datos[i].cantidad + "</td>");
+                    elemento.innerHTML += ("<td>" + datos[i].vencimiento + "</td>");
+                    elemento.innerHTML += ("<td>" + datos[i].concentracion + "</td>");
+                    elemento.innerHTML += ("<td>" + datos[i].precio + "</td>");
+                    elemento.innerHTML += ("<td><input type='number' min='1' value='1'></input></td>");
+                    elemento.innerHTML += ("<td>" + datos[i].precio + "</td>");
+                    elemento.innerHTML += ("<td class='filaBorrar'><span class='icon_borrar' id='N" + [i] + "' onclick=eliminarProductoCesta("+datos[i].codigo+");>"+ icon_borrar + "</span></td>");
+                    document.getElementById('tabla').appendChild(elemento);
+                }
             }
         }
-    }
-
-    peticion.onreadystatechange = ()=>{
-        if(peticion.readyState != 4 && peticion.status != 200){
-            console.log('algo salio mal con la conexion');
-        }
-    }
-
-
-    peticion.send();
     
+        peticion.onreadystatechange = ()=>{
+            if(peticion.readyState != 4 && peticion.status != 200){
+                console.log('algo salio mal con la conexion');
+            }
+        }
+    
+    
+        peticion.send();
+    
+    }
+
 }
 
-function validarRepetidos(){
+function validarRepetidos(e){
     for(i=0 ; i < tabla.rows.length ; i++){
         let codigo = tabla.rows[i].cells[0].innerHTML;
         
-        if(campo.value == codigo){
-            console.log('se repitio el valor');
-        }
-        if (campo.value != codigo) {
+        while(campo.value != codigo){
+            if(campo.value == codigo){
+                console.log(campo.value + " h" + codigo);
+                break;
+            }
+            if (campo.value != codigo) {
+                console.log(campo.value + " d" + codigo);
+                cargarUsuarios();
+                break;
+            }
             
         }
     }
@@ -144,9 +158,9 @@ document.getElementById('formulario').addEventListener('submit',(e)=>{
     e.preventDefault();
 });
 
-btn_cargar.addEventListener('click', ()=>{
-    validarRepetidos();
-    cargarUsuarios();
+btn_cargar.addEventListener('click', (e)=>{
+    validarRepetidos(e);
+    
     setInterval(()=>{
         multiplicarinputs();
     },500);
