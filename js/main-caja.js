@@ -20,10 +20,6 @@ campo = document.getElementById('campo');
 let icon_borrar ="<iconify-icon icon='tabler:trash-x' style='color: #bd2626;' width='23'></iconify-icon>";
 
 
-function eliminarProductoCesta(){
-
-}
-
 tabla.addEventListener('click', (e)=>{
     if(e.target.parentNode.parentNode.tagName == 'TD'){
         e.target.parentNode.parentNode.parentNode.remove();
@@ -108,13 +104,13 @@ function cargarUsuarios(){
                     let elemento = document.createElement('tr');
                     elemento.innerHTML += ("<td>" + datos[i].codigo + "</td>");
                     elemento.innerHTML += ("<td>" + datos[i].nombre + "</td>");
-                    elemento.innerHTML += ("<td>" + datos[i].cantidad + "</td>");
-                    elemento.innerHTML += ("<td>" + datos[i].vencimiento + "</td>");
+                    elemento.innerHTML += ("<td class='filaCentrar'>" + datos[i].cantidad + "</td>");
                     elemento.innerHTML += ("<td>" + datos[i].concentracion + "</td>");
-                    elemento.innerHTML += ("<td>" + datos[i].precio + "</td>");
+                    elemento.innerHTML += ("<td class='filaCentrar'>" + datos[i].vencimiento + "</td>");
+                    elemento.innerHTML += ("<td class='filaCentrar'>" + datos[i].precio + "</td>");
                     elemento.innerHTML += ("<td><input type='number' min='1' value='1'></input></td>");
-                    elemento.innerHTML += ("<td>" + datos[i].precio + "</td>");
-                    elemento.innerHTML += ("<td class='filaBorrar'><span class='icon_borrar' id='N" + [i] + "' onclick=eliminarProductoCesta("+datos[i].codigo+");>"+ icon_borrar + "</span></td>");
+                    elemento.innerHTML += ("<td class='filaCentrar'>" + datos[i].precio + "</td>");
+                    elemento.innerHTML += ("<td class='filaCentrar'><span class='icon_borrar' id='N" + [i] + "'>" + icon_borrar + "</span></td>");
                     document.getElementById('tabla').appendChild(elemento);
                 }
             }
@@ -133,13 +129,13 @@ function cargarUsuarios(){
 
 }
 
-function validarRepetidos(e){
+function validarRepetidos(){
     for(i=0 ; i < tabla.rows.length ; i++){
         let codigo = tabla.rows[i].cells[0].innerHTML;
          if(campo.value == codigo){
             campo.value = 'Repetido';
             if(campo.value == 'Repetido'){
-                alert('Producto ya esta ingresado');
+                alert('Producto ya esta en la lista de compra :)');
             }
          }
     }
@@ -148,14 +144,20 @@ function validarRepetidos(e){
 
 
 document.getElementById('formulario').addEventListener('submit',(e)=>{
-    e.preventDefault();
+    if(tabla.rows.length - 1 > 0){
+        console.log('se envie el formulario');
+    } else {
+        e.preventDefault();
+    }
 });
 
 btn_cargar.addEventListener('click', (e)=>{
-    validarRepetidos(e);
+    e.preventDefault();
+    validarRepetidos();
     cargarUsuarios();
     setInterval(()=>{
         multiplicarinputs();
+        vencimiento();
     },500);
     document.getElementById('campo').value = ""; 
 });

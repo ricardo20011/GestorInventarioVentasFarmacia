@@ -258,7 +258,19 @@ tr {
 	text-align: center;
 	cursor: pointer;
 }
-.filaBorrar {
+.filaCentrar {
 	text-align: center;
 }
 
+.rojo {
+	color: #c40018;
+	font-weight:800;
+}
+.verde {
+	color: #00c22a;
+	font-weight:800;
+}
+.amarillo {
+	color: rgb(165, 165, 33);
+	font-weight:800;
+}

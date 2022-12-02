@@ -42,7 +42,7 @@
 
 	<div class="contenedor">
 		<div class="sub_cont">
-			<form action="" method="POST" class="cont_buscador" id="formulario">
+			<form action="php/vender-producto.php" method="POST" class="cont_buscador" id="formulario">
 				<input type="text" name="campo" id="campo">
 				<button id="addProducto" class="btn btn-outline-success">Añadir Producto</button>
 			</form>
@@ -53,8 +53,8 @@
 					<th>Codigo Barras</th> 
 					<th>Nombre Producto</th>
 					<th>Existencia</th> 
-					<th>Vencimiento</th>
 					<th>Concentracion</th> 
+					<th>Vencimiento</th>
 					<th>Precio U</th> 
 					<th>Cantidad</th>
 					<th>Precio venta</th> 
@@ -71,13 +71,15 @@
 					<th class="total">Total:</th>
 					<th class="total-number">$ 0</th>
 					<th class="th-vender">
-						<button class="btn btn-success btn-vender">Vender</button>
+						<button type="submit" form="formulario" name="vender" class="btn btn-success btn-vender">Vender</button>
 					</th>
 				</tr> 
 			</tbody>
 			
 		</table>
 	</div>
+	<script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
+	<script src="js/vencimiento.js"></script>
 	<script src="js/main-caja.js"></script>
 </body>
 </html>

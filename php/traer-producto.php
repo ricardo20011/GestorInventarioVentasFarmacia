@@ -40,37 +40,29 @@
     }
 
     if(isset($_POST['guardar'])){
-
     	$codigov = $_POST['codigov'];
 		$cantidadv = $_POST['cantidadv'];
     	$existe = "1";
 
     	//CONSULTAR
-		  	$resultados = mysqli_query($conexion,"SELECT * FROM $tabla_db1  WHERE codigo = '$codigov'");
-		  	$consulta = mysqli_fetch_array($resultados);
+		$resultados = mysqli_query($conexion,"SELECT * FROM $tabla_db1  WHERE codigo = '$codigov'");
+		$consulta = mysqli_fetch_array($resultados);
 		  
-			$existe = "1";
-			$cantidadtotal = $consulta['cantidad'];
+		$existe = "1";
+		$cantidadtotal = $consulta['cantidad'];
 
-		  
+		if($existe=="1"){	
+			$cantidadv = (int)$cantidadv;
+			$cantidadtotal = (int)$cantidadtotal;
+			$cantidadtotal = $cantidadtotal - $cantidadv;
+			//actualizar
+			$_UPDATE_SQL="UPDATE $tabla_db1 Set 
 
-		  	if($existe=="1")
-		  	{	
-				$cantidadv = (int)$cantidadv;
-				$cantidadtotal = (int)$cantidadtotal;
-				$cantidadtotal = $cantidadtotal - $cantidadv;
-		  		//actualizar
-		  		  $_UPDATE_SQL="UPDATE $tabla_db1 Set 
-
-					  cantidad='$cantidadtotal'  
-
-					  WHERE codigo='$codigov'"; 
-					  mysqli_query($conexion,$_UPDATE_SQL); 
-					  echo "<b>Dato Actualizado</b>";
-		  	}
-		  	else
-		  	{
-		  	}
+			cantidad='$cantidadtotal' 
+			WHERE codigo='$codigov'"; 
+			mysqli_query($conexion,$_UPDATE_SQL); 
+			echo "<b>Dato Actualizado</b>";
+		}
     }
 	
   include("cerrar_conexion.php");
