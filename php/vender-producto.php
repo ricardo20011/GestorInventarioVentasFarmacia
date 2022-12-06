@@ -41,7 +41,6 @@ for($i = 0; $i < count($ListaProductos); $i++){
 	echo "<b>Dato Actualizado</b>";
 }
 
-$local = "http://localhost/farmacia/";
 
 
 
