@@ -1,13 +1,16 @@
 <?php
 include("abrir_conexion.php");
 
-if(isset($_POST['vender'])){
-    validarVenta();
-}
+header("Content-Type: application/json; charset=UTF-8");
 
 function validarVenta(){
-   
+	
 }
+
+
+	$array = $_REQUEST['encapsulado'];
+	$objeto = json_decode($_REQUEST["encapsulado"], false);
+	echo($objeto->nombres);
 
 
 

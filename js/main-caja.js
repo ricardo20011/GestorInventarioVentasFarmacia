@@ -18,6 +18,7 @@ btn_cargar = document.getElementById('addProducto');
 campoValor = document.getElementById('campo').value;
 campo = document.getElementById('campo');
 let icon_borrar ="<iconify-icon icon='tabler:trash-x' style='color: #bd2626;' width='23'></iconify-icon>";
+btnVender = document.getElementById('vender');
 
 
 tabla.addEventListener('click', (e)=>{
@@ -143,11 +144,30 @@ function validarRepetidos(){
 
 
 
-document.getElementById('formulario').addEventListener('submit',(e)=>{
+btnVender.addEventListener('click',()=>{
     if(tabla.rows.length - 1 > 0){
         console.log('se envie el formulario');
+
+        nombres = "Ricardo Quebrada";
+        apellidos = "Ocampo";
+        edad = 21;
+
+        let array = {
+            "nombres" : nombres,
+            "apellidos" : apellidos,
+            "edad" : edad
+        };
+
+        let encapsulado = JSON.stringify(array);
+        //console.log(encapsulado);
+
+        let peticion = new XMLHttpRequest();
+    
+        peticion.open('GET', 'php/vender-producto.php?encapsulado=' + encapsulado, true);
+        peticion.send();
+
     } else {
-        e.preventDefault();
+        console.log('no se envio el formulario');
     }
 });
 

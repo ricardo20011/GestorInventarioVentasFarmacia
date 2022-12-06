@@ -42,7 +42,7 @@
 
 	<div class="contenedor">
 		<div class="sub_cont">
-			<form action="php/vender-producto.php" method="POST" class="cont_buscador" id="formulario">
+			<form action="" method="POST" class="cont_buscador" id="formulario">
 				<input type="text" name="campo" id="campo">
 				<button id="addProducto" class="btn btn-outline-success">Añadir Producto</button>
 			</form>
@@ -71,7 +71,7 @@
 					<th class="total">Total:</th>
 					<th class="total-number">$ 0</th>
 					<th class="th-vender">
-						<button type="submit" form="formulario" name="vender" class="btn btn-success btn-vender">Vender</button>
+						<button name="vender" id="vender" class="btn btn-success btn-vender">Vender</button>
 					</th>
 				</tr> 
 			</tbody>
