@@ -3,88 +3,49 @@ include("abrir_conexion.php");
 
 header("Content-Type: application/json; charset=UTF-8");
 
-function validarVenta(){
+
+$objeto = json_decode($_GET["encapsulado"], false);
+
+$ListaProductos = array();
+$arreglo = get_object_vars( $objeto );
+
+foreach( $arreglo as $indice=>$valor ){
+	$ListaProductos[] = $valor;
+} 
+//echo($ListaProductos[0]->codigo);
+//echo($ListaProductos[0]->codigo);
+
+
+for($i = 0; $i < count($ListaProductos); $i++){
+	$codigov = $ListaProductos[$i]->codigo;
+	$cantidadv = $ListaProductos[$i]->cantidad;
 	
+	//CONSULTAR
+	$resultados = mysqli_query($conexion,"SELECT * FROM $tabla_db1  WHERE codigo = '$codigov'");
+	$consulta = mysqli_fetch_array($resultados);
+	  
+	
+	$cantidadtotal = $consulta['cantidad'];
+	
+		
+	$cantidadv = (int)$cantidadv;
+	$cantidadtotal = (int)$cantidadtotal;
+	$cantidadtotal = $cantidadtotal - $cantidadv;
+
+	//actualizar
+	$_UPDATE_SQL="UPDATE $tabla_db1 Set 
+	
+	cantidad='$cantidadtotal' 
+	WHERE codigo='$codigov'"; 
+	mysqli_query($conexion,$_UPDATE_SQL); 
+	echo "<b>Dato Actualizado</b>";
 }
 
-
-	//$array = $_REQUEST['encapsulado'];
-	$objeto = json_decode($_GET["encapsulado"], false);
-
-	//$objeto = json_decode($_POST["d"], false);
-	print_r($objeto->codigo);
+$local = "http://localhost/farmacia/";
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-	//if(isset($_POST['codigoId']))
-    //	{ 
-    //	$codigoId = $_POST['codigoId'];
-//
-    //	//CONSULTAR
-	//	  $resultados = mysqli_query($conexion,"DELETE FROM $tabla_db1 WHERE codigo = '$codigoId'");
-//
-    //}
-//
-//
-	//if(isset($_POST['codigov']))
-    //	{ 
-    //	$codigov = $_POST['codigov'];
-    //	$valores = array();
-//
-    //	$valores['existe'] = "0";
-//
-    //	//CONSULTAR
-	//	  $resultados = mysqli_query($conexion,"SELECT * FROM $tabla_db1 WHERE codigo = '$codigov'");
-	//	  while($consulta = mysqli_fetch_array($resultados))
-	//	  {
-	//	  	$valores['existe'] = "1"; //Esta variable no la usamos en el vídeo (se me olvido, lo siento xD). Aqui la uso en la linea 97 de registro.php
-	//	  	$valores['nombrev'] = $consulta['nombre'];
-	//	  	$valores['concentracionv'] = $consulta['concentracion'];
-	//		$valores['f_farmaceuticav'] = $consulta['f_farmaceutica'];
-	//		$valores['vencimientov'] = $consulta['vencimiento'];
-	//	  	$valores['cantidadv'] = $consulta['cantidad'];		    
-	//	  }
-	//	  sleep(1);
-	//	  $valores = json_encode($valores);
-	//		echo $valores;
-    //}
-//
-    //if(isset($_POST['guardar'])){
-    //	$codigov = $_POST['codigov'];
-	//	$cantidadv = $_POST['cantidadv'];
-    //	$existe = "1";
-//
-    //	//CONSULTAR
-	//	$resultados = mysqli_query($conexion,"SELECT * FROM $tabla_db1  WHERE codigo = '$codigov'");
-	//	$consulta = mysqli_fetch_array($resultados);
-	//	  
-	//	$existe = "1";
-	//	$cantidadtotal = $consulta['cantidad'];
-//
-	//	if($existe=="1"){	
-	//		$cantidadv = (int)$cantidadv;
-	//		$cantidadtotal = (int)$cantidadtotal;
-	//		$cantidadtotal = $cantidadtotal - $cantidadv;
-	//		//actualizar
-	//		$_UPDATE_SQL="UPDATE $tabla_db1 Set 
-//
-	//		cantidad='$cantidadtotal' 
-	//		WHERE codigo='$codigov'"; 
-	//		mysqli_query($conexion,$_UPDATE_SQL); 
-	//		echo "<b>Dato Actualizado</b>";
-	//	}
-    //}
 	
   include("cerrar_conexion.php");
 ?>

@@ -154,20 +154,23 @@ btnVender.addEventListener('click',()=>{
             nombre = tabla.rows[i].cells[1].innerHTML;
             existencia = tabla.rows[i].cells[2].innerHTML;
             precio = tabla.rows[i].cells[5].innerHTML;
-            cantidad = tabla.rows[i].cells[6].innerHTML;
+            cantidad = tabla.rows[i].cells[6].firstChild.value;
             total = tabla.rows[i].cells[7].innerHTML;
 
-            obj[i] = {
-                "Codido" : obj.codigo = codigo,
-                "nombre" : obj.nombre = nombre,
-                "existencia" : obj.existencia = existencia,
-                "precio" : obj.precio = precio,
-                "cantidad" : obj.cantidad = cantidad,
-                "total" : obj.total = total
-            };
-
+            if(i < tabla.rows.length){
+                obj[i - 1] = {
+                    "codigo" : codigo,
+                    "nombre" : nombre,
+                    "existencia" : existencia,
+                    "precio" : precio,
+                    "cantidad" : cantidad,
+                    "total" : total
+                };
+            }
         }
         console.log(obj);
+
+       
         
 
         let peticion = new XMLHttpRequest();
@@ -189,12 +192,12 @@ btnVender.addEventListener('click',()=>{
         //peticion.setRequestHeader("Content-type", "application/x-www.form-urlencoded");
         //peticion.send("d="+encapsulado);
 
-
+        location.href ="http://localhost/farmacia/index.php";
+    
     } else {
         console.log('no se envio el formulario');
     }
 });
-
 btn_cargar.addEventListener('click', (e)=>{
     e.preventDefault();
     validarRepetidos();
