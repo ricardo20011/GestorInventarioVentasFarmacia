@@ -149,11 +149,7 @@ btnVender.addEventListener('click',()=>{
     if(tabla.rows.length - 1 > 0){
         console.log('se envie el formulario');
 
-        nombres = "Ricardo Quebrada";
-        apellidos = "Ocampo";
-        edad = 21;
-
-        for(i=0;i < tabla.rows.length; i++){
+        for(i=1;i < tabla.rows.length; i++){
             codigo = tabla.rows[i].cells[0].innerHTML;
             nombre = tabla.rows[i].cells[1].innerHTML;
             existencia = tabla.rows[i].cells[2].innerHTML;
@@ -172,6 +168,7 @@ btnVender.addEventListener('click',()=>{
 
         }
         console.log(obj);
+        
 
         let peticion = new XMLHttpRequest();
 
