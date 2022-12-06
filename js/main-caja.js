@@ -144,6 +144,7 @@ function validarRepetidos(){
 
 
 
+let obj = {};
 btnVender.addEventListener('click',()=>{
     if(tabla.rows.length - 1 > 0){
         console.log('se envie el formulario');
@@ -152,19 +153,45 @@ btnVender.addEventListener('click',()=>{
         apellidos = "Ocampo";
         edad = 21;
 
-        let array = {
-            "nombres" : nombres,
-            "apellidos" : apellidos,
-            "edad" : edad
-        };
+        for(i=0;i < tabla.rows.length; i++){
+            codigo = tabla.rows[i].cells[0].innerHTML;
+            nombre = tabla.rows[i].cells[1].innerHTML;
+            existencia = tabla.rows[i].cells[2].innerHTML;
+            precio = tabla.rows[i].cells[5].innerHTML;
+            cantidad = tabla.rows[i].cells[6].innerHTML;
+            total = tabla.rows[i].cells[7].innerHTML;
 
-        let encapsulado = JSON.stringify(array);
-        //console.log(encapsulado);
+            obj[i] = {
+                "Codido" : obj.codigo = codigo,
+                "nombre" : obj.nombre = nombre,
+                "existencia" : obj.existencia = existencia,
+                "precio" : obj.precio = precio,
+                "cantidad" : obj.cantidad = cantidad,
+                "total" : obj.total = total
+            };
+
+        }
+        console.log(obj);
 
         let peticion = new XMLHttpRequest();
+
+        let encapsulado = JSON.stringify(obj);
+        //console.log(encapsulado);
+
     
+        peticion.onreadystatechange = ()=>{
+            if(peticion.readyState == 4 && peticion.status == 200){
+            }
+        }
+        
         peticion.open('GET', 'php/vender-producto.php?encapsulado=' + encapsulado, true);
         peticion.send();
+
+        
+        //peticion.open("POST", "php/vender-producto.php", true);
+        //peticion.setRequestHeader("Content-type", "application/x-www.form-urlencoded");
+        //peticion.send("d="+encapsulado);
+
 
     } else {
         console.log('no se envio el formulario');

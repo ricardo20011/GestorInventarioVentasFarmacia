@@ -42,7 +42,7 @@
 
 	<div class="contenedor">
 		<div class="sub_cont">
-			<form action="" method="POST" class="cont_buscador" id="formulario">
+			<form  method="" class="cont_buscador" id="formulario">
 				<input type="text" name="campo" id="campo">
 				<button id="addProducto" class="btn btn-outline-success">Añadir Producto</button>
 			</form>

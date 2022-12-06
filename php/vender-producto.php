@@ -8,9 +8,11 @@ function validarVenta(){
 }
 
 
-	$array = $_REQUEST['encapsulado'];
-	$objeto = json_decode($_REQUEST["encapsulado"], false);
-	echo($objeto->nombres);
+	//$array = $_REQUEST['encapsulado'];
+	$objeto = json_decode($_GET["encapsulado"], false);
+
+	//$objeto = json_decode($_POST["d"], false);
+	print_r($objeto->codigo);
 
 
 
