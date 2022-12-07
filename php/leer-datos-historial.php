@@ -7,6 +7,7 @@ $inputInicio = $_REQUEST['inicio'];
 $inputFin = $_REQUEST['fin'];
 
 
+
 if($conexion->connect_errno){
     //header('Location: error/error.php');
     $respuesta = [
@@ -14,7 +15,7 @@ if($conexion->connect_errno){
     ];
 } else {
     $conexion->set_charset("utf8");
-    $statement = $conexion->prepare("SELECT * FROM $tabla_db2 WHERE fecha BETWEEN $inputInicio AND $inputFin");
+    $statement = $conexion->prepare("SELECT * FROM $tabla_db2 WHERE fecha BETWEEN '$inputInicio' AND '$inputFin'");
     $statement->execute();
     $resultados = $statement->get_result();
 

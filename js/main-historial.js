@@ -7,8 +7,10 @@ function cargarUsuarios(){
     let peticion = new XMLHttpRequest();
     
     let inputInicio = document.getElementById('inputInicio').value;
+    inputInicio = moment(inputInicio).format("YYYY/MM/DD");
+
     let inputFin = document.getElementById('inputFin').value;
-    console.log(inputFin + inputInicio);
+    inputFin = moment(inputFin).format("YYYY/MM/DD");
 
     peticion.open('GET', 'php/leer-datos-historial.php?inicio=' + inputInicio + '&fin=' + inputFin, true);
 
@@ -20,7 +22,6 @@ function cargarUsuarios(){
             error_box.classList.add('active');
         } else {
             for(i=0; i < datos.length ; i++){
-                console.log(datos[i]);
                 let elemento = document.createElement('tr');
                 elemento.innerHTML += ("<td>" + datos[i].codigoFact + "</td>");
                 elemento.innerHTML += ("<td>" + datos[i].codigo + "</td>");
