@@ -11,7 +11,7 @@
   	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
   	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600" rel="stylesheet"> 
-	<link rel="stylesheet" href="css/estilos-caja.css">
+	<link rel="stylesheet" href="css/estilos-historial.css">
 	<script src="jquery/jquery-3.4.1.min.js"></script>
 </head>
 <body>
@@ -41,13 +41,28 @@
 	</div>
 
 	<div class="contenedor">
-		
+		<div class="sub_cont">
+			<div class="inicio"><input type="date" name="" id="inputInicio"><input type="date" name="" id="inputFin"> <input id="consultar" class="btn-consultar" type="button" value="Consultar"></div>
+
+			<table class="content-table" id="tabla">
+				<tr>
+					<th>Codigo Factura</th>
+					<th>Codigo</th>
+					<th>Nombre Producto</th>
+					<th>Precio Unidad</th>
+					<th>Cantidad</th>
+					<th>Precio total Unidades</th>
+					<th>Fecha de Venta</th>
+					<th>Hora de venta</th>
+					<th>Total venta</th>
+				</tr>
+			</table>
+		</div>
 	</div>
 
 
 	<script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
-	<script src="js/vencimiento.js"></script>
-	<script src="js/main-caja.js"></script>
+	<script src="js/main-historial.js"></script>
 </body>
 </html>
 
