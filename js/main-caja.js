@@ -145,6 +145,10 @@ function validarRepetidos(){
 
 
 let obj = {};
+let hoy = moment().format('YYYY/MM/DD');
+let hora = moment().format('h:mm a');
+let codigoFact = moment().unix();
+
 btnVender.addEventListener('click',()=>{
     if(tabla.rows.length - 1 > 0){
         console.log('se envie el formulario');
@@ -160,13 +164,15 @@ btnVender.addEventListener('click',()=>{
 
             if(i < tabla.rows.length){
                 obj[i - 1] = {
+                    "codigoFact" : codigoFact,
                     "codigo" : codigo,
                     "nombre" : nombre,
                     "existencia" : existencia,
                     "precio" : precio,
                     "cantidad" : cantidad,
                     "total" : total,
-                    "fecha" : "2022/16/01",
+                    "fecha" : hoy,
+                    "hora" : hora,
                     "totalFact" : totalFact
                 };
             }
