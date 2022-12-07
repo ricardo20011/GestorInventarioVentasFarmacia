@@ -45,17 +45,22 @@
 			<div class="inicio"><input type="date" name="" id="inputInicio"><input type="date" name="" id="inputFin"> <input id="consultar" class="btn-consultar" type="button" value="Consultar"></div>
 
 			<table class="content-table" id="tabla">
-				<tr>
-					<th>Codigo Factura</th>
-					<th>Codigo</th>
-					<th>Nombre Producto</th>
-					<th>Precio Unidad</th>
-					<th>Cantidad</th>
-					<th>Precio total Unidades</th>
-					<th>Fecha de Venta</th>
-					<th>Hora de venta</th>
-					<th>Total venta</th>
-				</tr>
+				<thead>
+					<tr>
+						<th>Codigo Factura</th>
+						<th>Codigo</th>
+						<th>Nombre Producto</th>
+						<th>Precio Unidad</th>
+						<th>Cantidad</th>
+						<th>Precio total Unidades</th>
+						<th>Fecha de Venta</th>
+						<th>Hora de venta</th>
+						<th>Total venta</th>
+					</tr>
+				</thead>
+				<tbody id="cuerpoTabla">
+
+				</tbody>
 			</table>
 		</div>
 	</div>

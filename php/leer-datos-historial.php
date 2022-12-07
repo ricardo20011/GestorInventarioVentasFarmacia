@@ -38,10 +38,6 @@ if($conexion->connect_errno){
         ];
         array_push($respuesta, $usuario);
     }
-
-    //$respuesta = implode($respuesta);
-
-    //echo(__toString($respuesta));
 }
 
 echo json_encode($respuesta);

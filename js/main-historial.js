@@ -4,6 +4,8 @@ btn_consultar = document.getElementById('consultar');
 
 
 function cargarUsuarios(){
+
+
     let peticion = new XMLHttpRequest();
     
     let inputInicio = document.getElementById('inputInicio').value;
@@ -15,6 +17,7 @@ function cargarUsuarios(){
     peticion.open('GET', 'php/leer-datos-historial.php?inicio=' + inputInicio + '&fin=' + inputFin, true);
 
     peticion.onload = ()=>{
+        document.getElementById('cuerpoTabla').innerHTML = "";
         let datos = JSON.parse(peticion.responseText);
 
 
@@ -32,7 +35,7 @@ function cargarUsuarios(){
                 elemento.innerHTML += ("<td>" + datos[i].fecha + "</td>");
                 elemento.innerHTML += ("<td>" + datos[i].hora + "</td>");
                 elemento.innerHTML += ("<td>" + datos[i].totalFact + "</td>");
-                document.getElementById('tabla').appendChild(elemento);
+                document.getElementById('cuerpoTabla').appendChild(elemento);
             }
         }
     }
