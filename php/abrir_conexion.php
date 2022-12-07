@@ -7,6 +7,7 @@
 
 	//Lista de Tablas
 	$tabla_db1 = "usuarios"; 	   // tabla de usuarios
+	$tabla_db2 = "ventas";
 	
 
 	//error_reporting(0); //No me muestra errores

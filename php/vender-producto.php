@@ -39,6 +39,33 @@ for($i = 0; $i < count($ListaProductos); $i++){
 	WHERE codigo='$codigov'"; 
 	mysqli_query($conexion,$_UPDATE_SQL); 
 	echo "<b>Dato Actualizado</b>";
+
+
+
+    $conexion->set_charset('utf8');
+
+	$codigo = $ListaProductos[$i]->codigo;
+	$nombre = $ListaProductos[$i]->nombre;
+	$cantidad = $ListaProductos[$i]->cantidad;
+	$precio = $ListaProductos[$i]->precio;
+	$total = $ListaProductos[$i]->total;
+	$fecha = $ListaProductos[$i]->fecha;
+	$totalFact = $ListaProductos[$i]->totalFact;
+
+    if($conexion->connect_errno){
+        $respuesta = [
+            'error' => true
+        ];
+    } else {
+        $statement = $conexion->prepare("INSERT INTO $tabla_db2(codigo, nombre, cantidad, PrecioU, total, fecha, totalFact) VALUES(?,?,?,?,?,?,?)");
+        $statement->bind_param("sssssss",$codigo,$nombre,$cantidad,$precio,$total,$fecha,$totalFact);
+        $statement->execute();
+
+        if($conexion->affected_rows <= 0){
+            $respuesta = ['error' => true];
+        }
+        $respuesta = [];
+    }
 }
 
 

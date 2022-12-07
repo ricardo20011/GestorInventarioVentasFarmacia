@@ -69,7 +69,7 @@
 					<th class="sub-total">Nombre Empresa</th>
 					<th class="sub-total-number">Nit 2012.123.11</th> 
 					<th class="total">Total:</th>
-					<th class="total-number">$ 0</th>
+					<th class="total-number" id="totalFactura">$ 0</th>
 					<th class="th-vender">
 						<button name="vender" id="vender" class="btn btn-success btn-vender">Vender</button>
 					</th>

@@ -156,6 +156,7 @@ btnVender.addEventListener('click',()=>{
             precio = tabla.rows[i].cells[5].innerHTML;
             cantidad = tabla.rows[i].cells[6].firstChild.value;
             total = tabla.rows[i].cells[7].innerHTML;
+            totalFact = document.getElementById('totalFactura').innerHTML;
 
             if(i < tabla.rows.length){
                 obj[i - 1] = {
@@ -164,7 +165,9 @@ btnVender.addEventListener('click',()=>{
                     "existencia" : existencia,
                     "precio" : precio,
                     "cantidad" : cantidad,
-                    "total" : total
+                    "total" : total,
+                    "fecha" : "2022/16/01",
+                    "totalFact" : totalFact
                 };
             }
         }
