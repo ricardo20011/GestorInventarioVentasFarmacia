@@ -76,12 +76,6 @@
 
 	<script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
 	<script src="js/main-historial.js"></script>
-	<script>
-		let ultimaFila = $('table tbody tr:last').css("background-color", "yellow");
-		function hola(){
-			$('table tbody tr:last').css("background-color", "yellow");
-		}
-	</script>
 </body>
 </html>
 

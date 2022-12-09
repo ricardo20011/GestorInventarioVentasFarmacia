@@ -1,6 +1,7 @@
 
 btn_consultar = document.getElementById('consultar');
 
+let tabla2 = document.getElementById('tabla');
 
 
 function cargarUsuarios(){
@@ -36,10 +37,16 @@ function cargarUsuarios(){
                 if( datos[i].codigoFact != datos[j].codigoFact){
                     elemento.innerHTML += ("<td rowspan='"+" "+"'>" + datos[i].totalFact + "</td>");
                 };
+                let g= tabla.rows.length;
+                if(i == tabla.rows.length){
+                    console.log(tabla.rows[g].innerHTML);
+                }
                 document.getElementById('cuerpoTabla').appendChild(elemento);
             }
         }
     }
+
+
     peticion.onreadystatechange = ()=>{
         if(peticion.readyState != 4 && peticion.status != 200){
             console.log('algo salio mal con la conexion');
