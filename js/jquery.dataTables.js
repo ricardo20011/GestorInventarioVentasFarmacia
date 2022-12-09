@@ -2307,7 +2307,7 @@ function(n) {
 				sLengthMenu: "Mostrar _MENU_ entradas",
 				sLoadingRecords: "Cargando...",
 				sProcessing: "",
-				sSearch: "Buscar Producto:",
+				sSearch: "Buscar Producto:  ",
 				sSearchPlaceholder: "",
 				sUrl: "",
 				sZeroRecords: "No se encontraron resultados"

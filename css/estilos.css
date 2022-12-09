@@ -40,8 +40,7 @@ header {
 	border-radius:20px;
 	height:40px;
 	background-color:rgba(255, 255, 255, 0);
-	display:none;
-	cursor: pointer;
+	display:block;
 }
 .blockActivo {
 	display:block;
@@ -120,8 +119,10 @@ table {
 	background: #fff;
 	border-collapse: collapse;
 	text-align: center;
-	margin-bottom: 80px;
+	margin-bottom: 40px;
 	box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+	position: relative;
+	top:20px;
 }
 
 th {
@@ -525,6 +526,10 @@ body {
 }
 .cont_2 div .icon-caja {
 	top:2px;
+}
+.ocultar-cargar {
+	display:none;
+	opacity:0;
 }
 
 

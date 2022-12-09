@@ -11,7 +11,7 @@
   	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600" rel="stylesheet"> 
 	<link rel="stylesheet" href="css/estilos.css">
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="css/jquery.dataTables.css">
 	<script src="jquery/jquery-3.4.1.min.js"></script>
 </head>
 <body>
@@ -165,7 +165,7 @@
 				<header class="" id="header">
 					<h1>Inventario Empresa</h1>
 					<div class="grupo_btn">
-						<button id="btn_cargar" class="botones btn active" onclick="">Cargar Inventario</button>
+						<button id="btn_cargar" class="botones btn active ocultar-cargar" onclick="">Cargar Inventario</button>
 						<span class="blcok" id="block"></span>
 						<button id="btn_ingresar" class="botones btn active boton_ingresar_producto" onclick="">Ingresar Producto</button>
 					</div>
@@ -197,18 +197,7 @@
 							</tr>
 						</thead>
 						<tbody id="tbody">
-							<tr>
-								<td>Codigo</td>
-								<td>Nombre Medicamento</td>
-								<td>Concentracion</td>
-								<td>Forma farmaceutica</td>
-								<td>Fecha de Vencimiento</td>
-								<td>INVIMA</td>
-								<td>Cantidad</td>
-								<td>Precio Und</td>
-								<td>Editar</td>
-								<td>Borrar</td>
-							</tr>
+							
 						</tbody>
 
 					</table>
@@ -234,9 +223,11 @@
 	$(document).ready(function(){
         $('.cargando').hide();
 		cargarUsuarios();
+
 		setInterval(()=>{
 			if(tabla.rows.length > 1){
 				$('#tabla').DataTable();
+				vencimiento();
 			}
 		},200);
     });

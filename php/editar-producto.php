@@ -33,25 +33,25 @@ if(isset($_POST['btnGuardar'])){
     
         mysqli_query($conexion,$_UPDATE_SQL); 
     
-        header('Location: '. $ruta . 'index.php');
+        header('Location: '. $ruta . 'inventario.php');
     //}
 }
 
 
 
 if(empty($_REQUEST['id'])){
-  header('Location: '. $ruta . 'index.php');
+  header('Location: '. $ruta . 'inventario.php');
 } else {
     $id_producto = $_REQUEST['id'];
     if (!is_numeric($id_producto)){
-        header('Location: '. $ruta . 'index.php');
+        header('Location: '. $ruta . 'inventario.php');
     }
     $query_producto = mysqli_query($conexion,"SELECT * FROM $tabla_db1 WHERE codigo = $id_producto");
     $resultado = mysqli_num_rows($query_producto);
     if($resultado > 0){
         $dato_producto = mysqli_fetch_assoc($query_producto);
     } else {
-        header('Location: '. $ruta . 'index.php');
+        header('Location: '. $ruta . 'inventario.php');
     }
 } 
 
