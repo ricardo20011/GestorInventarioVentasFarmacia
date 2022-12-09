@@ -11,6 +11,7 @@
   	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600" rel="stylesheet"> 
 	<link rel="stylesheet" href="css/estilos.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
 	<script src="jquery/jquery-3.4.1.min.js"></script>
 </head>
 <body>
@@ -181,18 +182,35 @@
 				</header>
 				<main>
 					<table id="tabla" class="tabla">
-						<tr>
-							<th>Codigo</th>
-							<th>Nombre Medicamento</th>
-							<th>Concentracion</th>
-							<th>Forma farmaceutica</th>
-							<th>Fecha de Vencimiento</th>
-							<th>INVIMA</th>
-							<th>Cantidad</th>
-							<th>Precio Und</th>
-							<th>Editar</th>
-							<th>Borrar</th>
-						</tr>
+						<thead>
+							<tr>
+								<th>Codigo</th>
+								<th>Nombre Medicamento</th>
+								<th>Concentracion</th>
+								<th>Forma farmaceutica</th>
+								<th>Fecha de Vencimiento</th>
+								<th>INVIMA</th>
+								<th>Cantidad</th>
+								<th>Precio Und</th>
+								<th>Editar</th>
+								<th>Borrar</th>
+							</tr>
+						</thead>
+						<tbody id="tbody">
+							<tr>
+								<td>Codigo</td>
+								<td>Nombre Medicamento</td>
+								<td>Concentracion</td>
+								<td>Forma farmaceutica</td>
+								<td>Fecha de Vencimiento</td>
+								<td>INVIMA</td>
+								<td>Cantidad</td>
+								<td>Precio Und</td>
+								<td>Editar</td>
+								<td>Borrar</td>
+							</tr>
+						</tbody>
+
 					</table>
 					<div class="loader" id="loader"></div>
 				</main>
@@ -207,6 +225,7 @@
 	<script src="js/main-ingresar.js"></script>
 	<script src="js/vencimiento.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/jquery.dataTables.js"></script>
 </body>
 </html>
 
@@ -214,7 +233,13 @@
 <script type="text/javascript">
 	$(document).ready(function(){
         $('.cargando').hide();
-    });  
+		cargarUsuarios();
+		setInterval(()=>{
+			if(tabla.rows.length > 1){
+				$('#tabla').DataTable();
+			}
+		},200);
+    });
 
 	confirmarborrado = document.getElementById('confirmarborrado');
 	cancelarborrado = document.getElementById('cancelarborrado');

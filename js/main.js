@@ -112,7 +112,7 @@ let icon_borrar ="<iconify-icon icon='tabler:trash-x' style='color: #bd2626;' wi
 
 //-----------------CARGAR LISTA DE PRODUCTOS CON AJAX Y JS --------------------//
 function cargarUsuarios(){
-    document.getElementById('tabla').innerHTML = "<tr><th>Codigo</th><th>Nombre Medicamento</th><th>Concentracion</th><th>Forma farmaceutica</th><th>Fecha de Vencimiento</th><th>INVIMA</th><th>Cantidad</th><th>Precio Und</th><th>Editar</th><th>Borrar</th></tr>";
+    document.getElementById('tbody').innerHTML = "";
 
     let peticion = new XMLHttpRequest();
     peticion.open('POST', 'php/leer-datos.php');
@@ -137,7 +137,7 @@ function cargarUsuarios(){
                 elemento.innerHTML += ("<td>$ " + datos[i].precio + "</td>");
                 elemento.innerHTML += ("<td><a class='icon_borrar' href='php/editar-producto.php?id="+datos[i].codigo+"'>"+ icon_editar + "</a></td>");
                 elemento.innerHTML += ("<td ><span class='icon_borrar' id='" + datos[i].codigo + "' onclick=eliminarfila("+datos[i].codigo+");>"+ icon_borrar + "</span></td>");
-                document.getElementById('tabla').appendChild(elemento);
+                document.getElementById('tbody').appendChild(elemento);
             }
         }
     }
