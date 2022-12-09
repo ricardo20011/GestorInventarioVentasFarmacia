@@ -32,12 +32,14 @@ function cargarUsuarios(){
                 elemento.innerHTML += ("<td>" + datos[i].total + "</td>");
                 elemento.innerHTML += ("<td>" + datos[i].fecha + "</td>");
                 elemento.innerHTML += ("<td>" + datos[i].hora + "</td>");
-                elemento.innerHTML += ("<td>" + datos[i].totalFact + "</td>");
+                let j = i + 1;
+                if( datos[i].codigoFact != datos[j].codigoFact){
+                    elemento.innerHTML += ("<td rowspan='"+" "+"'>" + datos[i].totalFact + "</td>");
+                };
                 document.getElementById('cuerpoTabla').appendChild(elemento);
             }
         }
     }
-
     peticion.onreadystatechange = ()=>{
         if(peticion.readyState != 4 && peticion.status != 200){
             console.log('algo salio mal con la conexion');
@@ -48,7 +50,6 @@ function cargarUsuarios(){
     peticion.send();
 
 }
-
 
 btn_consultar.addEventListener('click', (e)=>{
     let inputInicio = document.getElementById('inputInicio');
