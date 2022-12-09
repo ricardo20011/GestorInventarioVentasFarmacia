@@ -41,6 +41,14 @@
 	</div>
 
 	<div class="contenedor">
+		<div class="fondoFecha" id="fondoFecha"> 
+			<div class="mensajeFecha">
+				<div class="titleFecha">
+				<iconify-icon icon="uiw:date" style="color: #006e6e;" width="50"></iconify-icon>
+					<p>Ingrese la una fecha de inicio y una fecha final</p>
+				</div>
+			</div>
+		</div>
 		<div class="sub_cont">
 			<div class="inicio"><input type="date" name="" id="inputInicio"><input type="date" name="" id="inputFin"> <input id="consultar" class="btn-consultar" type="button" value="Consultar"></div>
 

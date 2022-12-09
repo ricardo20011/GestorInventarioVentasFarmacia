@@ -4,8 +4,6 @@ btn_consultar = document.getElementById('consultar');
 
 
 function cargarUsuarios(){
-
-
     let peticion = new XMLHttpRequest();
     
     let inputInicio = document.getElementById('inputInicio').value;
@@ -53,6 +51,15 @@ function cargarUsuarios(){
 
 
 btn_consultar.addEventListener('click', (e)=>{
-    e.preventDefault();
-    cargarUsuarios();
+    let inputInicio = document.getElementById('inputInicio');
+    let inputFin = document.getElementById('inputFin');
+    if(inputInicio.value == "" || inputFin.value == ""){
+        document.getElementById('fondoFecha').classList.add('fondoFechaActivo');
+        setTimeout(()=>{
+            document.getElementById('fondoFecha').classList.remove('fondoFechaActivo');
+        },2000);
+    } else {
+        e.preventDefault();
+        cargarUsuarios();
+    }
 });

@@ -85,7 +85,10 @@ function multiplicarinputs(){
 
 function cargarUsuarios(){
     if(campo.value == ""){
-        alert('Ingresa un codigo de barras :)');
+        document.getElementById('fondoCodigo').classList.add('fondoCodigoActivo');
+        setTimeout(()=>{
+            document.getElementById('fondoCodigo').classList.remove('fondoCodigoActivo');
+        },1500);
     } else if(campo.value != "Repetido"){
 
         let peticion = new XMLHttpRequest();
@@ -136,7 +139,10 @@ function validarRepetidos(){
          if(campo.value == codigo){
             campo.value = 'Repetido';
             if(campo.value == 'Repetido'){
-                alert('Producto ya esta en la lista de compra :)');
+                document.getElementById('fondoDuplicado').classList.add('fondoDuplicadoActivo');
+                setTimeout(()=>{
+                    document.getElementById('fondoDuplicado').classList.remove('fondoDuplicadoActivo');
+                },1500);
             }
          }
     }
@@ -149,7 +155,7 @@ let hoy = moment().format('YYYY/MM/DD');
 let hora = moment().format('h:mm a');
 let codigoFact = moment().unix();
 
-btnVender.addEventListener('click',()=>{
+function confirmarVenta(){
     if(tabla.rows.length - 1 > 0){
         console.log('se envie el formulario');
 
@@ -206,7 +212,17 @@ btnVender.addEventListener('click',()=>{
     } else {
         console.log('no se envio el formulario');
     }
+}
+
+btnVender.addEventListener('click',(e)=>{
+    if(tabla.rows.length > 1){
+        e.preventDefault();
+        document.getElementById('fondoVenta').classList.add('fondoVentaActivo');
+        
+    }
 });
+
+
 btn_cargar.addEventListener('click', (e)=>{
     e.preventDefault();
     validarRepetidos();
@@ -216,4 +232,18 @@ btn_cargar.addEventListener('click', (e)=>{
         vencimiento();
     },500);
     document.getElementById('campo').value = ""; 
+});
+
+let confirmarVentaSi = document.getElementById('confirmarVenta');
+let cancelarVentaNo = document.getElementById('cancelarVenta');
+confirmarVentaSi.addEventListener('click',()=>{
+    document.getElementById('fondoVenta').classList.remove('fondoVentaActivo');
+    document.getElementById('fondoExito').classList.add('fondoExitoActivo');
+    setTimeout(()=>{
+        document.getElementById('fondoExito').classList.remove('fondoExitoActivo');
+        confirmarVenta();
+    },1500);
+});
+cancelarVentaNo.addEventListener('click',()=>{
+    document.getElementById('fondoVenta').classList.remove('fondoVentaActivo');
 });

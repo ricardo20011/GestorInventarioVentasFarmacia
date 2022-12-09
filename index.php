@@ -15,15 +15,7 @@
 	<script src="jquery/jquery-3.4.1.min.js"></script>
 </head>
 <body>
-    <div class="fondo_mensaje" id="fondo_mensaje"> 
-        <div class="mensaje_vender">
-            <div class="title_mensaje">
-                <p>¡Confirme su venta por favor!</p>
-            </div>
-            <div class="cont_btn_sucess"><button onclick="guardar();" class="btn btn-success">Confirmar</button></div>
-            <div class="cont_btn-danger"><button  onclick="limpiar();" id="btn_cerrarMensaje" class="btn btn-danger">Cancelar</button></div>
-        </div>
-    </div>
+	
 
 	<div class="menu" id="menu">
 		<div class="cont_1">
@@ -41,6 +33,41 @@
 	</div>
 
 	<div class="contenedor">
+		<div class="fondoDuplicado" id="fondoDuplicado"> 
+			<div class="mensajeDuplicado">
+				<div class="titleDuplicado">
+				<iconify-icon icon="pepicons:duplicate-print" style="color: #006e6e;" width="60"></iconify-icon>
+					<p>Ya existe el producto en la lista de venta</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="fondoCodigo" id="fondoCodigo"> 
+			<div class="mensajeCodigo">
+				<div class="titleCodigo">
+				<iconify-icon class="iconify" icon="material-symbols:barcode-reader-outline-rounded" style="color: #006e6e;" width="60"></iconify-icon>
+					<p>Ingrese un codigo de barras</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="fondoExito" id="fondoExito"> 
+			<div class="mensajeExito">
+				<div class="titleExito">
+					<iconify-icon class="iconify"  icon="icon-park-outline:database-success" width="60" style="color: #006e6e;"></iconify-icon>
+					<p>Venta Exitosa</p>
+				</div>
+			</div>
+		</div>
+		<div class="fondoVenta" id="fondoVenta"> 
+			<div class="mensajeVenta">
+				<div class="titleVenta">
+					<p>¡Confirme su venta porfavor!</p>
+				</div>
+				<div class="cont_btn_sucess"><button  id="confirmarVenta" class="btn btn-success">Confirmar</button></div>
+				<div class="cont_btn-danger"><button  id="cancelarVenta" class="btn btn-danger">Cancelar</button></div>
+			</div>
+		</div>
 		<div class="sub_cont">
 			<form  method="" class="cont_buscador" id="formulario">
 				<input type="text" name="campo" id="campo">
