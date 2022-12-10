@@ -10,9 +10,9 @@
   	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
   	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
   	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600" rel="stylesheet">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 	<link rel="stylesheet" href="css/estilos-historial.css">
-	<script src="jquery/jquery-3.4.1.min.js"></script>
 </head>
 <body>
     <div class="fondo_mensaje" id="fondo_mensaje"> 
@@ -50,7 +50,7 @@
 			</div>
 		</div>
 		<div class="sub_cont">
-			<div class="inicio"><input type="date" name="" id="inputInicio"><input type="date" name="" id="inputFin"> <input id="consultar" class="btn-consultar" type="button" value="Consultar"></div>
+			<div class="inicio"><input type="text" name="" id="inputInicio"><input type="text" name="" id="inputFin"> <input id="consultar" class="btn-consultar" type="button" value="Consultar"></div>
 
 			<table class="content-table" id="tabla">
 				<thead>
@@ -75,7 +75,23 @@
 
 
 	<script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  	<script src="js/jquery-ui-1.13.2.js"></script>
 	<script src="js/main-historial.js"></script>
+	<script>
+		$( function() {
+			$( "#inputInicio" ).datepicker({
+			changeMonth: true,
+			changeYear: true
+			});
+		} );
+		$( function() {
+			$( "#inputFin" ).datepicker({
+			changeMonth: true,
+			changeYear: true
+			});
+		} );
+	</script>
 </body>
 </html>
 

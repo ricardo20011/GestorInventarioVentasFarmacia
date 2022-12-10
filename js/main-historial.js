@@ -33,7 +33,7 @@ function cargarUsuarios(){
                 elemento.innerHTML += ("<td>" + datos[i].total + "</td>");
                 elemento.innerHTML += ("<td>" + datos[i].fecha + "</td>");
                 elemento.innerHTML += ("<td>" + datos[i].hora + "</td>");
-                let j = i + 1;
+                let j = i - 1;
                 if( datos[i].codigoFact != datos[j].codigoFact){
                     elemento.innerHTML += ("<td rowspan='"+" "+"'>" + datos[i].totalFact + "</td>");
                 };

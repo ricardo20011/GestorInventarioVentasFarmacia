@@ -202,10 +202,8 @@ function confirmarVenta(){
         peticion.setRequestHeader("Content-Type", "application/json");
         peticion.send(encapsulado);
 
-        //setTimeout(()=>{
-        //    location.href ="http://localhost/farmacia/index.php";
-        //},4000);
-    
+        location.href ="http://localhost/farmacia/index.php";
+
     } else {
         console.log('no se envio el formulario');
     }

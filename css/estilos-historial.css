@@ -161,7 +161,6 @@ table {
 	border-radius:10px;
 	background-color:white;
 	position: relative;
-	top:40px;
 }
 .content-table {
 	width:100%;
@@ -276,4 +275,27 @@ tr {
 
 .mensajeFecha .titleFecha p {
 	padding:0 20px;
+}
+
+select.ui-datepicker-year,
+select.ui-datepicker-month {
+	height: 28px;
+    border-radius: 5px;
+}
+select.ui-datepicker-month {
+	margin-right: 5px;
+}
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next {
+	border:1px solid rgb(16, 110, 58);
+	margin-top: 2px;
+}
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-right,
+.ui-corner-br {
+	background-color: #d3d3d352;
+}
+.ui-widget-header {
+	border:none;
 }
