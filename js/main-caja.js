@@ -187,27 +187,24 @@ function confirmarVenta(){
 
        
         
+        let encapsulado = JSON.stringify(obj);
 
         let peticion = new XMLHttpRequest();
 
-        let encapsulado = JSON.stringify(obj);
         //console.log(encapsulado);
 
-    
-        peticion.onreadystatechange = ()=>{
-            if(peticion.readyState == 4 && peticion.status == 200){
-            }
-        }
         
-        peticion.open('GET', 'php/vender-producto.php?encapsulado=' + encapsulado, true);
-        peticion.send();
+        //peticion.open('GET', 'php/vender-producto.php?encapsulado=' + encapsulado, true);
+        //peticion.send();
 
         
-        //peticion.open("POST", "php/vender-producto.php", true);
-        //peticion.setRequestHeader("Content-type", "application/x-www.form-urlencoded");
-        //peticion.send("d="+encapsulado);
+        peticion.open("POST", "php/vender-producto.php");
+        peticion.setRequestHeader("Content-Type", "application/json");
+        peticion.send(encapsulado);
 
-        location.href ="http://localhost/farmacia/index.php";
+        //setTimeout(()=>{
+        //    location.href ="http://localhost/farmacia/index.php";
+        //},4000);
     
     } else {
         console.log('no se envio el formulario');

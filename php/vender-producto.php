@@ -4,10 +4,13 @@ include("abrir_conexion.php");
 header("Content-Type: application/json; charset=UTF-8");
 
 
-$objeto = json_decode($_GET["encapsulado"], false);
+//$objeto = json_decode($_GET["encapsulado"], false);
+$miObjetoJSON = file_get_contents('php://input');
+
+$miObjeto = json_decode($miObjetoJSON);
 
 $ListaProductos = array();
-$arreglo = get_object_vars( $objeto );
+$arreglo = get_object_vars( $miObjeto );
 
 foreach( $arreglo as $indice=>$valor ){
 	$ListaProductos[] = $valor;
@@ -34,7 +37,7 @@ for($i = 0; $i < count($ListaProductos); $i++){
 	cantidad='$cantidadtotal' 
 	WHERE codigo='$codigov'"; 
 	mysqli_query($conexion,$_UPDATE_SQL); 
-	echo "<b>Dato Actualizado</b>";
+	echo "Dato Actualizado";
 
 
 
