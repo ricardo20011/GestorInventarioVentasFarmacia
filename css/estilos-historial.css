@@ -180,30 +180,6 @@ tr {
 	border-bottom:1px solid rgb(235, 235, 235);
 }
 
-.contador {
-	width:60%;
-	position: fixed;
-	bottom:-65px;
-}
-.total,
-.sub-total {
-	text-align: right;
-	width:100px;
-}
-.total-number,
-.sub-total-number {
-	width:120px;
-	text-align: center;
-	color:rgb(141, 141, 141);
-}
-.btn-vender {
-	height:40px;
-	width:180px;
-}
-.th-vender {
-	text-align: center;
-	width:100px;
-}
 .filaCentrar {
 	text-align: center;
 }
@@ -338,4 +314,37 @@ select.ui-datepicker-month {
 
 #ultima {
 	display:none;
+}
+
+
+.contador {
+	width:60%;
+	position: fixed;
+	bottom:-65px;
+}
+.total,
+.sub-total {
+	text-align: right;
+	width:100px;
+}
+.total-number,
+.sub-total-number {
+	width:120px;
+	text-align: center;
+	color:rgb(141, 141, 141);
+}
+.btn-vender {
+	height:40px;
+	width:180px;
+}
+.th-vender {
+	text-align: center;
+	width:100px;
+}
+.content-table tr td input {
+	width: 70px;
+	border:1px solid gray;
+	border-radius:5px;
+	box-sizing: border-box;
+	text-align: center;
 }

@@ -84,6 +84,17 @@
 					
 				</tbody>
 			</table>
+			<table class="content-table contador" id="table-total"> 
+			<tbody> 
+				<tr> 
+					<th class="total">Productos Vendidos:</th>
+					<th class="total-number" id="totalProductos">0</th>
+					<th class="total">Total Ventas:</th>
+					<th class="total-number" id="totalVentas">$ 0</th>
+				</tr> 
+			</tbody>
+			
+		</table>
 		</div>
 	</div>
 

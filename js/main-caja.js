@@ -184,8 +184,6 @@ function confirmarVenta(){
             }
         }
         console.log(obj);
-
-       
         
         let encapsulado = JSON.stringify(obj);
 
@@ -213,7 +211,6 @@ btnVender.addEventListener('click',(e)=>{
     if(tabla.rows.length > 1){
         e.preventDefault();
         document.getElementById('fondoVenta').classList.add('fondoVentaActivo');
-        
     }
 });
 
