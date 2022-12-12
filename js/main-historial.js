@@ -23,6 +23,7 @@ function cargarUsuarios(){
         if(datos.error == true){
             error_box.classList.add('active');
         } else {
+            
             for(i=0; i < datos.length ; i++){
                 let elemento = document.createElement('tr');
                 elemento.innerHTML += ("<td>" + datos[i].codigoFact + "</td>");
@@ -33,20 +34,22 @@ function cargarUsuarios(){
                 elemento.innerHTML += ("<td>" + datos[i].total + "</td>");
                 elemento.innerHTML += ("<td>" + datos[i].fecha + "</td>");
                 elemento.innerHTML += ("<td>" + datos[i].hora + "</td>");
-                let j = i - 1;
+                let j = i + 1;
+            
                 if( datos[i].codigoFact != datos[j].codigoFact){
-                    elemento.innerHTML += ("<td rowspan='"+" "+"'>" + datos[i].totalFact + "</td>");
+                    elemento.innerHTML += ("<td colspan='"+" "+"'>" + datos[i].totalFact + "</td>");
                 };
-                let g= tabla.rows.length;
-                if(i == tabla.rows.length){
-                    console.log(tabla.rows[g].innerHTML);
-                }
+                
                 document.getElementById('cuerpoTabla').appendChild(elemento);
+                if(tabla2.rows.length == i){
+                    let ultimoValor = tabla2.rows[j].cells[0].innerHTML;
+                    tabla2.rows[j].cells[8].innerHTML = (ultimoValor);
+                }
             }
         }
     }
-
-
+    
+    
     peticion.onreadystatechange = ()=>{
         if(peticion.readyState != 4 && peticion.status != 200){
             console.log('algo salio mal con la conexion');
