@@ -327,10 +327,15 @@ select.ui-datepicker-month {
 	position: absolute;
 	top:5px;
 	right:14px;
+	cursor: pointer;
 }
 .cont-1 {
 	position: relative;
 }
 .cont-2 {
 	position: relative;
+}
+
+#ultima {
+	display:none;
 }

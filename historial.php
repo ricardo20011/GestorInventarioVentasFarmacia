@@ -52,11 +52,15 @@
 		<div class="sub_cont">
 			<div class="container-input">
 				<div class="cont-1">
-					<iconify-icon class="icono-calendario" icon="ic:baseline-date-range" style="color: #0d7f54;" width="22"></iconify-icon>
+					<label for="inputInicio" class="icono-calendario">
+						<iconify-icon  icon="ic:baseline-date-range" style="color: #0d7f54;" width="22"></iconify-icon>
+					</label>
 					<input class="input-tex" type="text" id="inputInicio" placeholder="DD/MM/AAAA"> 
 				</div>
 				<div class="cont-2">
-					<iconify-icon class="icono-calendario" icon="ic:baseline-date-range" style="color: #0d7f54;" width="22"></iconify-icon>
+					<label for="inputFin" class="icono-calendario">
+						<iconify-icon  icon="ic:baseline-date-range" style="color: #0d7f54;" width="22"></iconify-icon>
+					</label>
 					<input class="input-tex" type="text" id="inputFin" placeholder="DD/MM/AAAA">
 				</div>
 				<input id="consultar" class="btn-consultar" type="button" value="Consultar">
@@ -64,7 +68,7 @@
 
 			<table class="content-table" id="tabla">
 				<thead>
-					<tr>
+					<tr class="row-head">
 						<th>Codigo Factura</th>
 						<th>Codigo</th>
 						<th>Nombre Producto</th>
@@ -77,6 +81,7 @@
 					</tr>
 				</thead>
 				<tbody id="cuerpoTabla">
+					
 				</tbody>
 			</table>
 		</div>

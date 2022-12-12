@@ -4,7 +4,7 @@ btn_consultar = document.getElementById('consultar');
 let tabla2 = document.getElementById('tabla');
 
 
-function cargarUsuarios(){
+function cargarProductos(){
     let peticion = new XMLHttpRequest();
     
     let inputInicio = document.getElementById('inputInicio').value;
@@ -16,8 +16,19 @@ function cargarUsuarios(){
     peticion.open('GET', 'php/leer-datos-historial.php?inicio=' + inputInicio + '&fin=' + inputFin, true);
 
     peticion.onload = ()=>{
-        document.getElementById('cuerpoTabla').innerHTML = "";
+        document.getElementById('cuerpoTabla').innerHTML = "<tr id='ultima'></tr>";
+
+        
+        let td1 = document.createElement('td');
+        let td2 = document.createElement('td');
+        td2.setAttribute('colspan','9');
+        td1.innerText = ('321551');
+        document.getElementById('ultima').appendChild(td1);
+        document.getElementById('ultima').appendChild(td2);
+        
         let datos = JSON.parse(peticion.responseText);
+
+        let filaAnterior = tabla2.rows[1];
 
 
         if(datos.error == true){
@@ -25,7 +36,7 @@ function cargarUsuarios(){
         } else {
             
             for(i=0; i < datos.length ; i++){
-                let elemento = document.createElement('tr');
+                let elemento = tabla2.insertRow(filaAnterior.rowIndex);
                 elemento.innerHTML += ("<td>" + datos[i].codigoFact + "</td>");
                 elemento.innerHTML += ("<td>" + datos[i].codigo + "</td>");
                 elemento.innerHTML += ("<td>" + datos[i].nombre + "</td>");
@@ -34,17 +45,17 @@ function cargarUsuarios(){
                 elemento.innerHTML += ("<td>" + datos[i].total + "</td>");
                 elemento.innerHTML += ("<td>" + datos[i].fecha + "</td>");
                 elemento.innerHTML += ("<td>" + datos[i].hora + "</td>");
+
+
                 let j = i + 1;
-            
-                if( datos[i].codigoFact != datos[j].codigoFact){
-                    elemento.innerHTML += ("<td colspan='"+" "+"'>" + datos[i].totalFact + "</td>");
-                };
+                elemento.innerHTML += ("<td>" + datos[i].totalFact + "</td>");
                 
-                document.getElementById('cuerpoTabla').appendChild(elemento);
-                if(tabla2.rows.length == i){
-                    let ultimoValor = tabla2.rows[j].cells[0].innerHTML;
-                    tabla2.rows[j].cells[8].innerHTML = (ultimoValor);
+
+
+                if(tabla2.rows[i].cells[0].innerHTML == tabla2.rows[j].cells[0].innerHTML){
+                    tabla2.rows[i].cells[8].innerHTML = "";
                 }
+
             }
         }
     }
@@ -71,6 +82,6 @@ btn_consultar.addEventListener('click', (e)=>{
         },2000);
     } else {
         e.preventDefault();
-        cargarUsuarios();
+        cargarProductos();
     }
 });
