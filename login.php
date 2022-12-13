@@ -1,3 +1,17 @@
+<?php
+
+session_start();
+require("php/config.php");
+
+if (isset($_SESSION['usuario'])){
+    header("Location: $ruta"."index.php");
+}
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en" class="html-login">
 <head>
@@ -12,8 +26,8 @@
 <body class="body-login">
     <div class="cont-login">
         <div class="cont-logo">
-            <iconify-icon class="icon-login" icon="icon-park-outline:protect" width="65"></iconify-icon>
-            <p class="title-cont">Inicio de session</p>
+            <iconify-icon icon="carbon:data-vis-1" style="color: white;" width="65"></iconify-icon>
+            <p class="title-cont">Rick Broken</p>
         </div>
 
         <div class="cont-usuario contenedor-inputs">
@@ -21,7 +35,7 @@
             <div class="cont-input-usuario cont-input">
                 <input type="text" id="usuario" placeholder="Usuario">
             </div>
-            <p class="p-cont">Ingrese los datos correctame</p>
+            <p class="p-cont-1 p-cont-1Ocultar" id="p-cont-1">Ingrese los datos correctame</p>
         </div>
 
         <div class="cont-pass contenedor-inputs">
@@ -29,16 +43,17 @@
             <div class="cont-input-password cont-input">
                 <input type="password" name="" id="password" placeholder="Contraseña">
             </div>
-            <p class="p-cont">Ingrese los datos correctame</p>
+            <p class="p-cont-2 p-cont-2Ocultar"  id="p-cont-2">Ingrese los datos correctame</p>
         </div>
 
         <div class="cont-btn">
-            <button>Ingresar</button>
+            <button id="ingresar">Ingresar</button>
         </div>
 
         <div class="footer-login">
-            <a href="">Copyring @ 2022 Rick Broken</a>
+            <a>Copyring @ 2022 Rick Broken</a>
         </div>
     </div>
+    <script src="js/login.js"></script>
 </body>
 </html>

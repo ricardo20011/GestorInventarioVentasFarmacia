@@ -8,6 +8,7 @@
 	//Lista de Tablas
 	$tabla_db1 = "usuarios"; 	   // tabla de usuarios
 	$tabla_db2 = "ventas";
+	$tabla_db3 = "temp";
 	
 
 	// establecer ruta de del hosting
