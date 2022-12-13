@@ -402,6 +402,8 @@ agregarProducto.addEventListener('click',()=>{
         inputLote.value = 'No Aplica';
     }
 });
+
+
 inputs.forEach((input)=>{
     input.addEventListener('blur',validarFormulario);
 });
@@ -416,6 +418,7 @@ formulario.addEventListener('submit', (e)=>{
                 vencimiento();
             }
         },200);
+        window.location.href = "http://localhost/farmacia/inventario.php";
     } else {
         e.preventDefault();
     }

@@ -1,0 +1,111 @@
+* { 
+    margin:0;
+    padding:0;
+    font-family: 'Montserrat', sans-serif;
+}
+.html-login { 
+    height:100%;
+}
+.body-login {
+    background-color: #193D57;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg %3E%3Ccircle fill='%23193D57' cx='50' cy='0' r='50'/%3E%3Cg fill='%2319445f' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%23194b67' cx='50' cy='100' r='50'/%3E%3Cg fill='%2317526f' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%23155a77' cx='50' cy='200' r='50'/%3E%3Cg fill='%2312617f' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%230e6987' cx='50' cy='300' r='50'/%3E%3Cg fill='%2308718e' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%23007896' cx='50' cy='400' r='50'/%3E%3Cg fill='%2300809d' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%230088a4' cx='50' cy='500' r='50'/%3E%3Cg fill='%230091ab' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%230099b1' cx='50' cy='600' r='50'/%3E%3Cg fill='%2300a1b7' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%2300a9bd' cx='50' cy='700' r='50'/%3E%3Cg fill='%2300b2c3' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%2300bac8' cx='50' cy='800' r='50'/%3E%3Cg fill='%2300c2cd' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%2300cbd2' cx='50' cy='900' r='50'/%3E%3Cg fill='%230cd3d6' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%231EDCDA' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: contain;
+    display:grid;
+    justify-content: center;
+    align-content:center;
+    height:100%;
+}
+.cont-login {
+    width:300px;
+    height:380px;
+    border-radius:10px;
+    background-color:rgba(255, 255, 255, 0.171);
+    backdrop-filter: blur(3px);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display:grid;
+    grid-template-columns:1fr;
+    grid-template-rows:140px 80px 80px 55px 25px;
+    justify-content: center;
+    align-content:center;
+}
+
+.cont-logo {
+    width:100%;
+    text-align: center;
+    padding:20px 0;
+    box-sizing: border-box;
+}
+.cont-logo p {
+    font-size:13px;
+    color: rgb(255, 255, 255);
+}
+.cont-usuario {
+    width:100%;
+}
+.contenedor-inputs {
+    padding:0 20px;
+    box-sizing:border-box;
+}
+.contenedor-inputs label{
+    font-size:13px;
+}
+.cont-input {
+    position: relative;
+    width:100%;
+}
+.contenedor-inputs input {
+    width:96%;
+    height:32px;
+    border:0px solid rgb(190, 190, 190);
+    border-radius:3px;
+    padding-left:10px;
+    box-sizing: border-box;
+    outline: none;
+    background-color: rgba(253, 253, 253, 0.178);
+    backdrop-filter: blur(5px);
+    margin-top:6px;
+}
+.contenedor-inputs input::placeholder {
+    color:rgb(51, 51, 51);
+}
+.contenedor-inputs input:focus{
+    outline: none;
+}
+.contenedor-inputs .p-cont {
+    color: rgb(177, 22, 22);
+    font-size:14px;
+    font-weight: 800;
+    opacity:0;
+}
+.cont-btn {
+    width:100%;
+    padding:0 50px;
+    box-sizing: border-box;
+}
+.cont-btn button {
+    width:100%;
+    height:35px;
+    border:none;
+    border-radius:3px;
+    background-color:rgb(13, 87, 90);
+    color: white;
+    cursor: pointer;
+}
+.footer-login {
+    text-align: center;
+    height:100%;
+}
+.footer-login a {
+    text-decoration:none;
+    color:rgb(99, 99, 99);
+    font-size:11px;
+}
+
+
+
+
+
+.contenedor-inputs .p-contActivo {
+    opacity:1;
+}

@@ -10,6 +10,13 @@
 	$tabla_db2 = "ventas";
 	
 
+	// establecer ruta de del hosting
+	$local = 'http://localhost/farmacia/';
+	$public = 'www.example.com/';
+
+
+	$ruta = $local;
+
 	//error_reporting(0); //No me muestra errores
 	
 	$conexion = new mysqli($host,$usuariodb,$clavedb,$basededatos);

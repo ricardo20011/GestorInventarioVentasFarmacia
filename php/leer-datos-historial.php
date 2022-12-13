@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);
-require("abrir_conexion.php");
+require("config.php");
 header('Content-type: application/json; charset=utf-8');
 
 $inputInicio = $_REQUEST['inicio'];

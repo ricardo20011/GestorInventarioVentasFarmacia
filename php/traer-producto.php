@@ -1,5 +1,5 @@
 <?php
-	include("abrir_conexion.php");
+	include("config.php");
 	 
 
 	if(isset($_POST['codigoId']))

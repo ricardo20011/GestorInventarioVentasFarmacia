@@ -1,6 +1,8 @@
 <?php
+require 'config.php';
 error_reporting(0);
 header('Content-type: application/json; charset=utf-8');
+
 
 $codigo = $_POST['codigo'];
 $nombre = $_POST['nombre'];
@@ -43,7 +45,6 @@ function validarDatos ($codigo,$nombre,$concentracion,$f_farmaceutica,$vencimien
 
 
 if(validarDatos($codigo,$nombre,$concentracion,$f_farmaceutica,$vencimiento,$invima,$cantidad) == true){
-    $conexion = new mysqli('162.241.60.251', 'rickbrok_previs_ips', '1006690431', 'rickbrok_farmacia');
     $conexion->set_charset('utf8');
 
     if($conexion->connect_errno){

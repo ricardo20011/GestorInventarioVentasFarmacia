@@ -1,7 +1,6 @@
 <?php
 error_reporting(E_ALL ^ E_NOTICE);
-require '../config/config.php';
-require 'abrir_conexion.php';
+require 'config.php';
 
 
 $id_producto = $_REQUEST['id'];
