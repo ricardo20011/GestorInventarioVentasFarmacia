@@ -19,11 +19,11 @@
 
 	<div class="menu" id="menu">
 		<div class="cont_1">
-			<div class="sub_cont_1"><img src="img/logo_empresa.jpg" alt=""></div>
-			<div><p class="nombre_empresa">NOMBRE DE LA EMPRESA</p></div>
-			<div><p class="nit">NIT 00.000.000</p></div>
-			<div><p class="direccion">DIRECCION DE LA EMPRESA</p></div>
-			<div><p class="responsable">NOMBRE RESPONSABLE EMPRESA</p></div>
+			<div class="sub_cont_1"><img src="img/logo_empresa.png" alt=""></div>
+			<div><p class="nombre_empresa">Drogueria Mundo Farma</p></div>
+			<div><p class="nit">NIT 41936351-7</p></div>
+			<div><p class="direccion">Cra 12 N 23-31 Villa Malia</p></div>
+			<div><p class="responsable">Eliana Maria Ceballos Diaz</p></div>
 		</div>
 		<div class="cont_2">
 			<div class="sub_cont_1"><iconify-icon class="icon-caja" icon="fa-solid:cash-register"></iconify-icon><a href="index.php">Caja Vender</a></div>
@@ -75,7 +75,7 @@
 			</form>
 			
 
-			<table class="content-table" id="tabla"> 
+			<table class="content-table tabla1" id="tabla"> 
 				<tr> 
 					<th>Codigo Barras</th> 
 					<th>Nombre Producto</th>

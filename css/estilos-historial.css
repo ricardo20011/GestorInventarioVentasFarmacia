@@ -2,6 +2,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-size:13px;
 }
 input[type="date"]{
 	background-color:rgba(12,124,126,255);
@@ -170,10 +171,12 @@ table {
 th {
 	width:auto;
 	padding:10px 15px;
+	font-size:10px;
+	text-align: center;
 }
 td {
 	padding:7px 15px;
-	font-size:13px;
+	font-size:12px;
 }
 tr {
 	
@@ -347,4 +350,7 @@ select.ui-datepicker-month {
 	border-radius:5px;
 	box-sizing: border-box;
 	text-align: center;
+}
+.contador tr th{
+	font-size:14px;
 }

@@ -6,15 +6,31 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Tabla de usuarios con AJAX</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
   	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
   	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600" rel="stylesheet"> 
-	<link rel="stylesheet" href="css/estilos.css">
 	<link rel="stylesheet" href="css/jquery.dataTables.css">
+	<link rel="stylesheet" href="css/estilos.css">
 	<script src="jquery/jquery-3.4.1.min.js"></script>
 </head>
 <body>
+	<div class="menu" id="menu">
+		<div class="cont_1">
+			<div class="sub_cont_1"><img src="img/logo_empresa.png" alt=""></div>
+			<div><p class="nombre_empresa">Drogueria Mundo Farma</p></div>
+			<div><p class="nit">NIT 41936351-7</p></div>
+			<div><p class="direccion">Cra 12 N 23-31 Villa Malia</p></div>
+			<div><p class="responsable">Eliana Maria Ceballos Diaz</p></div>
+		</div>
+		<div class="cont_2">
+			<div class="sub_cont_1"><iconify-icon class="icon-caja" icon="fa-solid:cash-register"></iconify-icon><a href="index.php">Caja Vender</a></div>
+			<div class="sub_cont_2"><iconify-icon class="icon-inventario" width="20" icon="mdi:clipboard-list-outline"></iconify-icon><a href="inventario.php">Inventario</a></div>
+			<div class="sub_cont_3"><iconify-icon class="icon-hitorial" width="20" icon="ic:round-history"></iconify-icon><a href="historial.php">Historial Ventas</a></div>
+		</div>
+		
+	</div>
+	
 	<div class="fondo_ingresar" id="fondo_ingresar">
 		<form autocomplete="off" action="" method="" class="cont_vender" id="formulario">
 			<div class="main_vender">
@@ -134,21 +150,6 @@
 		</div>
 	</div>
 
-	<div class="menu" id="menu">
-		<div class="cont_1">
-			<div class="sub_cont_1"><img src="img/logo_empresa.jpg" alt=""></div>
-			<div><p class="nombre_empresa">NOMBRE DE LA EMPRESA</p></div>
-			<div><p class="nit">NIT 0.00.000.000.0</p></div>
-			<div><p class="direccion">DIRECCION DE LA EMPRESA</p></div>
-			<div><p class="responsable">NOMBRE RESPONSABLE EMPRESA</p></div>
-		</div>
-		<div class="cont_2">
-			<div class="sub_cont_1"><iconify-icon class="icon-caja" icon="fa-solid:cash-register"></iconify-icon><a href="index.php">Caja Vender</a></div>
-			<div class="sub_cont_2"><iconify-icon class="icon-inventario" width="20" icon="mdi:clipboard-list-outline"></iconify-icon><a href="inventario.php">Inventario</a></div>
-			<div class="sub_cont_3"><iconify-icon class="icon-hitorial" width="20" icon="ic:round-history"></iconify-icon><a href="historial.php">Historial Ventas</a></div>
-		</div>
-		
-	</div>
 
 	<div class="contenedor">
 		<div class="subcontenedor">
@@ -162,7 +163,7 @@
 				</div>
 		
 		
-				<header class="" id="header">
+				<header class="header" id="header">
 					<h1>Inventario Empresa</h1>
 					<div class="grupo_btn">
 						<button id="btn_cargar" class="botones btn active ocultar-cargar" onclick="">Cargar Inventario</button>

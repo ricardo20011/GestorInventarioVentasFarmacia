@@ -40,7 +40,7 @@ function agregarSeparadorMiles(numero) {
 
 
 cancelarEdicion.addEventListener('click',()=>{
-    window.location.href = "http://localhost/farmacia/";
+    window.location.href = "http://localhost/farmacia/inventario.php";
 });
 
 function formulario_valido(usuario_nombre,usuario_cantidad,usuario_codigo,usuario_precio,usuario_ingreso){
@@ -127,6 +127,7 @@ const validarFormulario = (e) => {
     }
 }
 editarProducto.addEventListener('click',(e)=>{
+    e.preventDefault();
     if(inputNombre.value == '' && isNaN(inputNombre.value)){
         e.preventDefault();
         document.getElementById(`grupo__nombre`).classList.add('formulario__grupo--incorrecto');
