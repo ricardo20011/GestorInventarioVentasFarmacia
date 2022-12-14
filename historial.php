@@ -65,13 +65,13 @@ if (!isset($_SESSION['usuario'])){
 					<label for="inputInicio" class="icono-calendario">
 						<iconify-icon  icon="ic:baseline-date-range" style="color: #0d7f54;" width="22"></iconify-icon>
 					</label>
-					<input class="input-tex" type="text" id="inputInicio" placeholder="DD/MM/AAAA"> 
+					<input class="input-tex" type="text" id="inputInicio" placeholder="Fecha inicio"> 
 				</div>
 				<div class="cont-2">
 					<label for="inputFin" class="icono-calendario">
 						<iconify-icon  icon="ic:baseline-date-range" style="color: #0d7f54;" width="22"></iconify-icon>
 					</label>
-					<input class="input-tex" type="text" id="inputFin" placeholder="DD/MM/AAAA">
+					<input class="input-tex" type="text" id="inputFin" placeholder="Fecha fin">
 				</div>
 				<input id="consultar" class="btn-consultar" type="button" value="Consultar">
 			</div>
@@ -116,14 +116,16 @@ if (!isset($_SESSION['usuario'])){
 	<script>
 		$( function() {
 			$( "#inputInicio" ).datepicker({
-			changeMonth: true,
-			changeYear: true
+				dateFormat: "yy/mm/dd",
+				changeMonth: true,
+				changeYear: true
 			});
 		} );
 		$( function() {
 			$( "#inputFin" ).datepicker({
-			changeMonth: true,
-			changeYear: true
+				dateFormat: "yy/mm/dd",
+				changeMonth: true,
+				changeYear: true
 			});
 		} );
 	</script>
