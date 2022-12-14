@@ -13,10 +13,7 @@ function quitarSeparadorMiles(numero) {
     return partesNumero.join('');
 }
 
-let public = "https://www.rickbroken.com/farmacia/";
-let local = "http://localhost/farmacia/";
 
-let ruta = public;
 
 tabla = document.getElementById('tabla');
 btn_cargar = document.getElementById('addProducto');

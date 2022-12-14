@@ -54,6 +54,7 @@ if (isset($_SESSION['usuario'])){
             <a>Copyring @ 2022 Rick Broken</a>
         </div>
     </div>
+    <script src="js/config.js"></script>
     <script src="js/login.js"></script>
 </body>
 </html>

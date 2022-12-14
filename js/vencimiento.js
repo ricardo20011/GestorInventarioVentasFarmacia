@@ -4,6 +4,7 @@ function vencimiento (){
     for (i=1 ; i < tablaInventario.rows.length; i++){
 
         let hoy = moment();
+     
         hoy.format('YYYY/MM/DD');
     
         let vencimiento = tablaInventario.rows[i].cells[4].innerHTML;

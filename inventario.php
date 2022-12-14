@@ -221,6 +221,7 @@ if (!isset($_SESSION['usuario'])){
 
 	<script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
 	<script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
+	<script src="js/config.js"></script>
 	<script src="js/main-ingresar.js"></script>
 	<script src="js/vencimiento.js"></script>
 	<script src="js/main.js"></script>

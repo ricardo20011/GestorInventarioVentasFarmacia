@@ -2,10 +2,6 @@ campoUsuario = document.getElementById('usuario');
 campoPassword = document.getElementById('password');
 btnIngresar = document.getElementById('ingresar');
 
-let public = "https://www.rickbroken.com/farmacia/";
-let local = "http://localhost/farmacia/";
-
-let ruta = public;
 
 function loginUsuario(){
     let peticion = new XMLHttpRequest();
@@ -28,7 +24,7 @@ function loginUsuario(){
                 document.getElementById('p-cont-2').classList.remove('p-cont-2Ocultar');
                 document.getElementById('p-cont-2').classList.add('p-contActivo');
            } else {
-                window.location.replace("http://localhost/farmacia/index.php");
+                window.location.replace(ruta + "index.php");
            }
         }
     }

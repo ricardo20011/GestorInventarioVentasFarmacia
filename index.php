@@ -6,6 +6,7 @@ if (!isset($_SESSION['usuario'])){
     header("Location: $ruta"."login.php");
 }
 
+
 ?>
 
 
@@ -119,6 +120,7 @@ if (!isset($_SESSION['usuario'])){
 		</table>
 	</div>
 	<script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
+	<script src="js/config.js"></script>
 	<script src="js/vencimiento.js"></script>
 	<script src="js/main-caja.js"></script>
 </body>

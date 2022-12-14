@@ -19,10 +19,7 @@ const inputs = document.querySelectorAll('#formulario input');
 const agregarProducto = document.getElementById('agregar_producto');
 
 
-let public = "https://www.rickbroken.com/farmacia/";
-let local = "http://localhost/farmacia/";
 
-let ruta = public;
 
 const expresiones = {
 	codigo: /^\d{1,24}$/, // Letras, numeros, guion y guion_bajo

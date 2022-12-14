@@ -1,7 +1,5 @@
 <?php 
 	
-
-
 // Parametros a configurar para la conexion de la base de datos 
 $host = "162.241.60.251";    // sera el valor de nuestra BD 
 $basededatos = "rickbrok_farmacia";    // sera el valor de nuestra BD 
@@ -19,7 +17,7 @@ $local = 'http://localhost/farmacia/';
 $public = 'https://www.rickbroken.com/farmacia/';
 
 
-$ruta = $public;
+$ruta = $local;
 
 //error_reporting(0); //No me muestra errores
 

@@ -110,7 +110,8 @@ if (!isset($_SESSION['usuario'])){
 
 	<script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  	<script src="js/jquery-ui-1.13.2.js"></script>
+	<script src="js/config.js"></script>
+	<script src="js/jquery-ui-1.13.2.js"></script>
 	<script src="js/main-historial.js"></script>
 	<script>
 		$( function() {

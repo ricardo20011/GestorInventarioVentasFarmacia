@@ -2,7 +2,6 @@
 error_reporting(E_ALL ^ E_NOTICE);
 require 'config.php';
 
-
 $id_producto = $_REQUEST['id'];
 if(isset($_POST['btnGuardar'])){
     $codigo = $_POST['codigo'];
@@ -16,24 +15,23 @@ if(isset($_POST['btnGuardar'])){
     $cantidad = $_POST['cantidad'];
     $precio = $_POST['precio'];
 
-    //if(!empty($nombre) && is_numeric($nombre)){
-        $_UPDATE_SQL="UPDATE $tabla_db1 Set 
-        codigo = '$codigo', 
-        nombre = '$nombre',
-        concentracion = '$concentracion',
-        f_farmaceutica = '$f_farmaceutica',
-        ingreso = '$ingreso',
-        vencimiento = '$vencimiento',
-        invima = '$invima',
-        lote = '$lote',
-        cantidad = '$cantidad',
-        precio = '$precio'
-        WHERE codigo ='$codigo'"; 
     
-        mysqli_query($conexion,$_UPDATE_SQL); 
+    $_UPDATE_SQL="UPDATE $tabla_db1 Set 
+    codigo = '$codigo', 
+    nombre = '$nombre',
+    concentracion = '$concentracion',
+    f_farmaceutica = '$f_farmaceutica',
+    ingreso = '$ingreso',
+    vencimiento = '$vencimiento',
+    invima = '$invima',
+    lote = '$lote',
+    cantidad = '$cantidad',
+    precio = '$precio'
+    WHERE codigo ='$codigo'"; 
     
-        header('Location: '. $ruta . 'inventario.php');
-    //}
+    mysqli_query($conexion,$_UPDATE_SQL); 
+    
+    header('Location: '. $ruta . 'inventario.php');
 }
 
 
