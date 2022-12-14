@@ -524,10 +524,11 @@ body {
 	color:white;
 	padding-right:8px;
 	position: relative;
-	top:3px;
+	top:6px;
 }
 .cont_2 div .icon-caja {
 	top:2px;
+	left:2px;
 }
 .ocultar-cargar {
 	display:none;

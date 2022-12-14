@@ -13,7 +13,7 @@ if (!isset($_SESSION['usuario'])){
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="html-caja">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +27,7 @@ if (!isset($_SESSION['usuario'])){
 	<link rel="stylesheet" href="css/estilos-caja.css">
 	<script src="jquery/jquery-3.4.1.min.js"></script>
 </head>
-<body>
+<body class="body-caja">
 	
 
 	<div class="menu" id="menu">
@@ -39,7 +39,7 @@ if (!isset($_SESSION['usuario'])){
 			<div><p class="responsable">Eliana Maria Ceballos Diaz</p></div>
 		</div>
 		<div class="cont_2">
-			<div class="sub_cont_1"><iconify-icon class="icon-caja" icon="fa-solid:cash-register"></iconify-icon><a href="index.php">Caja Vender</a></div>
+			<div class="sub_cont_1"><iconify-icon class="icon-caja" width="15" icon="fa-solid:cash-register"></iconify-icon><a href="index.php">Caja Vender</a></div>
 			<div class="sub_cont_2"><iconify-icon class="icon-inventario" width="20" icon="mdi:clipboard-list-outline"></iconify-icon><a href="inventario.php">Inventario</a></div>
 			<div class="sub_cont_3"><iconify-icon class="icon-hitorial" width="20" icon="ic:round-history"></iconify-icon><a href="historial.php">Historial Ventas</a></div>
 			<div class="exit"><iconify-icon icon="majesticons:door-exit" rotate="180deg" width="20"></iconify-icon><a href="php/exit.php">Cerrar sesion</a></div>
