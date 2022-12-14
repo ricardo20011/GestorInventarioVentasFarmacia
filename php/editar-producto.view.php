@@ -1,3 +1,13 @@
+<?php
+session_start();
+require("config.php");
+
+if (!isset($_SESSION['usuario'])){
+    header("Location: $ruta"."login.php");
+}
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">

@@ -1,13 +1,12 @@
 <?php
+error_reporting(E_ALL ^ E_NOTICE);
+session_start();
+require("config.php");
+
+
 error_reporting(0);
 require("config.php");
 header('Content-type: application/json; charset=utf-8');
-
-session_start();
-
-if (isset($_SESSION['usuario'])){
-    header("Location: $ruta"."index.php");
-}
 
 
 $inputUsuario = $_REQUEST['usuario'];
@@ -38,6 +37,7 @@ if($conexion->connect_errno){
     }
     
     if($usuarios['usuario'] == $inputUsuario && $usuarios['pass'] == $inputPassword){
+        $_SESSION['usuario'] = $inputUsuario;
         $respuesta = [
             'exito' => true
         ];

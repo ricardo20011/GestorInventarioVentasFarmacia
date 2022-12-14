@@ -1,6 +1,9 @@
 <?php
+session_start();
 error_reporting(0);
 require("config.php");
+
+
 header('Content-type: application/json; charset=utf-8');
 
 $inputInicio = $_REQUEST['inicio'];

@@ -1,3 +1,12 @@
+<?php
+session_start();
+require("php/config.php");
+
+if (!isset($_SESSION['usuario'])){
+    header("Location: $ruta"."login.php");
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +46,7 @@
 			<div class="sub_cont_1"><iconify-icon class="icon-caja" icon="fa-solid:cash-register"></iconify-icon><a href="index.php">Caja Vender</a></div>
 			<div class="sub_cont_2"><iconify-icon class="icon-inventario" width="20" icon="mdi:clipboard-list-outline"></iconify-icon><a href="inventario.php">Inventario</a></div>
 			<div class="sub_cont_3"><iconify-icon class="icon-hitorial" width="20" icon="ic:round-history"></iconify-icon><a href="historial.php">Historial Ventas</a></div>
+			<div class="exit"><iconify-icon icon="majesticons:door-exit" rotate="180deg" width="20"></iconify-icon><a href="php/exit.php">Cerrar sesion</a></div>
 		</div>
 	</div>
 
