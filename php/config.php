@@ -16,10 +16,10 @@ $tabla_db3 = "temp";
 
 // establecer ruta de del hosting
 $local = 'http://localhost/farmacia/';
-$public = 'www.example.com/';
+$public = 'https://www.rickbroken.com/farmacia/';
 
 
-$ruta = $local;
+$ruta = $public;
 
 //error_reporting(0); //No me muestra errores
 

@@ -3,6 +3,10 @@ const inputs = document.querySelectorAll('#formulario input');
 const editarProducto = document.getElementById('editar_producto');
 const cancelarEdicion = document.getElementById('btn_cerrarMensaje');
 
+let public = "https://www.rickbroken.com/farmacia/";
+let local = "http://localhost/farmacia/";
+
+let ruta = public;
 
 const expresiones = {
 	codigo: /^\d{1,24}$/, // Letras, numeros, guion y guion_bajo
@@ -40,7 +44,7 @@ function agregarSeparadorMiles(numero) {
 
 
 cancelarEdicion.addEventListener('click',()=>{
-    window.location.href = "http://localhost/farmacia/";
+    window.location.href = ruta + "inventario.php";
 });
 
 function formulario_valido(usuario_nombre,usuario_cantidad,usuario_codigo,usuario_precio,usuario_ingreso){

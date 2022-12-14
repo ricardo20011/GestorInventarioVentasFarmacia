@@ -13,6 +13,11 @@ function quitarSeparadorMiles(numero) {
     return partesNumero.join('');
 }
 
+let public = "https://www.rickbroken.com/farmacia/";
+let local = "http://localhost/farmacia/";
+
+let ruta = public;
+
 tabla = document.getElementById('tabla');
 btn_cargar = document.getElementById('addProducto');
 campoValor = document.getElementById('campo').value;
@@ -200,7 +205,7 @@ function confirmarVenta(){
         peticion.setRequestHeader("Content-Type", "application/json");
         peticion.send(encapsulado);
 
-        location.href ="http://localhost/farmacia/index.php";
+        location.href = ruta;
 
     } else {
         console.log('no se envio el formulario');

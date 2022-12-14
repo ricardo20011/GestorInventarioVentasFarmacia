@@ -2,6 +2,11 @@ campoUsuario = document.getElementById('usuario');
 campoPassword = document.getElementById('password');
 btnIngresar = document.getElementById('ingresar');
 
+let public = "https://www.rickbroken.com/farmacia/";
+let local = "http://localhost/farmacia/";
+
+let ruta = public;
+
 function loginUsuario(){
     let peticion = new XMLHttpRequest();
 
