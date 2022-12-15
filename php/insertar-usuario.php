@@ -9,6 +9,7 @@ require 'config.php';
 error_reporting(0);
 header('Content-type: application/json; charset=utf-8');
 
+$sesion = $_SESSION['usuario'];
 
 $codigo = $_POST['codigo'];
 $nombre = $_POST['nombre'];
@@ -58,7 +59,7 @@ if(validarDatos($codigo,$nombre,$concentracion,$f_farmaceutica,$vencimiento,$inv
             'error' => true
         ];
     } else {
-        $statement = $conexion->prepare("INSERT INTO usuarios(codigo, nombre, concentracion, f_farmaceutica, vencimiento, invima, cantidad, ingreso, precio, lote) VALUES(?,?,?,?,?,?,?,?,?,?)");
+        $statement = $conexion->prepare("INSERT INTO ".$sesion."X$tabla_db1(codigo, nombre, concentracion, f_farmaceutica, vencimiento, invima, cantidad, ingreso, precio, lote) VALUES(?,?,?,?,?,?,?,?,?,?)");
         $statement->bind_param("ssssssssss",$codigo,$nombre,$concentracion,$f_farmaceutica,$vencimiento,$invima,$cantidad,$ingreso,$precio,$lote);
         $statement->execute();
 

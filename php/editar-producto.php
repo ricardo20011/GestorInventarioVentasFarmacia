@@ -1,6 +1,9 @@
 <?php
 error_reporting(E_ALL ^ E_NOTICE);
+session_start();
 require 'config.php';
+
+$sesion = $_SESSION['usuario'];
 
 $id_producto = $_REQUEST['id'];
 if(isset($_POST['btnGuardar'])){
@@ -16,7 +19,7 @@ if(isset($_POST['btnGuardar'])){
     $precio = $_POST['precio'];
 
     
-    $_UPDATE_SQL="UPDATE $tabla_db1 Set 
+    $_UPDATE_SQL="UPDATE ".$sesion."X$tabla_db1 Set 
     codigo = '$codigo', 
     nombre = '$nombre',
     concentracion = '$concentracion',
@@ -43,7 +46,7 @@ if(empty($_REQUEST['id'])){
     if (!is_numeric($id_producto)){
         header('Location: '. $ruta . 'inventario.php');
     }
-    $query_producto = mysqli_query($conexion,"SELECT * FROM $tabla_db1 WHERE codigo = $id_producto");
+    $query_producto = mysqli_query($conexion,"SELECT * FROM ".$sesion."X$tabla_db1 WHERE codigo = $id_producto");
     $resultado = mysqli_num_rows($query_producto);
     if($resultado > 0){
         $dato_producto = mysqli_fetch_assoc($query_producto);

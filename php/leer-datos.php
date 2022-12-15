@@ -6,6 +6,7 @@ require 'config.php';
 
 header('Content-type: application/json; charset=utf-8');
 
+$sesion = $_SESSION['usuario'];
 
 if($conexion->connect_errno){
     $respuesta = [
@@ -13,7 +14,7 @@ if($conexion->connect_errno){
     ];
 } else {
     $conexion->set_charset("utf8");
-    $statement = $conexion->prepare("SELECT * FROM $tabla_db1");
+    $statement = $conexion->prepare("SELECT * FROM ".$sesion."X$tabla_db1");
     $statement->execute();
     $resultados = $statement->get_result();
 

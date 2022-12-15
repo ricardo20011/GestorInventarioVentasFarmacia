@@ -7,6 +7,7 @@ include("config.php");
 
 header("Content-Type: application/json; charset=UTF-8");
 
+$sesion = $_SESSION['usuario'];
 
 //$objeto = json_decode($_GET["encapsulado"], false);
 $miObjetoJSON = file_get_contents('php://input');
@@ -26,7 +27,7 @@ for($i = 0; $i < count($ListaProductos); $i++){
 	$cantidadv = $ListaProductos[$i]->cantidad;
 	
 	//CONSULTAR
-	$resultados = mysqli_query($conexion,"SELECT * FROM $tabla_db1  WHERE codigo = '$codigov'");
+	$resultados = mysqli_query($conexion,"SELECT * FROM ".$sesion."X$tabla_db1  WHERE codigo = '$codigov'");
 	$consulta = mysqli_fetch_array($resultados);
 	  
 	$cantidadtotal = $consulta['cantidad'];
@@ -36,7 +37,7 @@ for($i = 0; $i < count($ListaProductos); $i++){
 	$cantidadtotal = $cantidadtotal - $cantidadv;
 
 	//actualizar
-	$_UPDATE_SQL="UPDATE $tabla_db1 Set 
+	$_UPDATE_SQL="UPDATE ".$sesion."X$tabla_db1 Set 
 	
 	cantidad='$cantidadtotal' 
 	WHERE codigo='$codigov'"; 
@@ -62,7 +63,7 @@ for($i = 0; $i < count($ListaProductos); $i++){
             'error' => true
         ];
     } else {
-        $statement = $conexion->prepare("INSERT INTO $tabla_db2(codigoFact, codigo, nombre, cantidad, PrecioU, total, fecha, totalFact, hora) VALUES(?,?,?,?,?,?,?,?,?)");
+        $statement = $conexion->prepare("INSERT INTO ".$sesion."X$tabla_db2(codigoFact, codigo, nombre, cantidad, PrecioU, total, fecha, totalFact, hora) VALUES(?,?,?,?,?,?,?,?,?)");
         $statement->bind_param("sssssssss",$codigoFact,$codigo,$nombre,$cantidad,$precio,$total,$fecha,$totalFact,$hora);
         $statement->execute();
 

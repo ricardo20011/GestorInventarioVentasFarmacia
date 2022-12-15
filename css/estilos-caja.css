@@ -172,6 +172,9 @@ input:focus {
 	color: white;
 	transition: all 0.3s ease;
 }
+.menuActivo {
+	color: #17a33a;
+}
 .cont_2 div a:hover {
 	color:rgb(37, 219, 0);
 }

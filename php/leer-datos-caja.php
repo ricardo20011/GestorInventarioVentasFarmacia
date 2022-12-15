@@ -7,6 +7,7 @@ error_reporting(0);
 
 header('Content-type: application/json; charset=utf-8');
 
+$sesion = $_SESSION['usuario'];
 
 $campo = $_REQUEST['campo'];
 
@@ -18,7 +19,7 @@ if($conexion->connect_errno){
     ];
 } else {
     $conexion->set_charset("utf8");
-    $statement = $conexion->prepare("SELECT * FROM $tabla_db1 WHERE codigo = $campo");
+    $statement = $conexion->prepare("SELECT * FROM ".$sesion."X$tabla_db1 WHERE codigo = $campo");
     $statement->execute();
     $resultados = $statement->get_result();
 
