@@ -39,7 +39,7 @@ if (!isset($_SESSION['usuario'])){
 			<div class="sub_cont_1"><img src="img/logo_empresa.png" alt=""></div>
 			<div><p class="nombre_empresa">Drogueria Mundo Farma</p></div>
 			<div><p class="nit">NIT 41936351-7</p></div>
-			<div><p class="direccion">Cra 12 N 23-31 Villa Malia</p></div>
+			<div><p class="direccion">Cra 12 N 23-31 Villa Amalia</p></div>
 			<div><p class="responsable">Eliana Maria Ceballos Diaz</p></div>
 		</div>
 		<div class="cont_2">
@@ -65,13 +65,13 @@ if (!isset($_SESSION['usuario'])){
 					<label for="inputInicio" class="icono-calendario">
 						<iconify-icon  icon="ic:baseline-date-range" style="color: #0d7f54;" width="22"></iconify-icon>
 					</label>
-					<input class="input-tex" type="text" id="inputInicio" placeholder="Fecha inicio"> 
+					<input class="input-tex" type="text" id="inputInicio" placeholder="Fecha inicio" autocomplete="off"> 
 				</div>
 				<div class="cont-2">
 					<label for="inputFin" class="icono-calendario">
 						<iconify-icon  icon="ic:baseline-date-range" style="color: #0d7f54;" width="22"></iconify-icon>
 					</label>
-					<input class="input-tex" type="text" id="inputFin" placeholder="Fecha fin">
+					<input class="input-tex" type="text" id="inputFin" placeholder="Fecha fin" autocomplete="off">
 				</div>
 				<input id="consultar" class="btn-consultar" type="button" value="Consultar">
 			</div>

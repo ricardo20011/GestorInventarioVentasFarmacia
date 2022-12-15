@@ -1,13 +1,12 @@
-campoUsuario = document.getElementById('usuario');
-campoPassword = document.getElementById('password');
-btnIngresar = document.getElementById('ingresar');
+
+let btnIngresar = document.getElementById('ingresar');
 
 
 function loginUsuario(){
     let peticion = new XMLHttpRequest();
 
-    campoUsuario = campoUsuario.value;
-    campoPassword = campoPassword.value;
+    let campoUsuario = document.getElementById('usuario').value;
+    let campoPassword = document.getElementById('password').value;
 
     peticion.open('GET', 'php/comprobar-usuario.php?usuario=' + campoUsuario + '&password=' + campoPassword, true);
 

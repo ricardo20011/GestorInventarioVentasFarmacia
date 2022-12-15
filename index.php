@@ -35,7 +35,7 @@ if (!isset($_SESSION['usuario'])){
 			<div class="sub_cont_1"><img src="img/logo_empresa.png" alt=""></div>
 			<div><p class="nombre_empresa">Drogueria Mundo Farma</p></div>
 			<div><p class="nit">NIT 41936351-7</p></div>
-			<div><p class="direccion">Cra 12 N 23-31 Villa Malia</p></div>
+			<div><p class="direccion">Cra 12 N 23-31 Villa Amalia</p></div>
 			<div><p class="responsable">Eliana Maria Ceballos Diaz</p></div>
 		</div>
 		<div class="cont_2">
@@ -84,7 +84,7 @@ if (!isset($_SESSION['usuario'])){
 		</div>
 		<div class="sub_cont">
 			<form  method="" class="cont_buscador" id="formulario">
-				<input type="text" name="campo" id="campo">
+				<input type="text" name="campo" id="campo" placeholder="Ingrese codigo de producto" class="codigo-barras">
 				<button id="addProducto" class="btn btn-outline-success">Añadir Producto</button>
 			</form>
 			

@@ -375,3 +375,6 @@ tr {
 .btn-outline-success {
 	font-size: 16px;
 }
+.codigo-barras:focus {
+	outline: none;
+}

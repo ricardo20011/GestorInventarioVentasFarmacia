@@ -36,12 +36,18 @@ if($conexion->connect_errno){
         array_push($respuesta, $usuario);
     }
     
+    
     if($usuarios['usuario'] == $inputUsuario && $usuarios['pass'] == $inputPassword){
         $_SESSION['usuario'] = $inputUsuario;
         $respuesta = [
             'exito' => true
         ];
     } else {
+        $respuesta = [
+            'exito' => false
+        ];
+    }
+    if($inputUsuario == '' || $inputPassword == ''){
         $respuesta = [
             'exito' => false
         ];
