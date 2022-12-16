@@ -31,6 +31,7 @@ if (isset($_SESSION['usuario'])){
             <label for="usuario">Ingrese su usuario:</label>
             <div class="cont-input-usuario cont-input">
                 <input type="text" id="usuario" placeholder="Usuario">
+                <iconify-icon class="icon-input" icon="mdi:user-circle" style="color: white;" width="22"></iconify-icon>
             </div>
             <p class="p-cont-1 p-cont-1Ocultar" id="p-cont-1">Ingrese los datos correctame</p>
         </div>
@@ -39,6 +40,8 @@ if (isset($_SESSION['usuario'])){
             <label for="password"s>Ingrese su contraseña</label>
             <div class="cont-input-password cont-input">
                 <input type="password" name="" id="password" placeholder="Contraseña">
+                <iconify-icon class="icon-input" style="color: white;" width="22" icon="material-symbols:lock"></iconify-icon>
+                <iconify-icon class="eye-password" id="eyePassword" icon="mdi:eye-outline" style="color: white;" width="22"></iconify-icon>
             </div>
             <p class="p-cont-2 p-cont-2Ocultar"  id="p-cont-2">Ingrese los datos correctame</p>
         </div>

@@ -32,6 +32,29 @@ function loginUsuario(){
 
 }
 
+let eyePassword = document.getElementById('eyePassword');
+let inputPass = document.getElementById('password');
+let i = 0;
+eyePassword.addEventListener('click',()=>{
+    if(i == 1){
+        eyePassword.removeAttribute('icon');
+        eyePassword.setAttribute('icon','mdi:eye-outline');
+        inputPass.removeAttribute('type');
+        inputPass.setAttribute('type','password');
+        i = 0;
+    } else {
+        eyePassword.removeAttribute('icon');
+        eyePassword.setAttribute('icon','mdi:eye-off-outline');
+        i = 1;
+        inputPass.removeAttribute('type');
+        inputPass.setAttribute('type','text');
+
+    }
+});
+
+
+
+
 btnIngresar.addEventListener('click',()=>{
     loginUsuario();
 });
