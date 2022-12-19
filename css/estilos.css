@@ -541,7 +541,7 @@ body {
 table.dataTable tbody th, table.dataTable tbody td {
     padding: 2px 10px;
 }
-.dataTables_paginate {
+/*.dataTables_paginate {
 	display: none;
 }
 .dataTables_info {
@@ -549,7 +549,7 @@ table.dataTable tbody th, table.dataTable tbody td {
 }
 .dataTables_length {
 	display:none;
-}
+}*/
 
 
 
