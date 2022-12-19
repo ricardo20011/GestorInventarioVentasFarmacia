@@ -1,16 +1,16 @@
 <?php
 	session_start();	
 	include("config.php");
+	$sesion = $_SESSION['usuario'];
 
 
-
-	if(isset($_POST['codigoId']))
+	if(isset($_GET['codigoId']))
     	{ 
-    	$codigoId = $_POST['codigoId'];
+    	$codigoId = $_GET['codigoId'];
 
     	//CONSULTAR
-		  $resultados = mysqli_query($conexion,"DELETE FROM $tabla_db1 WHERE codigo = '$codigoId'");
-
+		$resultados = mysqli_query($conexion,"DELETE FROM ".$sesion."X$tabla_db1 WHERE codigo = '$codigoId'");
+		header('Location: '.$ruta.'inventario.php');
     }
 
 

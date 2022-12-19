@@ -19,8 +19,6 @@ const inputs = document.querySelectorAll('#formulario input');
 const agregarProducto = document.getElementById('agregar_producto');
 
 
-
-
 const expresiones = {
 	codigo: /^\d{1,24}$/, // Letras, numeros, guion y guion_bajo
     nombre: /^[a-zA-ZÀ-ÿ\s]+$/, // Letras, numeros, guion y guion_bajo
@@ -114,7 +112,7 @@ let icon_borrar ="<iconify-icon icon='tabler:trash-x' style='color: #bd2626;' wi
 
 //-----------------CARGAR LISTA DE PRODUCTOS CON AJAX Y JS --------------------//
 function cargarUsuarios(){
-    document.getElementById('tbody').innerHTML = "";
+    //document.getElementById('tbody').innerHTML = "";
 
     let peticion = new XMLHttpRequest();
     peticion.open('POST', 'php/leer-datos.php');
@@ -128,17 +126,9 @@ function cargarUsuarios(){
             error_box.classList.add('active');
         } else {
             for(i=0; i < datos.length ; i++){
-                let elemento = document.createElement('tr');
-                elemento.innerHTML += ("<td>" + datos[i].codigo + "</td>");
-                elemento.innerHTML += ("<td>" + datos[i].nombre + "</td>");
-                elemento.innerHTML += ("<td>" + datos[i].concentracion + "</td>");
-                elemento.innerHTML += ("<td>" + datos[i].f_farmaceutica + "</td>");
-                elemento.innerHTML += ("<td>" + datos[i].vencimiento + "</td>");
-                elemento.innerHTML += ("<td>" + datos[i].invima + "</td>");
-                elemento.innerHTML += ("<td>" + datos[i].cantidad + "</td>");
-                elemento.innerHTML += ("<td>$ " + datos[i].precio + "</td>");
-                elemento.innerHTML += ("<td><a class='icon_borrar' href='php/editar-producto.php?id="+datos[i].codigo+"'>"+ icon_editar + "</a></td>");
-                elemento.innerHTML += ("<td ><span class='icon_borrar' id='" + datos[i].codigo + "' onclick=eliminarfila("+datos[i].codigo+");>"+ icon_borrar + "</span></td>");
+                let elemento = document.createElement('td');
+                elemento.innerHTML += ("<a class='icon_borrar' href='php/editar-producto.php?id="+datos[i].codigo+"'>"+ icon_editar + "</a>");
+                elemento.innerHTML += ("<span class='icon_borrar' id='" + datos[i].codigo + "' onclick=eliminarfila("+datos[i].codigo+");>"+ icon_borrar + "</span>");
                 document.getElementById('tbody').appendChild(elemento);
             }
         }

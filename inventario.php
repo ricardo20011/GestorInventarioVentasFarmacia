@@ -233,53 +233,61 @@ if (!isset($_SESSION['usuario'])){
 <script type="text/javascript">
 	$(document).ready(function(){
         $('.cargando').hide();
-		cargarUsuarios();
+		let tablee = $('#tabla');
 
-		setInterval(()=>{
-			if(tabla.rows.length > 1){
-				$('#tabla').DataTable();
-				vencimiento();
+		$('#tabla').DataTable({
+			ajax:{
+				"url": "php/leer-datos.php",
+				"dataSrc": ""
+			},
+			"columns": [
+				{"data":"codigo"},
+				{"data":"nombre"},
+				{"data":"concentracion"},
+				{"data":"f_farmaceutica"},
+				{"data":"vencimiento"},
+				{"data":"invima"},
+				{"data":"cantidad"},
+				{"data":"precio"},
+				{"defaultContent":"<a class='icon_borrar editar' >"+ icon_editar + "</a>"},
+				{"defaultContent":"<span class='icon_borrar' id='" + "' onclick=eliminarfila("+");>"+ icon_borrar + "</span>"}
+			]
+		});
+		tabla.addEventListener('click', (e)=>{
+			confirmarborrado = document.getElementById('confirmarborrado');
+			cancelarborrado = document.getElementById('cancelarborrado');
+			fondo_borrar = document.getElementById('fondo_borrar');
+			let codigo = e.target.parentNode.parentNode.parentNode.firstElementChild.innerText;
+
+			if(e.target.parentNode.parentNode.firstElementChild.tagName == 'A'){
+				window.location.href = ruta + "php/editar-producto.php?id="+codigo;
 			}
-		},200);
+			if(e.target.parentNode.parentNode.firstElementChild.tagName == 'SPAN'){
+				fondo_borrar.classList.add('fondo_borrarActivo');
+				confirmarborrado.addEventListener('click',()=>{
+					window.location.href = ruta + "php/traer-producto.php?codigoId="+codigo;
+				});
+				cancelarborrado.addEventListener('click',()=>{
+					fondo_borrar.classList.remove('fondo_borrarActivo');
+				});
+			}
+		});
+
+
+		setTimeout(()=>{
+			setInterval(()=>{
+				$('#tabla').DataTable();
+				if(tabla.rows.length > 1){
+					vencimiento();
+				}
+			},200);
+		},4000);
     });
 
-	confirmarborrado = document.getElementById('confirmarborrado');
-	cancelarborrado = document.getElementById('cancelarborrado');
-	fonfo_borrar = document.getElementById('fondo_borrar');
 
-	function eliminarfila(codigoId){
-		fondo_borrar.classList.add('fondo_borrarActivo');
+	
 
-		confirmarborrado.addEventListener('click', ()=>{
-			var parametros = 
-			{
-			"codigoId" : codigoId
-			};
-			$.ajax(
-			{
-			data:  parametros,
-			dataType: 'json',
-			url:   'php/traer-producto.php',
-			type:  'post',
-			beforeSend: function() {
-				$('.formularioVender').hide();
-				$('.cargando').show();
-			}, 
-			error: function(){
-				cargarUsuarios();
-			},
-			complete: function() {
-				$('.formularioVender').show();
-				$('.cargando').hide();
-			}
-			})
-			fondo_borrar.classList.remove('fondo_borrarActivo');
-		});
 
-		cancelarborrado.addEventListener('click', ()=>{
-			fondo_borrar.classList.remove('fondo_borrarActivo');
-		});
-	}
 		
 	function buscar_datos(){
 		codigov = $("#codigov").val();
