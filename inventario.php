@@ -5,6 +5,17 @@ require("php/config.php");
 if (!isset($_SESSION['usuario'])){
     header("Location: $ruta"."login.php");
 }
+$sesion = $_SESSION['usuario'];
+
+$conexion->set_charset("utf8");
+$statement = $conexion->prepare("SELECT * FROM $tabla_db3 WHERE usuario = '$sesion'");
+$statement->execute();
+$resultados = $statement->get_result();
+$resultados = $resultados->fetch_assoc();
+
+
+
+
 
 ?>
 <!DOCTYPE html>
@@ -25,11 +36,11 @@ if (!isset($_SESSION['usuario'])){
 <body>
 	<div class="menu" id="menu">
 		<div class="cont_1">
-			<div class="sub_cont_1"><img src="img/logo_empresa.png" alt=""></div>
-			<div><p class="nombre_empresa">Drogueria Mundo Farma</p></div>
-			<div><p class="nit">NIT 41936351-7</p></div>
-			<div><p class="direccion">Cra 12 N 23-31 Villa Amalia</p></div>
-			<div><p class="responsable">Eliana Maria Ceballos Diaz</p></div>
+			<div class="sub_cont_1"><img src="<?php echo($resultados['img']); ?>" alt=""></div>
+			<div><p class="nombre_empresa"><?php echo($resultados['nombreEmpresa']); ?></p></div>
+			<div><p class="nit"><?php echo($resultados['nit']); ?></p></div>
+			<div><p class="direccion"><?php echo($resultados['direccion']); ?></p></div>
+			<div><p class="responsable"><?php echo($resultados['responsable']); ?></p></div>
 		</div>
 		<div class="cont_2">
 			<div class="sub_cont_1"><iconify-icon class="icon-caja" icon="fa-solid:cash-register"></iconify-icon><a href="index.php">Caja Vender</a></div>
@@ -274,14 +285,13 @@ if (!isset($_SESSION['usuario'])){
 		});
 
 
-		setTimeout(()=>{
-			setInterval(()=>{
-				$('#tabla').DataTable();
-				if(tabla.rows.length > 1){
-					vencimiento();
-				}
-			},200);
-		},4000);
+
+		setInterval(()=>{
+			if(tabla.rows.length > 1){
+				vencimiento();
+			}
+		},500);
+
     });
 
 

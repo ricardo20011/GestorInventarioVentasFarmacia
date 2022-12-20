@@ -448,6 +448,7 @@ body {
 	width:150px;
 	height:150px;
 	border-radius:50%;
+	object-fit: cover;
 }
 	.cont_1 .sub_cont_1 {
 		margin:20px 0;
