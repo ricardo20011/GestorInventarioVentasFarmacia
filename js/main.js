@@ -24,8 +24,8 @@ const expresiones = {
     nombre: /^[a-zA-ZÀ-ÿ\s]+$/, // Letras, numeros, guion y guion_bajo
 	concentracion: /^\w{0,40}\s[A-Za-z].+$/, // Letras y espacios, pueden llevar acentos.
 	f_farmaceutica: /^[a-zA-ZÀ-ÿ\s]+$/, 
-	ingreso: /^\d{4}\/\d?\d\/\d?[1-9]?$/,
-	vencimiento: /^\d{4}\/\d?\d\/\d?[1-9]?$/, 
+	ingreso: /^\d{4}\/\d?[1-12]?\/\d?[1-31]?$/, 
+	vencimiento: /^\d{4}\/\d?[1-12]?\/\d?[1-31]?$/, 
     lote: /^\d{1,24}$/,
     cantidad: /^\d{1,24}$/,
     precio: /^\d{0,40}.\d{0,5}.\d{0,5}$/,
