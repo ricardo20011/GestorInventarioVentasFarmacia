@@ -1,12 +1,33 @@
 
 let btnIngresar = document.getElementById('ingresar');
 
+function stripHtml(html) {
+    var tmp = document.createElement("DIV");
+    html = html.replace(/"/g, '');
+    html = html.replace(/'/g, '');
+    html = html.replace(/`/g, '');
+    tmp.innerHTML = html;
+    return tmp.textContent || tmp.innerText || "";
+}
+function SegString(input){
+    input = stripHtml(input);
+    input = input.replace(/</g, '');
+    input = input.replace(/>/g, '');
+    input = input.replace(/\//g, '');
+    return input;
+}
+
 
 function loginUsuario(){
     let peticion = new XMLHttpRequest();
 
     let campoUsuario = document.getElementById('usuario').value;
     let campoPassword = document.getElementById('password').value;
+
+    campoUsuario = SegString(campoUsuario);
+    campoPassword = SegString(campoPassword);
+
+    console.log(campoUsuario + " " + campoPassword);
 
     peticion.open('GET', 'php/comprobar-usuario.php?usuario=' + campoUsuario + '&password=' + campoPassword, true);
 
@@ -16,7 +37,6 @@ function loginUsuario(){
         if(datos.error == true){
             console.log('Tienes un error de datos no recibidos');
         } else {
-            console.log(datos);
            if(datos.exito == false){
                 document.getElementById('p-cont-1').classList.remove('p-cont-1Ocultar');
                 document.getElementById('p-cont-1').classList.add('p-contActivo');

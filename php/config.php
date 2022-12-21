@@ -1,5 +1,13 @@
 <?php 
-	
+
+
+// Seguridad para las entradas
+function SecurityInputs($str1){
+    $str1 = filter_var($str1, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $str1 = htmlspecialchars($str1);
+    return $str1;
+}
+
 // Parametros a configurar para la conexion de la base de datos 
 $host = "162.241.60.251";    // sera el valor de nuestra BD 
 $basededatos = "rickbrok_farmacia";    // sera el valor de nuestra BD 
@@ -28,5 +36,7 @@ if ($conexion->connect_errno) {
     echo "Nuestro sitio experimenta fallos....";
     exit();
 }
+
+
 
 ?>

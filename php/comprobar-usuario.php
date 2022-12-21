@@ -1,16 +1,22 @@
 <?php
 error_reporting(E_ALL ^ E_NOTICE);
 session_start();
-require("config.php");
-
-
 error_reporting(0);
-require("config.php");
 header('Content-type: application/json; charset=utf-8');
+require("config.php");
+
+
 
 
 $inputUsuario = $_REQUEST['usuario'];
 $inputPassword = $_REQUEST['password'];
+
+$inputUsuario .= filter_input(INPUT_GET, $inputUsuario, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$inputPassword .= filter_input(INPUT_GET, $inputPassword, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+SecurityInputs($inputUsuario);
+SecurityInputs($inputPassword);
+$inputPassword = hash('sha3-512', $inputPassword);
+
 
 
 if($conexion->connect_errno){
