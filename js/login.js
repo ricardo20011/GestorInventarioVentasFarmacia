@@ -1,21 +1,6 @@
 
 let btnIngresar = document.getElementById('ingresar');
 
-function stripHtml(html) {
-    var tmp = document.createElement("DIV");
-    html = html.replace(/"/g, '');
-    html = html.replace(/'/g, '');
-    html = html.replace(/`/g, '');
-    tmp.innerHTML = html;
-    return tmp.textContent || tmp.innerText || "";
-}
-function SegString(input){
-    input = stripHtml(input);
-    input = input.replace(/</g, '');
-    input = input.replace(/>/g, '');
-    input = input.replace(/\//g, '');
-    return input;
-}
 
 
 function loginUsuario(){

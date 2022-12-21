@@ -10,7 +10,8 @@ header('Content-type: application/json; charset=utf-8');
 $sesion = $_SESSION['usuario'];
 
 $campo = $_REQUEST['campo'];
-
+$campo .= filter_input(INPUT_GET, $campo, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+SecurityInputs($campo);
 
 if($conexion->connect_errno){
     //header('Location: error/error.php');
@@ -25,9 +26,6 @@ if($conexion->connect_errno){
 
     $respuesta = [];
 
-    
-
-
     while($fila = $resultados->fetch_assoc()){
         $usuario = [
             'nombre'    =>  $fila['nombre'],
@@ -41,10 +39,6 @@ if($conexion->connect_errno){
         ];
         array_push($respuesta, $usuario);
     }
-
-    //$respuesta = implode($respuesta);
-
-    //echo(__toString($respuesta));
 }
 
 echo json_encode($respuesta);

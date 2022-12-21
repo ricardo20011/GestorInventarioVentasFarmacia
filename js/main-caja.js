@@ -15,12 +15,14 @@ function quitarSeparadorMiles(numero) {
 
 
 
-tabla = document.getElementById('tabla');
-btn_cargar = document.getElementById('addProducto');
-campoValor = document.getElementById('campo').value;
-campo = document.getElementById('campo');
+let tabla = document.getElementById('tabla');
+let btn_cargar = document.getElementById('addProducto');
+let campoValor = document.getElementById('campo').value;
+campoValor = SegString(campoValor);
+let campo = document.getElementById('campo');
+campo = SegString(campo);
 let icon_borrar ="<iconify-icon icon='tabler:trash-x' style='color: #bd2626;' width='23'></iconify-icon>";
-btnVender = document.getElementById('vender');
+let btnVender = document.getElementById('vender');
 
 
 tabla.addEventListener('click', (e)=>{
@@ -30,7 +32,7 @@ tabla.addEventListener('click', (e)=>{
 });
 
 function multiplicarinputs(){
-    cellTotal = 0;
+    let cellTotal = 0;
     for(i=1; i < tabla.rows.length; i++){
 
         let precio = tabla.rows[i].cells[5].innerHTML;
@@ -42,6 +44,7 @@ function multiplicarinputs(){
         
         let valor = "";
         valor = inputs[0].value;
+        valor = SegString(valor);
         
         if(inputs[0].value == '' || inputs[0].value == '0' || inputs[0].value < 0){
             let subprecio = agregarSeparadorMiles(precio);
