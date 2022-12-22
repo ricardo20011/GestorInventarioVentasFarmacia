@@ -38,70 +38,70 @@ if (!isset($_SESSION['usuario'])){
                         <div class="formulario__grupo-input">
                             <input type="text" name="codigo" value="<?php echo($dato_producto['codigo']); ?>" readonly id="codigo" placeholder="Codigo" class="form-control">
                         </div>
-                        <p class="formulario__input-error">Porfavor ingrese el texto que corresponde a las condicionales del input</p>
+                        <p class="formulario__input-error">Ingrese un codigo de barras o numero no mayor a 24 digitos</p>
                     </div>
                     <div class="formulario__grupo" id="grupo__nombre">
                         <label for="nombre" class="formulario__label">Nombre del medicamento</label>
                         <div class="formulario__grupo-input">
                             <input type="text" name="nombre" value="<?php echo($dato_producto['nombre']); ?>"  id="nombre" placeholder="Medicamento" class="form-control">
                         </div>
-                        <p class="formulario__input-error">Porfavor ingrese el texto que corresponde a las condicionales del input</p>
+                        <p class="formulario__input-error">No se admiten numeros ni simbolos, solo palabras</p>
                     </div>
                     <div class="formulario__grupo" id="grupo__concentracion">
                         <label for="concentracion" class="formulario__label">Concentracion</label>
                         <div class="formulario__grupo-input">
                             <input type="text" name="concentracion" value="<?php echo($dato_producto['concentracion']); ?>" id="concentracion" placeholder="Concentracion" class="form-control">
                         </div>
-                        <p class="formulario__input-error">Porfavor ingrese el texto que corresponde a las condicionales del input</p>
+                        <p class="formulario__input-error">Ingrese una concentracion valida ejemp: 500 Mg / 100 ml</p>
                     </div>
                     <div class="formulario__grupo" id="grupo__f_farmaceutica">
                         <label for="f_farmaceutica" class="formulario__label">Formula farmaceutica</label>
                         <div class="formulario__grupo-input">
                             <input type="text" name="f_farmaceutica" value="<?php echo($dato_producto['f_farmaceutica']); ?>" id="f_farmaceutica" placeholder="F - Farmaceutica" class="form-control">
                         </div>
-                        <p class="formulario__input-error">Porfavor ingrese el texto que corresponde a las condicionales del input</p>
+                        <p class="formulario__input-error">Ingrese solo palabras, no se admiten simbolos ni numeros</p>
                     </div>
                     <div class="formulario__grupo" id="grupo__ingreso">
                         <label for="ingreso" class="formulario__label">Fecha de ingreso</label>
                         <div class="formulario__grupo-input">
                             <input type="text" name="ingreso" id="ingreso" value="<?php echo($dato_producto['ingreso']); ?>" placeholder="Fecha ingreso" class="form-control">
                         </div>
-                        <p class="formulario__input-error">Porfavor ingrese el texto que corresponde a las condicionales del input</p>
+                        <p class="formulario__input-error">Porfavor ingrese una fecha valida en el siguiente formato AAAA/MM/DD</p>
                     </div>
                     <div class="formulario__grupo" id="grupo__vencimiento">
                         <label for="vencimiento" class="formulario__label">Fecha de vencimiento</label>
                         <div class="formulario__grupo-input">
                             <input type="text" name="vencimiento" id="vencimiento" value="<?php echo($dato_producto['vencimiento']); ?>" placeholder="Fecha vencimiento" class="form-control">
                         </div>
-                        <p class="formulario__input-error">Porfavor ingrese el texto que corresponde a las condicionales del input</p>
+                        <p class="formulario__input-error">Porfavor ingrese una fecha valida en el siguiente formato AAAA/MM/DD</p>
                     </div>
                     <div class="formulario__grupo" id="grupo__invima">
                         <label for="invima" class="formulario__label">INVIMA</label>
                         <div class="formulario__grupo-input">
                             <input type="text" name="invima" id="invima" value="<?php echo($dato_producto['invima']); ?>" placeholder="INVIMA" class="form-control">
                         </div>
-                        <p class="formulario__input-error">Porfavor ingrese el texto que corresponde a las condicionales del input</p>
+                        <p class="formulario__input-error">Ingrese un registro valido ejemp: 2016M-00115-R1</p>
                     </div>
                     <div class="formulario__grupo" id="grupo__lote">
                         <label for="lote" class="formulario__label">Lote del medicamento</label>
                         <div class="formulario__grupo-input">
                             <input type="text" name="lote" id="lote" value="<?php echo($dato_producto['lote']); ?>" placeholder="Ingrese aqui el lote" class="form-control">
                         </div>
-                        <p class="formulario__input-error">Porfavor ingrese el texto que corresponde a las condicionales del input</p>
+                        <p class="formulario__input-error">No se admiten simbolos, digite letras y numeros</p>
                     </div>
                     <div class="formulario__grupo" id="grupo__cantidad">
                         <label for="cantidad" class="formulario__label">Ingrese la cantidad en Unidades</label>
                         <div class="formulario__grupo-input">
                             <input type="text" name="cantidad" id="cantidad" value="<?php echo($dato_producto['cantidad']); ?>" placeholder="Cantidad" class="form-control">
                         </div>
-                        <p class="formulario__input-error">Porfavor ingrese el texto que corresponde a las condicionales del input</p>
+                        <p class="formulario__input-error">Ingrese una cantidad valida, no se admiten letras</p>
                     </div>
                     <div class="formulario__grupo" id="grupo__precio">
                         <label for="precio" class="formulario__label">Ingrese la precio por unidad</label>
                         <div class="formulario__grupo-input">
                             <input type="text" name="precio" id="precio" value="<?php echo($dato_producto['precio']); ?>" placeholder="Ingrese aqui el precio" class="form-control">
                         </div>
-                        <p class="formulario__input-error">Porfavor ingrese el texto que corresponde a las condicionales del input</p>
+                        <p class="formulario__input-error">Ingrese una precio valido, no se admiten letras</p>
                     </div>
                     <div class="cont_button_sucess">
                         <button type="submit" name="btnGuardar" id="editar_producto"  class="btn btn-success agregar_producto">Guardar</button>

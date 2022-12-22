@@ -24,8 +24,8 @@ const expresiones = {
     nombre: /^[a-zA-ZÀ-ÿ\s]+$/, // Letras, numeros, guion y guion_bajo
 	concentracion: /^\w{0,40}\s[A-Za-z].+$/, // Letras y espacios, pueden llevar acentos.
 	f_farmaceutica: /^[a-zA-ZÀ-ÿ\s]+$/, 
-	ingreso: /^\d{4}\/\d?[1-12]?\/\d?[1-31]?$/, 
-	vencimiento: /^\d{4}\/\d?[1-12]?\/\d?[1-31]?$/, 
+	ingreso: /^\d{4}([\-/.])(0?[1-9]|1[1-2])\1(3[01]|[12][0-9]|0?[1-9])$/, 
+	vencimiento: /^\d{4}([\-/.])(0?[1-9]|1[1-2])\1(3[01]|[12][0-9]|0?[1-9])$/, 
     lote: /^\d{1,24}$/,
     cantidad: /^\d{1,24}$/,
     precio: /^\d{0,40}.\d{0,5}.\d{0,5}$/,
@@ -344,7 +344,7 @@ const validarFormulario = (e) => {
         case "vencimiento":
             if(inputVencimiento.value == '' || inputVencimiento.value == 'No Aplica'){
                 inputVencimiento.value = 'No Aplica';
-                document.getElementById(`grupo__nombre`).classList.remove('formulario__grupo--incorrecto');
+                document.getElementById(`grupo__vencimiento`).classList.remove('formulario__grupo--incorrecto');
             } else {
                 validarInput(expresiones.vencimiento,e.target,'vencimiento');
             }
