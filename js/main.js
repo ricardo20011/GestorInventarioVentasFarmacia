@@ -168,9 +168,22 @@ function agregarUsuarios(e){
     usuario_ingreso = inputIngreso.value.trim();
     usuario_precio = inputPrecio.value.trim();
     usuario_lote = inputLote.value.trim();
-    
-    
 
+
+    usuario_codigo = SegString(usuario_codigo);
+    usuario_nombre = SegString(usuario_nombre);
+    usuario_concentracion = SegString(usuario_concentracion);
+    usuario_f_farmaceutica = SegString(usuario_f_farmaceutica);
+    usuario_vencimiento = SegString(usuario_vencimiento);
+    usuario_invima = SegString(usuario_invima);
+    usuario_ingreso = SegString(usuario_ingreso);
+    usuario_precio = SegString(usuario_precio);
+    usuario_lote = SegString(usuario_lote);
+    usuario_cantidad = SegString(usuario_cantidad);
+
+
+
+    
     var parametros =  'codigo=' + usuario_codigo + '&nombre=' + usuario_nombre + '&concentracion=' + usuario_concentracion + '&f_farmaceutica=' + usuario_f_farmaceutica + '&vencimiento=' + usuario_vencimiento + '&invima=' + usuario_invima + '&cantidad=' + usuario_cantidad +'&ingreso=' + usuario_ingreso + '&precio=' + usuario_precio + '&lote=' + usuario_lote;
     peticion.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 

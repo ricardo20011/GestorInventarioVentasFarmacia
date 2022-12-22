@@ -407,7 +407,7 @@ td {
 	cursor:pointer;
 	position: relative;
 }
-.icon_borrar::after {
+/*.icon_borrar::after {
 	position: absolute;
 	content: "";
 	width:0px;
@@ -423,7 +423,7 @@ td {
 	top: -13px;
 	left: -3px;
 	height:28px;
-}
+}*/
 
 
 html {

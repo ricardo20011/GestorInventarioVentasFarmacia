@@ -15,6 +15,5 @@ function SegString(input){
     input = stripHtml(input);
     input = input.toString().replace(/</g, '');
     input = input.toString().replace(/>/g, '');
-    input = input.toString().replace(/\//g, '');
     return input;
 }

@@ -261,7 +261,7 @@ $resultados = $resultados->fetch_assoc();
 				{"data":"cantidad"},
 				{"data":"precio"},
 				{"defaultContent":"<a class='icon_borrar editar' >"+ icon_editar + "</a>"},
-				{"defaultContent":"<span class='icon_borrar' id='" + "' onclick=eliminarfila("+");>"+ icon_borrar + "</span>"}
+				{"defaultContent":"<span class='icon_borrar';>"+ icon_borrar + "</span>"}
 			]
 		});
 		tabla.addEventListener('click', (e)=>{
@@ -285,12 +285,13 @@ $resultados = $resultados->fetch_assoc();
 		});
 
 
-
-		setInterval(()=>{
-			if(tabla.rows.length > 1){
-				vencimiento();
-			}
-		},500);
+		setTimeout(()=>{
+			setInterval(()=>{
+				if(tabla.rows.length > 1){
+					vencimiento();
+				}
+			},500)
+		},1500);
 
     });
 

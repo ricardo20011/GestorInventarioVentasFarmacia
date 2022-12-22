@@ -1,12 +1,6 @@
 <?php 
 
 
-// Seguridad para las entradas
-function SecurityInputs($str1){
-    $str1 = filter_var($str1, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $str1 = htmlspecialchars($str1);
-    return $str1;
-}
 
 // Parametros a configurar para la conexion de la base de datos 
 $host = "162.241.60.251";    // sera el valor de nuestra BD 
@@ -19,6 +13,8 @@ $tabla_db1 = "usuarios"; 	   // tabla de usuarios
 $tabla_db2 = "ventas";
 $tabla_db3 = "temp";
 
+
+// Seguridad para las entradas
 
 // establecer ruta de del hosting
 $local = 'http://localhost/farmacia/';

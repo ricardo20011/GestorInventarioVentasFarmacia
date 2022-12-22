@@ -1,11 +1,8 @@
 <?php
 
-
 session_start();
 require("config.php");
-
-
-require 'config.php';
+require("funciones.php");
 error_reporting(0);
 header('Content-type: application/json; charset=utf-8');
 
@@ -23,13 +20,21 @@ $precio = $_POST['precio'];
 $lote = $_POST['lote'];
 
 
-
-
-
-
-
-
 // SE DEBE AQUI HACER CODIGO PARA LIMPIAR LOS DATOS DE LOS INPUTS
+$codigo = SecurityInputs($codigo);
+$nombre = SecurityInputs($nombre);
+$concentracion = SecurityInputs($concentracion);
+$f_farmaceutica = SecurityInputs($f_farmaceutica);
+$vencimiento = SecurityInputs($vencimiento);
+$invima = SecurityInputs($invima);
+$cantidad = SecurityInputs($cantidad);
+$ingreso = SecurityInputs($ingreso);
+$precio = SecurityInputs($precio);
+$lote = SecurityInputs($lote);
+
+
+
+
 
 function validarDatos ($codigo,$nombre,$concentracion,$f_farmaceutica,$vencimiento,$invima,$cantidad){
     if($codigo == ''){
@@ -73,6 +78,5 @@ if(validarDatos($codigo,$nombre,$concentracion,$f_farmaceutica,$vencimiento,$inv
 }
 
 echo json_encode($respuesta);
-echo json_encode($respuestaeliminar);
 
 ?>
