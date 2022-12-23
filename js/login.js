@@ -11,10 +11,17 @@ function loginUsuario(){
 
     campoUsuario = SegString(campoUsuario);
     campoPassword = SegString(campoPassword);
+    
 
-    console.log(campoUsuario + " " + campoPassword);
+    let obj = {
+            "usuario" : campoUsuario,
+            "password" : campoPassword
+        };
 
-    peticion.open('GET', 'php/comprobar-usuario.php?usuario=' + campoUsuario + '&password=' + campoPassword, true);
+        
+    let encapsulado = JSON.stringify(obj);
+
+    peticion.open('POST','php/comprobar-usuario.php');
 
     peticion.onload = ()=>{
         let datos = JSON.parse(peticion.responseText);
@@ -33,7 +40,8 @@ function loginUsuario(){
         }
     }
 
-    peticion.send();
+    peticion.setRequestHeader("Content-Type", "application/json");
+    peticion.send(encapsulado);
 
 }
 

@@ -287,7 +287,7 @@ $resultados = $resultados->fetch_assoc();
 
 		setTimeout(()=>{
 			setInterval(()=>{
-				if(tabla.rows.length > 1){
+				if(tabla.rows.length > 2){
 					vencimiento();
 				}
 			},500)

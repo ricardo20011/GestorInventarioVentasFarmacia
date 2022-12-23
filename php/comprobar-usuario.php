@@ -7,17 +7,26 @@ require("config.php");
 require("funciones.php");
 
 
+$miObjetoJSON = file_get_contents('php://input');
 
+$miObjeto = json_decode($miObjetoJSON);
 
-$inputUsuario = $_REQUEST['usuario'];
-$inputPassword = $_REQUEST['password'];
+$credenciales = array();
+$arreglo = get_object_vars( $miObjeto );
+
+foreach( $arreglo as $indice=>$valor ){
+    $credenciales[] = $valor;
+} 
+
 
 $inputUsuario .= filter_input(INPUT_GET, $inputUsuario, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $inputPassword .= filter_input(INPUT_GET, $inputPassword, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 SecurityInputs($inputUsuario);
 SecurityInputs($inputPassword);
-$inputPassword = hash('sha3-512', $inputPassword);
 
+$inputUsuario = $credenciales[0];
+$inputPassword = $credenciales[1];
+$inputPassword = hash('sha3-512', $inputPassword);
 
 
 if($conexion->connect_errno){
