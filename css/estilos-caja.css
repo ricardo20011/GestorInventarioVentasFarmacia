@@ -147,22 +147,6 @@ input:focus {
 	height:2px;
 	opacity:0;
 }
-.cont_2 div a::before {
-	transition: all 1s ease;
-	content:" ";
-	position:absolute;
-	left:0;
-	top:-5px;
-	background:rgb(0, 83, 69);
-	width:0%;
-	height:2px;
-	opacity:0;
-}
-.cont_2 div a:hover:before {
-	background-color: rgb(0, 182, 91);
-	width:100%;
-	opacity:1;
-}
 .cont_2 div a:hover:after {
 	background-color: rgb(0, 182, 91);
 	width:100%;
@@ -177,7 +161,7 @@ input:focus {
 	color: #17a33a;
 }
 .cont_2 div a:hover {
-	color:rgb(37, 219, 0);
+	color:rgb(228, 228, 228);
 }
 .cont_2 div iconify-icon {
 	color:white;

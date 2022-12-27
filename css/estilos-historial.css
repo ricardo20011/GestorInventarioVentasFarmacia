@@ -124,11 +124,6 @@ html {
 	height:2px;
 	opacity:0;
 }
-.cont_2 div a:hover:before {
-	background-color: rgb(0, 182, 91);
-	width:100%;
-	opacity:1;
-}
 .cont_2 div a:hover:after {
 	background-color: rgb(0, 182, 91);
 	width:100%;
@@ -140,7 +135,7 @@ html {
 	transition: all 0.3s ease;
 }
 .cont_2 div a:hover {
-	color:rgb(37, 219, 0);
+	color:rgb(228, 228, 228);
 }
 .cont_2 div iconify-icon {
 	color:white;
