@@ -4,13 +4,12 @@
 	$sesion = $_SESSION['usuario'];
 
 
-	if(isset($_GET['codigoId']))
-    	{ 
+	if(isset($_GET['codigoId'])){ 
     	$codigoId = $_GET['codigoId'];
 
-    	//CONSULTAR
-		$resultados = mysqli_query($conexion,"DELETE FROM ".$sesion."X$tabla_db1 WHERE codigo = '$codigoId'");
-		header('Location: '.$ruta.'inventario.php');
+    	//ELIMINAR PRODUCTO
+		$resultados = mysqli_query($conexion,"DELETE FROM ".$sesion."X$tabla_db1 WHERE codigo = ".$codigoId);
+
     }
 
 

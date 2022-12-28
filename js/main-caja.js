@@ -188,7 +188,7 @@ function confirmarVenta(){
                 };
             }
         }
-        console.log(obj);
+        //console.log(obj);
         
         let encapsulado = JSON.stringify(obj);
 

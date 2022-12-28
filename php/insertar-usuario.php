@@ -1,10 +1,10 @@
 <?php
-
+error_reporting(0);
 session_start();
+header('Content-type: application/json; charset=utf-8');
+
 require("config.php");
 require("funciones.php");
-error_reporting(0);
-header('Content-type: application/json; charset=utf-8');
 
 $sesion = $_SESSION['usuario'];
 

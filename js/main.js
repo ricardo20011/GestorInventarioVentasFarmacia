@@ -110,44 +110,6 @@ let usuario_lote = '';
 let icon_editar ="<iconify-icon icon='fluent:text-bullet-list-square-edit-24-filled' style='color: #1b7553;' width='23'></iconify-icon>";
 let icon_borrar ="<iconify-icon icon='tabler:trash-x' style='color: #bd2626;' width='23'></iconify-icon>";
 
-//-----------------CARGAR LISTA DE PRODUCTOS CON AJAX Y JS --------------------//
-function cargarUsuarios(){
-    //document.getElementById('tbody').innerHTML = "";
-
-    let peticion = new XMLHttpRequest();
-    peticion.open('POST', 'php/leer-datos.php');
-
-    loader.classList.add('active');
-
-    peticion.onload = ()=>{
-        let datos = JSON.parse(peticion.responseText);
-
-        if(datos.error == true){
-            error_box.classList.add('active');
-        } else {
-            for(i=0; i < datos.length ; i++){
-                let elemento = document.createElement('td');
-                elemento.innerHTML += ("<a class='icon_borrar' href='php/editar-producto.php?id="+datos[i].codigo+"'>"+ icon_editar + "</a>");
-                elemento.innerHTML += ("<span class='icon_borrar' id='" + datos[i].codigo + "' onclick=eliminarfila("+datos[i].codigo+");>"+ icon_borrar + "</span>");
-                document.getElementById('tbody').appendChild(elemento);
-            }
-        }
-    }
-
-    peticion.onreadystatechange = ()=>{
-        if(peticion.readyState == 4 && peticion.status == 200){
-            loader.classList.remove('active');
-        }
-    }
-
-    peticion.send();
-    
-    setInterval(()=>{
-        if(tabla.rows.length > 1){
-            document.getElementById('block').classList.remove('blockActivo');
-        }
-    },200);
-}
 
 //---------------------AGREGAR PRODUCTOS A EL INVENTARIO-----------------------//
 
@@ -187,9 +149,7 @@ function agregarUsuarios(e){
     var parametros =  'codigo=' + usuario_codigo + '&nombre=' + usuario_nombre + '&concentracion=' + usuario_concentracion + '&f_farmaceutica=' + usuario_f_farmaceutica + '&vencimiento=' + usuario_vencimiento + '&invima=' + usuario_invima + '&cantidad=' + usuario_cantidad +'&ingreso=' + usuario_ingreso + '&precio=' + usuario_precio + '&lote=' + usuario_lote;
     peticion.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-    loader.classList.add('active');
     peticion.onload = ()=>{
-        cargarUsuarios();
         inputCodigo.value = '';
         inputNombre.value = '';
         inputConcentracion.value = '';
@@ -423,7 +383,7 @@ formulario.addEventListener('submit', (e)=>{
                 vencimiento();
             }
         },200);
-        window.location.href = ruta + "inventario.php";
+        $('#tabla').DataTable().ajax.reload();
     } else {
         e.preventDefault();
     }

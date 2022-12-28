@@ -190,7 +190,7 @@ $resultados = $resultados->fetch_assoc();
 						<span class="blcok" id="block"></span>
 						<button id="btn_ingresar" class="botones btn active boton_ingresar_producto" onclick="">Ingresar Producto</button>
 					</div>
-					<form autocomplete="off" action="" class="fomularioVender formulario" id="formularioVender">
+					<form autocomplete="off" action="" class="fomularioVender formulario" id="formulario">
 						<input type="text" name="codigov" id="codigov" onblur="buscar_datos();" placeholder="Codigo">
 						<input type="text" name="nombrev" id="nombrev" placeholder="Medicamento" readonly>
 						<input type="text" name="concentracionv" id="concentracionv" placeholder="Concentracion" disabled>
@@ -233,10 +233,9 @@ $resultados = $resultados->fetch_assoc();
 	<script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
 	<script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
 	<script src="js/config.js"></script>
-	<script src="js/main-ingresar.js"></script>
 	<script src="js/vencimiento.js"></script>
-	<script src="js/main.js"></script>
 	<script src="js/jquery.dataTables.js"></script>
+	<script src="js/main.js"></script>
 </body>
 </html>
 
@@ -264,6 +263,7 @@ $resultados = $resultados->fetch_assoc();
 				{"defaultContent":"<span class='icon_borrar';>"+ icon_borrar + "</span>"}
 			]
 		});
+
 		tabla.addEventListener('click', (e)=>{
 			confirmarborrado = document.getElementById('confirmarborrado');
 			cancelarborrado = document.getElementById('cancelarborrado');
@@ -276,7 +276,17 @@ $resultados = $resultados->fetch_assoc();
 			if(e.target.parentNode.parentNode.firstElementChild.tagName == 'SPAN'){
 				fondo_borrar.classList.add('fondo_borrarActivo');
 				confirmarborrado.addEventListener('click',()=>{
-					window.location.href = ruta + "php/traer-producto.php?codigoId="+codigo;
+        
+					let codigoId = codigo;
+
+					let peticion = new XMLHttpRequest();
+					
+					peticion.open('GET', 'php/traer-producto.php?codigoId=' + codigoId, true);
+					peticion.send();
+
+					$('#tabla').DataTable().ajax.reload();
+					
+					fondo_borrar.classList.remove('fondo_borrarActivo');
 				});
 				cancelarborrado.addEventListener('click',()=>{
 					fondo_borrar.classList.remove('fondo_borrarActivo');
