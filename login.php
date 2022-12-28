@@ -7,7 +7,7 @@ if (isset($_SESSION['usuario'])){
     header("Location: $ruta"."index.php");
 }
 
-//este es un comentario
+//este es un comentario000000
 ?>
 <!DOCTYPE html>
 <html lang="en" class="html-login">
