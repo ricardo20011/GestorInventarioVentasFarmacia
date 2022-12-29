@@ -5,7 +5,7 @@
 // Parametros a configurar para la conexion de la base de datos 
 $host = "162.241.60.251";    // sera el valor de nuestra BD 
 $basededatos = "rickbrok_farmacia";    // sera el valor de nuestra BD 
-$usuariodb = "rickbrok_previs_ips";    // sera el valor de nuestra BD 
+$usuariodb = "rickbrok_main";    // sera el valor de nuestra BD 
 $clavedb = "1006690431";    // sera el valor de nuestra BD 
 
 //Lista de Tablas
