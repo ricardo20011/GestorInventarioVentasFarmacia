@@ -21,9 +21,37 @@ let campoValor = document.getElementById('campo').value;
 campoValor = SegString(campoValor);
 let campo = document.getElementById('campo');
 campo = SegString(campo);
-let icon_borrar ="<iconify-icon icon='tabler:trash-x' style='color: #bd2626;' width='23'></iconify-icon>";
+let icon_borrar ='<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="none" stroke="#bd2626" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3m-5 5l4 4m0-4l-4 4"/></svg>';
 let btnVender = document.getElementById('vender');
+let iconMenuRespon = document.getElementById('iconMenuRespon');
+let detecMenu = document.getElementById('detec-menu');
+let iconMenu = document.getElementById('iconMenuRespon');
 
+let constanteIcon = 0;
+iconMenu.addEventListener('click',()=>{
+    if(constanteIcon == 1){
+        iconMenu.removeAttribute('icon');
+        iconMenu.setAttribute('icon','fontisto:nav-icon-a');
+        constanteIcon = 0;
+    } else {
+        iconMenu.removeAttribute('icon');
+        iconMenu.setAttribute('icon','maki:cross');
+        constanteIcon = 1;
+    }
+});
+
+detecMenu.addEventListener('click', ()=>{
+    document.getElementById('menu').classList.toggle('menuActivo');
+    detecMenu.classList.toggle('detec-menuActivo');
+    iconMenu.removeAttribute('icon');
+    iconMenu.setAttribute('icon','fontisto:nav-icon-a');
+    constanteIcon = 0;
+});
+
+iconMenuRespon.addEventListener('click',()=>{
+    document.getElementById('menu').classList.toggle('menuActivo');
+    detecMenu.classList.toggle('detec-menuActivo');
+});
 
 tabla.addEventListener('click', (e)=>{
     if(e.target.parentNode.parentNode.tagName == 'TD'){
@@ -114,7 +142,7 @@ function cargarUsuarios(){
                     elemento.innerHTML += ("<td>" + datos[i].codigo + "</td>");
                     elemento.innerHTML += ("<td>" + datos[i].nombre + "</td>");
                     elemento.innerHTML += ("<td class='filaCentrar'>" + datos[i].cantidad + "</td>");
-                    elemento.innerHTML += ("<td>" + datos[i].concentracion + "</td>");
+                    elemento.innerHTML += ("<td class='eliminarPrimera'>" + datos[i].concentracion + "</td>");
                     elemento.innerHTML += ("<td class='filaCentrar'>" + datos[i].vencimiento + "</td>");
                     elemento.innerHTML += ("<td class='filaCentrar'>" + datos[i].precio + "</td>");
                     elemento.innerHTML += ("<td><input type='number' min='1' value='1'></input></td>");

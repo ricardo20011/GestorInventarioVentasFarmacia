@@ -35,6 +35,13 @@ $resultados = $resultados->fetch_assoc();
 	<script src="jquery/jquery-3.4.1.min.js"></script>
 </head>
 <body class="body-caja">
+	<div class="detec-menu" id="detec-menu"></div>
+
+	<div class="menu-respon">
+		<div class="cont-icon-menu-respon">
+			<iconify-icon id="iconMenuRespon" icon="fontisto:nav-icon-a" style="color: white;" width="25"></iconify-icon>
+		</div>
+	</div>
 	
 
 	<div class="menu" id="menu">
@@ -101,7 +108,7 @@ $resultados = $resultados->fetch_assoc();
 					<th>Codigo Barras</th> 
 					<th>Nombre Producto</th>
 					<th>Existencia</th> 
-					<th>Concentracion</th> 
+					<th class='eliminarPrimera'>Concentracion</th> 
 					<th>Vencimiento</th>
 					<th>Precio U</th> 
 					<th>Cantidad</th>
