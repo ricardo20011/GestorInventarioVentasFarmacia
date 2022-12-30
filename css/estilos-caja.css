@@ -465,4 +465,28 @@ tr {
 	.eliminarPrimera {
 		display: none;
 	}
+	.contador tr th{
+		font-size:12px;
+		padding:5px 5px;
+	}
+	.eliminarThContador {
+		display:none;
+	}
+}
+@media screen and (max-width: 500px){
+	.sub_cont {
+		width:97%;
+	}
+	.cont_buscador input {
+		width:40%;
+		height:35px;
+	}
+	.tabla1 tr th{
+		font-size:10px;
+		padding:8px 2px;
+	}
+	.tabla1 tr td {
+		padding:5px 10px;
+		font-size:8px;
+	}
 }

@@ -143,7 +143,7 @@ function cargarUsuarios(){
                     elemento.innerHTML += ("<td>" + datos[i].nombre + "</td>");
                     elemento.innerHTML += ("<td class='filaCentrar'>" + datos[i].cantidad + "</td>");
                     elemento.innerHTML += ("<td class='eliminarPrimera'>" + datos[i].concentracion + "</td>");
-                    elemento.innerHTML += ("<td class='filaCentrar'>" + datos[i].vencimiento + "</td>");
+                    elemento.innerHTML += ("<td class='filaCentrar eliminarPrimera'>" + datos[i].vencimiento + "</td>");
                     elemento.innerHTML += ("<td class='filaCentrar'>" + datos[i].precio + "</td>");
                     elemento.innerHTML += ("<td><input type='number' min='1' value='1'></input></td>");
                     elemento.innerHTML += ("<td class='filaCentrar'>" + datos[i].precio + "</td>");

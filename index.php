@@ -109,7 +109,7 @@ $resultados = $resultados->fetch_assoc();
 					<th>Nombre Producto</th>
 					<th>Existencia</th> 
 					<th class='eliminarPrimera'>Concentracion</th> 
-					<th>Vencimiento</th>
+					<th class='eliminarPrimera'>Vencimiento</th>
 					<th>Precio U</th> 
 					<th>Cantidad</th>
 					<th>Precio venta</th> 
@@ -121,8 +121,8 @@ $resultados = $resultados->fetch_assoc();
 		<table class="content-table contador" id="table-total"> 
 			<tbody> 
 				<tr> 
-					<th class="sub-total">Nombre Empresa</th>
-					<th class="sub-total-number">Nit 2012.123.11</th> 
+					<th class="sub-total eliminarThContador">Nombre Empresa</th>
+					<th class="sub-total-number eliminarThContador" >Nit 2012.123.11</th> 
 					<th class="total">Total:</th>
 					<th class="total-number" id="totalFactura">$ 0</th>
 					<th class="th-vender">
