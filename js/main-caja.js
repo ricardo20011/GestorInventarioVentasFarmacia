@@ -139,7 +139,7 @@ function cargarUsuarios(){
             } else {
                 for(i=0; i < datos.length ; i++){
                     let elemento = document.createElement('tr');
-                    elemento.innerHTML += ("<td>" + datos[i].codigo + "</td>");
+                    elemento.innerHTML += ("<td class='eliminarSegunda'>" + datos[i].codigo + "</td>");
                     elemento.innerHTML += ("<td>" + datos[i].nombre + "</td>");
                     elemento.innerHTML += ("<td class='filaCentrar'>" + datos[i].cantidad + "</td>");
                     elemento.innerHTML += ("<td class='eliminarPrimera'>" + datos[i].concentracion + "</td>");

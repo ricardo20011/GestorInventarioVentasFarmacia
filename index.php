@@ -23,7 +23,7 @@ $resultados = $resultados->fetch_assoc();
 <html lang="en" class="html-caja">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<title>Caja registradora</title>
 	<script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -105,7 +105,7 @@ $resultados = $resultados->fetch_assoc();
 
 			<table class="content-table tabla1" id="tabla"> 
 				<tr> 
-					<th>Codigo Barras</th> 
+					<th class="eliminarSegunda">Codigo Barras</th> 
 					<th>Nombre Producto</th>
 					<th>Existencia</th> 
 					<th class='eliminarPrimera'>Concentracion</th> 

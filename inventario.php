@@ -22,7 +22,7 @@ $resultados = $resultados->fetch_assoc();
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<title>Inventario</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
@@ -34,6 +34,13 @@ $resultados = $resultados->fetch_assoc();
 	<script src="jquery/jquery-3.4.1.min.js"></script>
 </head>
 <body>
+	<div class="detec-menu" id="detec-menu"></div>
+
+	<div class="menu-respon">
+		<div class="cont-icon-menu-respon">
+			<iconify-icon id="iconMenuRespon" icon="fontisto:nav-icon-a" style="color: white;" width="25"></iconify-icon>
+		</div>
+	</div>
 	<div class="menu" id="menu">
 		<div class="cont_1">
 			<div class="sub_cont_1"><img src="<?php echo($resultados['img']); ?>" alt=""></div>
