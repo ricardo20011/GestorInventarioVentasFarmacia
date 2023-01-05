@@ -20,7 +20,6 @@ let btn_cargar = document.getElementById('addProducto');
 let campoValor = document.getElementById('campo').value;
 campoValor = SegString(campoValor);
 let campo = document.getElementById('campo');
-campo = SegString(campo);
 let icon_borrar ='<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="none" stroke="#bd2626" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3m-5 5l4 4m0-4l-4 4"/></svg>';
 let btnVender = document.getElementById('vender');
 let iconMenuRespon = document.getElementById('iconMenuRespon');
@@ -106,10 +105,8 @@ function multiplicarinputs(){
         precioVenta = quitarSeparadorMiles(precioVenta);
         
         cellTotal = cellTotal + Number(precioVenta);
-
-
-//
     }
+    
     let tablaTotal = document.getElementById('table-total');
     
     tablaTotal.rows[0].cells[3].innerHTML = "$ " + agregarSeparadorMiles(cellTotal);
@@ -117,12 +114,12 @@ function multiplicarinputs(){
 }
 
 function cargarUsuarios(){
-    if(campo.value == ""){
+    if(SegString(campo.value) == ""){
         document.getElementById('fondoCodigo').classList.add('fondoCodigoActivo');
         setTimeout(()=>{
             document.getElementById('fondoCodigo').classList.remove('fondoCodigoActivo');
         },1500);
-    } else if(campo.value != "Repetido"){
+    } else if(SegString(campo.value) != "Repetido"){
 
         let peticion = new XMLHttpRequest();
         
@@ -169,9 +166,9 @@ function cargarUsuarios(){
 function validarRepetidos(){
     for(i=0 ; i < tabla.rows.length ; i++){
         let codigo = tabla.rows[i].cells[0].innerHTML;
-         if(campo.value == codigo){
+         if(SegString(campo.value) == codigo){
             campo.value = 'Repetido';
-            if(campo.value == 'Repetido'){
+            if(SegString(campo.value) == 'Repetido'){
                 document.getElementById('fondoDuplicado').classList.add('fondoDuplicadoActivo');
                 setTimeout(()=>{
                     document.getElementById('fondoDuplicado').classList.remove('fondoDuplicadoActivo');
