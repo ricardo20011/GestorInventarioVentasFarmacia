@@ -208,7 +208,7 @@ $resultados = $resultados->fetch_assoc();
 						<input type="button" value="Limpiar Datos" class="btn btn-danger" name="btn_cancelar"  onclick="limpiar();">
 					</form>
 				</header>
-				<main>
+				
 					<table id="tabla" class="tabla">
 						<thead>
 							<tr>
@@ -230,7 +230,7 @@ $resultados = $resultados->fetch_assoc();
 
 					</table>
 					<div class="loader" id="loader"></div>
-				</main>
+				
 			</div>
 		</div>
 	</div>
@@ -268,8 +268,20 @@ $resultados = $resultados->fetch_assoc();
 				{"data":"precio"},
 				{"defaultContent":"<a class='icon_borrar editar' >"+ icon_editar + "</a>"},
 				{"defaultContent":"<span class='icon_borrar';>"+ icon_borrar + "</span>"}
-			]
+			],
+			"width": "600"
 		});
+
+		let tablaResponsive = $('#tabla').DataTable();
+
+
+		$(window).on('resize', function(){
+			if($(window).width() < 1000){
+				tablaResponsive.column(2).visible(false);
+			} else {
+				tablaResponsive.column(2).visible(true);
+			}
+		});	
 
 		tabla.addEventListener('click', (e)=>{
 			confirmarborrado = document.getElementById('confirmarborrado');
