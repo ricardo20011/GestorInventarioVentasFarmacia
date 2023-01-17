@@ -58,7 +58,7 @@ $resultados = $resultados->fetch_assoc();
 		
 	</div>
 
-	<div class="fondo_ingresar fondo_ingresarActivo" id="fondo_ingresar">
+	<div class="fondo_ingresar" id="fondo_ingresar">
 		<form autocomplete="off" action="" method="" class="cont_vender" id="formulario">
 			<div class="main_vender">
 				<div class="close"><iconify-icon id="cerrarVentanaIngreso" icon="carbon:close" width="32"></iconify-icon></div>
