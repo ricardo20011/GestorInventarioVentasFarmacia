@@ -269,7 +269,8 @@ $resultados = $resultados->fetch_assoc();
 				{"defaultContent":"<a class='icon_borrar editar' >"+ icon_editar + "</a>"},
 				{"defaultContent":"<span class='icon_borrar';>"+ icon_borrar + "</span>"}
 			],
-			"width": "600"
+			"width": "600",
+			"autoWidth": false
 		});
 
 		let tablaResponsive = $('#tabla').DataTable();
@@ -281,7 +282,54 @@ $resultados = $resultados->fetch_assoc();
 			} else {
 				tablaResponsive.column(2).visible(true);
 			}
+			if($(window).width() < 800){
+				tablaResponsive.column(5).visible(false);
+			} else {
+				tablaResponsive.column(5).visible(true);
+			}
+			if($(window).width() < 640){
+				tablaResponsive.column(3).visible(false);
+			} else {
+				tablaResponsive.column(3).visible(true);
+			}
+			if($(window).width() < 560){
+				tablaResponsive.column(4).visible(false);
+			} else {
+				tablaResponsive.column(4).visible(true);
+			}
+			if($(window).width() < 460){
+				tablaResponsive.column(7).visible(false);
+			} else {
+				tablaResponsive.column(7).visible(true);
+			}
 		});	
+		if($(window).width() < 1000){
+			tablaResponsive.column(2).visible(false);
+		} else {
+			tablaResponsive.column(2).visible(true);
+		}
+		if($(window).width() < 800){
+			tablaResponsive.column(5).visible(false);
+		} else {
+			tablaResponsive.column(5).visible(true);
+		}
+		if($(window).width() < 640){
+			tablaResponsive.column(3).visible(false);
+		} else {
+			tablaResponsive.column(3).visible(true);
+		}
+		if($(window).width() < 560){
+			tablaResponsive.column(4).visible(false);
+		} else {
+			tablaResponsive.column(4).visible(true);
+		}
+		if($(window).width() < 460){
+			tablaResponsive.column(7).visible(false);
+		} else {
+			tablaResponsive.column(7).visible(true);
+		}
+
+
 
 		tabla.addEventListener('click', (e)=>{
 			confirmarborrado = document.getElementById('confirmarborrado');

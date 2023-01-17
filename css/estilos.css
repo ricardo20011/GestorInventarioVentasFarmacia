@@ -705,3 +705,40 @@ table.dataTable tbody th, table.dataTable tbody td {
 		font-size:10px;
 	}
 }
+@media screen and (max-width: 800px){
+	.contenedor {
+		width:100%;
+	}
+	.dataTables_wrapper {
+		width:90%;
+	}
+}
+@media screen and (max-width: 640px){
+	.dataTables_wrapper {
+		width:90%;
+	}
+	.dataTables_wrapper .dataTables_length {
+		float: left;
+	}
+	.dataTables_wrapper .dataTables_filter{
+		float: right;
+	}
+}
+@media screen and (max-width: 460px){
+	.tabla1 tr th{
+		font-size:9px;
+		padding:10px 5px;
+	}
+	.tabla1 tr td {
+		padding:5px 5px;
+		font-size:9px;
+	}
+}
+@media screen and (max-width: 400px){
+	.ocultar-cargar {
+		width:10px;
+	}
+	.blcok {
+		width:10px;
+	}
+}
