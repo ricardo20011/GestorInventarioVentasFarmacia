@@ -32,15 +32,13 @@ $resultados = $resultados->fetch_assoc();
 	<link rel="stylesheet" href="css/estilos-historial.css">
 </head>
 <body>
-    <div class="fondo_mensaje" id="fondo_mensaje"> 
-        <div class="mensaje_vender">
-            <div class="title_mensaje">
-                <p>¡Confirme su venta por favor!</p>
-            </div>
-            <div class="cont_btn_sucess"><button onclick="guardar();" class="btn btn-success">Confirmar</button></div>
-            <div class="cont_btn-danger"><button  onclick="limpiar();" id="btn_cerrarMensaje" class="btn btn-danger">Cancelar</button></div>
-        </div>
-    </div>
+
+	<div class="detec-menu" id="detec-menu"></div>
+	<div class="menu-respon">
+		<div class="cont-icon-menu-respon">
+			<iconify-icon id="iconMenuRespon" icon="fontisto:nav-icon-a" style="color: white;" width="25"></iconify-icon>
+		</div>
+	</div>
 
 	<div class="menu" id="menu">
 		<div class="cont_1">
@@ -87,10 +85,10 @@ $resultados = $resultados->fetch_assoc();
 			<table class="content-table" id="tabla">
 				<thead>
 					<tr class="row-head">
-						<th>Codigo Factura</th>
+						<th class='ocultarCol2'>Codigo Factura</th>
 						<th>Codigo</th>
 						<th>Nombre Producto</th>
-						<th>Precio Unidad</th>
+						<th class="ocultarCol1">Precio Unidad</th>
 						<th>Cantidad</th>
 						<th>Precio total Unidades</th>
 						<th>Fecha de Venta</th>
@@ -102,6 +100,8 @@ $resultados = $resultados->fetch_assoc();
 					
 				</tbody>
 			</table>
+
+			
 			<table class="content-table contador" id="table-total"> 
 				<tbody> 
 					<tr> 

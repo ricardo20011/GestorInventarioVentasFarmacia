@@ -321,6 +321,8 @@ select.ui-datepicker-month {
 	width:60%;
 	position: fixed;
 	bottom:-65px;
+	left: 60%;
+	transform: translate(-50%);
 }
 .total,
 .sub-total {
@@ -350,4 +352,143 @@ select.ui-datepicker-month {
 }
 .contador tr th{
 	font-size:14px;
+}
+
+
+
+
+
+.detec-menu {
+	display:none;
+}
+
+.menu-respon {
+	display:none;
+}
+.icon-edit {
+	width:23px;
+}
+.icon-trash {
+	width:23px;
+}
+
+
+
+@media screen and (max-width: 1100px){
+	.menu {
+		display:block;
+		left:-100%;
+		transition: all 1s ease;
+		z-index:10;
+		padding-top: 50px;
+		position: absolute;
+	}
+	.cont_1 div img {
+		width:80px;
+		height:80px;
+		left:0;
+	}
+	.cont_1 .sub_cont_1 {
+		text-align: center;
+	}
+	.menuActivo{
+		left:0px;
+	}
+	body{
+		grid-template-columns:1fr;
+		justify-items: center;
+	}
+	.contenedor{
+		width:100%;
+		margin: auto;
+		position: absolute;
+		grid-column: 1/2;
+	}
+	.menu-respon {
+		display:block;
+		background-color: #006e6e;
+		width:100%;
+		height:40px;
+		position: absolute;
+		z-index:100;
+	}
+	.detec-menu {
+		display:none;
+		background-color: #00000000;
+		width:100%;
+		height:100%;
+		position: absolute;
+		z-index:5;
+	}
+	.detec-menuActivo {
+		display:block;
+	}
+	.cont-icon-menu-respon {
+		width:30px;
+		height:30px;
+		position: absolute;
+		right:10px;
+		top: 8px;
+	}
+	.cont-icon-menu-respon iconify-icon {
+		cursor: pointer;
+	}
+	.content-table tr th{
+		font-size:10px;
+		padding:10px 5px;
+		text-align: center;
+	}
+	.content-table tr td {
+		padding:5px 5px;
+		font-size:10px;
+		text-align: center;
+	}
+	.contador {
+		left: 50%;
+ 		transform: translate(-50%);
+	}
+}
+
+@media screen and (max-width: 600px){
+	.sub_cont {
+		width: 95%;
+	}
+}
+@media screen and (max-width: 540px){
+	.content-table tr th{
+		padding:10px 5px;
+		font-size:9px;
+	}
+	.content-table tr td {
+		padding:5px 5px;
+		font-size:9px;
+	}
+}
+@media screen and (max-width: 490px){
+	.ocultarCol1{
+		display:none;
+	}
+}
+@media screen and (max-width: 440px){
+	.ocultarCol2{
+		display: none;
+	}
+	.container-input {
+		width: 100%;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		justify-items: center;
+		align-items: center;
+		grid-gap: 10px;
+	}
+	.btn-consultar {
+		width: 100%;
+		height: 35px;
+		grid-column: 1/3;
+	}
+	.cont-1, .cont-2 {
+		width: 100%;
+		display: grid;
+		justify-items: center;
+	}
 }

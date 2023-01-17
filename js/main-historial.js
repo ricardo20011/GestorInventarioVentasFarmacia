@@ -68,10 +68,10 @@ function cargarProductos(){
             
             for(i=0; i < datos.length ; i++){
                 let elemento = tabla2.insertRow(filaAnterior.rowIndex);
-                elemento.innerHTML += ("<td>" + datos[i].codigoFact + "</td>");
+                elemento.innerHTML += ("<td class='ocultarCol2'>" + datos[i].codigoFact + "</td>");
                 elemento.innerHTML += ("<td>" + datos[i].codigo + "</td>");
                 elemento.innerHTML += ("<td>" + datos[i].nombre + "</td>");
-                elemento.innerHTML += ("<td>" + datos[i].PrecioU + "</td>");
+                elemento.innerHTML += ("<td class='ocultarCol1'>" + datos[i].PrecioU + "</td>");
                 elemento.innerHTML += ("<td>" + datos[i].cantidad + "</td>");
                 elemento.innerHTML += ("<td>" + datos[i].total + "</td>");
                 elemento.innerHTML += ("<td>" + datos[i].fecha + "</td>");
@@ -144,4 +144,35 @@ btn_consultar.addEventListener('click', (e)=>{
             sumarTotal();
         },500);
     }
+});
+
+
+let iconMenuRespon = document.getElementById('iconMenuRespon');
+let detecMenu = document.getElementById('detec-menu');
+let iconMenu = document.getElementById('iconMenuRespon');
+
+let constanteIcon = 0;
+iconMenu.addEventListener('click',()=>{
+    if(constanteIcon == 1){
+        iconMenu.removeAttribute('icon');
+        iconMenu.setAttribute('icon','fontisto:nav-icon-a');
+        constanteIcon = 0;
+    } else {
+        iconMenu.removeAttribute('icon');
+        iconMenu.setAttribute('icon','maki:cross');
+        constanteIcon = 1;
+    }
+});
+
+detecMenu.addEventListener('click', ()=>{
+    document.getElementById('menu').classList.toggle('menuActivo');
+    detecMenu.classList.toggle('detec-menuActivo');
+    iconMenu.removeAttribute('icon');
+    iconMenu.setAttribute('icon','fontisto:nav-icon-a');
+    constanteIcon = 0;
+});
+
+iconMenuRespon.addEventListener('click',()=>{
+    document.getElementById('menu').classList.toggle('menuActivo');
+    detecMenu.classList.toggle('detec-menuActivo');
 });
