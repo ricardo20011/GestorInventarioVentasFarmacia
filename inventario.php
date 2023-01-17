@@ -57,11 +57,11 @@ $resultados = $resultados->fetch_assoc();
 		</div>
 		
 	</div>
-	
-	<div class="fondo_ingresar" id="fondo_ingresar">
+
+	<div class="fondo_ingresar fondo_ingresarActivo" id="fondo_ingresar">
 		<form autocomplete="off" action="" method="" class="cont_vender" id="formulario">
 			<div class="main_vender">
-				<div class="close"><iconify-icon id="cerrarVentanaIngreso" icon="ep:close-bold" width="26"></iconify-icon></div>
+				<div class="close"><iconify-icon id="cerrarVentanaIngreso" icon="carbon:close" width="32"></iconify-icon></div>
 		
 				<div class="title">
 					<p>Modulo de ingreso de productos</p>
@@ -146,6 +146,7 @@ $resultados = $resultados->fetch_assoc();
 			</div>
 		</form>
 	</div>
+	
 
 	<div class="fondo_borrar" id="fondo_borrar"> 
 		<div class="mensaje_borrar">
@@ -275,62 +276,28 @@ $resultados = $resultados->fetch_assoc();
 
 		let tablaResponsive = $('#tabla').DataTable();
 
-
+		//Diseño responsivo de la tabla de invnetario
+		function responsiveTable(anchoPx,NumeroColumn){
+			if($(window).width() < anchoPx){
+				tablaResponsive.column(NumeroColumn).visible(false);
+			} else {
+				tablaResponsive.column(NumeroColumn).visible(true);
+			}
+		}
 		$(window).on('resize', function(){
-			if($(window).width() < 1000){
-				tablaResponsive.column(2).visible(false);
-			} else {
-				tablaResponsive.column(2).visible(true);
-			}
-			if($(window).width() < 800){
-				tablaResponsive.column(5).visible(false);
-			} else {
-				tablaResponsive.column(5).visible(true);
-			}
-			if($(window).width() < 640){
-				tablaResponsive.column(3).visible(false);
-			} else {
-				tablaResponsive.column(3).visible(true);
-			}
-			if($(window).width() < 560){
-				tablaResponsive.column(4).visible(false);
-			} else {
-				tablaResponsive.column(4).visible(true);
-			}
-			if($(window).width() < 460){
-				tablaResponsive.column(7).visible(false);
-			} else {
-				tablaResponsive.column(7).visible(true);
-			}
+			responsiveTable(1000,2);
+			responsiveTable(800,5);
+			responsiveTable(640,3);
+			responsiveTable(560,4);
+			responsiveTable(460,7);
 		});	
-		if($(window).width() < 1000){
-			tablaResponsive.column(2).visible(false);
-		} else {
-			tablaResponsive.column(2).visible(true);
-		}
-		if($(window).width() < 800){
-			tablaResponsive.column(5).visible(false);
-		} else {
-			tablaResponsive.column(5).visible(true);
-		}
-		if($(window).width() < 640){
-			tablaResponsive.column(3).visible(false);
-		} else {
-			tablaResponsive.column(3).visible(true);
-		}
-		if($(window).width() < 560){
-			tablaResponsive.column(4).visible(false);
-		} else {
-			tablaResponsive.column(4).visible(true);
-		}
-		if($(window).width() < 460){
-			tablaResponsive.column(7).visible(false);
-		} else {
-			tablaResponsive.column(7).visible(true);
-		}
+		responsiveTable(1000,2);
+		responsiveTable(800,5);
+		responsiveTable(640,3);
+		responsiveTable(560,4);
+		responsiveTable(460,7);
 
-
-
+		//Funcionalidad de eliminar y editar en los botones
 		tabla.addEventListener('click', (e)=>{
 			confirmarborrado = document.getElementById('confirmarborrado');
 			cancelarborrado = document.getElementById('cancelarborrado');
