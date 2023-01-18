@@ -35,8 +35,9 @@ if($conexion->connect_errno){
     ];
 } else {
     $conexion->set_charset("utf8");
-    $statement = $conexion->prepare("SELECT * FROM $tabla_db3 WHERE usuario = '$inputUsuario' AND pass = '$inputPassword'");
-    $statement->execute();
+    $statement = $conexion->prepare("SELECT * FROM $tabla_db3 WHERE usuario = ? AND pass = ?");
+    $statement->bind_param("ss", $inputUsuario, $inputPassword);
+    
     $resultados = $statement->get_result();
 
     $respuesta = array();

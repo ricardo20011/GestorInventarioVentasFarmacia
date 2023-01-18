@@ -2,10 +2,12 @@
 error_reporting(E_ALL ^ E_NOTICE);
 session_start();
 require 'config.php';
+require 'funciones.php';
 
 $sesion = $_SESSION['usuario'];
 
 $id_producto = $_REQUEST['id'];
+
 if(isset($_POST['btnGuardar'])){
     $codigo = $_POST['codigo'];
     $nombre = $_POST['nombre'];
@@ -18,21 +20,35 @@ if(isset($_POST['btnGuardar'])){
     $cantidad = $_POST['cantidad'];
     $precio = $_POST['precio'];
 
+
+    $codigo = SecurityInputs($codigo);
+    $nombre = SecurityInputs($nombre);
+    $concentracion = SecurityInputs($concentracion);
+    $f_farmaceutica = SecurityInputs($f_farmaceutica);
+    $vencimiento = SecurityInputs($vencimiento);
+    $invima = SecurityInputs($invima);
+    $cantidad = SecurityInputs($cantidad);
+    $ingreso = SecurityInputs($ingreso);
+    $precio = SecurityInputs($precio);
+    $lote = SecurityInputs($lote);
+
     
-    $_UPDATE_SQL="UPDATE ".$sesion."X$tabla_db1 Set 
-    codigo = '$codigo', 
-    nombre = '$nombre',
-    concentracion = '$concentracion',
-    f_farmaceutica = '$f_farmaceutica',
-    ingreso = '$ingreso',
-    vencimiento = '$vencimiento',
-    invima = '$invima',
-    lote = '$lote',
-    cantidad = '$cantidad',
-    precio = '$precio'
-    WHERE codigo ='$codigo'"; 
+    $statement = $conexion->prepare("UPDATE ".$sesion."X$tabla_db1 SET 
+    codigo = ?,
+    nombre = ?,
+    concentracion = ?,
+    f_farmaceutica = ?,
+    ingreso = ?,
+    vencimiento = ?,
+    invima = ?,
+    lote = ?,
+    cantidad = ?,
+    precio = ? 
+    WHERE codigo = ?");
+
+    $statement->bind_param("sssssssssss", $codigo, $nombre, $concentracion, $f_farmaceutica, $ingreso, $vencimiento, $invima, $lote, $cantidad, $precio, $codigo);
     
-    mysqli_query($conexion,$_UPDATE_SQL); 
+    $statement->execute(); 
     
     header('Location: '. $ruta . 'inventario.php');
 }
@@ -42,14 +58,18 @@ if(isset($_POST['btnGuardar'])){
 if(empty($_REQUEST['id'])){
   header('Location: '. $ruta . 'inventario.php');
 } else {
-    $id_producto = $_REQUEST['id'];
     if (!is_numeric($id_producto)){
         header('Location: '. $ruta . 'inventario.php');
     }
-    $query_producto = mysqli_query($conexion,"SELECT * FROM ".$sesion."X$tabla_db1 WHERE codigo = $id_producto");
-    $resultado = mysqli_num_rows($query_producto);
-    if($resultado > 0){
-        $dato_producto = mysqli_fetch_assoc($query_producto);
+
+    $statement = $conexion->prepare("SELECT * FROM ".$sesion."X$tabla_db1 WHERE codigo = ?");
+    $statement->bind_param("s",$id_producto);
+    $statement->execute();
+
+    $resultado = $statement->get_result();
+    $resultadoColuns = mysqli_num_rows($resultado);
+    if($resultadoColuns > 0){
+        $dato_producto = mysqli_fetch_assoc($resultado);
     } else {
         header('Location: '. $ruta . 'inventario.php');
     }

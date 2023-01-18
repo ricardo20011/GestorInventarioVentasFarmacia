@@ -4,6 +4,8 @@ require("php/config.php");
 
 if (!isset($_SESSION['usuario'])){
     header("Location: $ruta"."login.php");
+	die("Acceso denegado");
+	exit;
 }
 
 $sesion = $_SESSION['usuario'];
@@ -20,7 +22,7 @@ $resultados = $resultados->fetch_assoc();
 
 
 <!DOCTYPE html>
-<html lang="en" class="html-caja">
+<html lang="es" class="html-caja">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">

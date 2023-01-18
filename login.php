@@ -8,7 +8,7 @@ if (isset($_SESSION['usuario'])){
 }
 ?>
 <!DOCTYPE html>
-<html lang="en" class="html-login">
+<html lang="es" class="html-login">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
