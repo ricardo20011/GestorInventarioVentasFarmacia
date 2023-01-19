@@ -21,7 +21,8 @@ if($conexion->connect_errno){
     ];
 } else {
     $conexion->set_charset("utf8");
-    $statement = $conexion->prepare("SELECT * FROM ".$sesion."X$tabla_db1 WHERE codigo = $campo");
+    $statement = $conexion->prepare("SELECT * FROM ".$sesion."X$tabla_db1 WHERE codigo = ?");
+    $statement->bind_param("s",$campo);
     $statement->execute();
     $resultados = $statement->get_result();
 

@@ -317,7 +317,7 @@ $resultados = $resultados->fetch_assoc();
 
 					let peticion = new XMLHttpRequest();
 					
-					peticion.open('GET', 'php/traer-producto.php?codigoId=' + codigoId, true);
+					peticion.open('GET', 'php/eliminar-producto.php?codigoId=' + codigoId, true);
 					peticion.send();
 
 					$('#tabla').DataTable().ajax.reload();
@@ -341,100 +341,4 @@ $resultados = $resultados->fetch_assoc();
 
     });
 
-
-	
-
-
-		
-	function buscar_datos(){
-		codigov = $("#codigov").val();
-		if(!codigov == ""){
-			var parametros = 
-			{
-			"codigov" : codigov
-			};
-			$.ajax(
-			{
-			data:  parametros,
-			dataType: 'json',
-			url:   'php/traer-producto.php',
-			type:  'post',
-			beforeSend: function() {
-				$('.formularioVender').hide();
-				$('.cargando').show();
-			}, 
-			error: function()
-			{
-				alert("Error");
-			},
-			complete: function() 
-			{
-				$('.formularioVender').show();
-				$('.cargando').hide();
-			},
-			success:  function (valores) 
-			{
-				if(valores.existe=="1") //Aqui usamos la variable que NO use en el vídeo
-				{
-					$("#nombrev").val(valores.nombrev);
-					$("#concentracionv").val(valores.concentracionv);
-					$("#f_farmaceuticav").val(valores.f_farmaceuticav);
-					$("#vencimientov").val(valores.vencimientov);
-				}
-				else
-				{
-				alert("El propietario no existe, ¡Crealo!")
-				}
-			}
-			}) 
-		}
-	}
-
-	function limpiar(){
-		$("#codigov").val("");
-		$("#nombrev").val("");
-		$("#concentracionv").val("");
-		$("#f_farmaceuticav").val("");
-		$("#vencimientov").val("");
-		$("#cantidadv").val("");
-		cerrarMensajeVenta();
-	}
-
-	function guardar(){
-		var parametros = 
-		{
-		"guardar": "1",
-		"codigov" : $("#codigov").val(),
-		"cantidadv" : parseInt($("#cantidadv").val())
-		};
-		$.ajax(
-		{
-		data:  parametros,
-		url:   'php/traer-producto.php',
-		type:  'post',
-		beforeSend: function() 
-		{
-			$('.formularioVender').hide();
-			$('.cargando').show();
-			
-		}, 
-		error: function()
-		{alert("Error");},
-		complete: function() 
-		{
-			$('.formularioVender').show();
-			$('.cargando').hide();
-		
-		},
-		success:  function (mensaje) 
-		{
-			$('.resultados').html(mensaje);}
-		}) 
-		limpiar();
-		cerrarMensajeVenta();
-		setTimeout(() => {
-			cargarUsuarios();
-		}, 3000);
-
-	}
 </script>

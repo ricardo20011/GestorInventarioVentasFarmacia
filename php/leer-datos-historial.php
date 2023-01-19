@@ -20,7 +20,8 @@ if($conexion->connect_errno){
     ];
 } else {
     $conexion->set_charset("utf8");
-    $statement = $conexion->prepare("SELECT * FROM ".$sesion."X$tabla_db2 WHERE fecha BETWEEN '$inputInicio' AND '$inputFin'");
+    $statement = $conexion->prepare("SELECT * FROM ".$sesion."X$tabla_db2 WHERE fecha BETWEEN ? AND ? ");
+    $statement->bind_param("ss",$inputInicio,$inputFin);
     $statement->execute();
     $resultados = $statement->get_result();
 

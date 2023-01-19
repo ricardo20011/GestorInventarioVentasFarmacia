@@ -27,23 +27,28 @@ for($i = 0; $i < count($ListaProductos); $i++){
 	$cantidadv = $ListaProductos[$i]->cantidad;
 	
 	//CONSULTAR
-	$resultados = mysqli_query($conexion,"SELECT * FROM ".$sesion."X$tabla_db1  WHERE codigo = '$codigov'");
-	$consulta = mysqli_fetch_array($resultados);
-	  
+	//$resultados = mysqli_query($conexion,"SELECT * FROM ".$sesion."X$tabla_db1  WHERE codigo = '$codigov'");
+	//$consulta = mysqli_fetch_array($resultados);
+
+	$statement = $conexion->prepare("SELECT * FROM ".$sesion."X$tabla_db1 WHERE codigo = ?");
+	$statement->bind_param("s", $codigov);
+	$statement->execute();
+	$resultado = $statement->get_result();
+	$consulta = $resultado->fetch_array();
+	
+	//SE SACA LA CANTIDAD DE PRODUCTOS DE LAS BASES
 	$cantidadtotal = $consulta['cantidad'];
 	
+	//CANTIDAD DE PRODUCTOS QUE SE VAN A VENDER
 	$cantidadv = (int)$cantidadv;
+	//CANTIDAD DE PRODUCTOS QUE HAY EN BASES
 	$cantidadtotal = (int)$cantidadtotal;
+	//SE HACE LA RESTA DE LOS PRODUCTOS VENDIDOS EL TOTAL DE PRODUCTOS EN BASES
 	$cantidadtotal = $cantidadtotal - $cantidadv;
 
 	//actualizar
-	$_UPDATE_SQL="UPDATE ".$sesion."X$tabla_db1 Set 
-	
-	cantidad='$cantidadtotal' 
-	WHERE codigo='$codigov'"; 
+	$_UPDATE_SQL= "UPDATE " . $sesion . "X$tabla_db1 Set cantidad = '$cantidadtotal' WHERE codigo = '$codigov'"; 
 	mysqli_query($conexion,$_UPDATE_SQL); 
-	echo "Dato Actualizado";
-
 
 
     $conexion->set_charset('utf8');
