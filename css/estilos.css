@@ -375,7 +375,8 @@ td {
 	width:210px;
 }
 
-.fondo_proceso_correcto {
+.fondo_proceso_correcto,
+.fondo_proceso_eliminando {
 	position:fixed;
 	background-color: #6e6e6e9a;
 	width:100%;
@@ -392,6 +393,16 @@ td {
 .fondo_proceso_correctoActivo {
 	display:grid;
 	opacity:1;
+}
+.fondo_proceso_eliminandoActivo {
+	display:grid;
+	opacity:1;
+}
+.title_eliminando {
+	margin-top:15px;
+}
+.title_eliminando p {
+	font-size: 18px;
 }
 .cont_proceso_correcto {
 	width: 320px;
@@ -413,24 +424,6 @@ td {
 	cursor:pointer;
 	position: relative;
 }
-/*.icon_borrar::after {
-	position: absolute;
-	content: "";
-	width:0px;
-	top: 0px;
-	left: 0px;
-	height:0px;
-	border-radius: 50%;
-	transition: all 0.3s ease;
-}
-.icon_borrar:hover:after{
-	background-color:rgba(5, 119, 119, 0.116);
-	width:29px;
-	top: -13px;
-	left: -3px;
-	height:28px;
-}*/
-
 
 html {
 	height:100%;

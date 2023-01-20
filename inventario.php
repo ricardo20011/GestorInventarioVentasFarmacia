@@ -160,6 +160,15 @@ $resultados = $resultados->fetch_assoc();
 		</div>
 	</div>
 
+	<div class="fondo_proceso_eliminando" id="fondo_proceso_eliminando">
+		<div class="cont_proceso_correcto">
+			<div><iconify-icon icon="eos-icons:bubble-loading" style="color: #2a9e8b;" width="50"></iconify-icon></div>
+			<div class="title_correcto title_eliminando">
+					<p>Eliminando Producto...</p>
+			</div>
+		</div>
+	</div>
+
 	<div class="fondo_proceso_correcto " id="fondo_proceso_correcto">
 		<div class="cont_proceso_correcto">
 			<div><iconify-icon icon="icon-park-outline:success" width="50" style="color: #2a9e8b;"></iconify-icon></div>
@@ -309,21 +318,32 @@ $resultados = $resultados->fetch_assoc();
 			if(e.target.parentNode.parentNode.firstElementChild.tagName == 'A'){
 				window.location.href = ruta + "php/editar-producto.php?id="+codigo;
 			}
-			if(e.target.parentNode.parentNode.firstElementChild.tagName == 'SPAN'){
+			if(e.target.parentNode.parentNode.firstElementChild.tagName == 'SPAN' ){
 				fondo_borrar.classList.add('fondo_borrarActivo');
+				
 				confirmarborrado.addEventListener('click',()=>{
-        
+					document.getElementById('fondo_proceso_eliminando').classList.add('fondo_proceso_eliminandoActivo');
+					
 					let codigoId = codigo;
-
+					
 					let peticion = new XMLHttpRequest();
 					
 					peticion.open('GET', 'php/eliminar-producto.php?codigoId=' + codigoId, true);
 					peticion.send();
-
-					$('#tabla').DataTable().ajax.reload();
 					
 					fondo_borrar.classList.remove('fondo_borrarActivo');
+					
+					//$('#tabla').DataTable().ajax.reload( null, false );
+					$('#tabla').DataTable().ajax.reload();
+					
+					// Ocultar el div cuando se ha terminado la recarga de datos
+			
+					$(tablee).on( 'draw.dt', function () {
+						e.target.parentNode.parentNode.parentNode.remove();
+						document.getElementById('fondo_proceso_eliminando').classList.remove('fondo_proceso_eliminandoActivo');
+					} );
 				});
+
 				cancelarborrado.addEventListener('click',()=>{
 					fondo_borrar.classList.remove('fondo_borrarActivo');
 				});
