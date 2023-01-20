@@ -338,8 +338,8 @@ $resultados = $resultados->fetch_assoc();
 					
 					// Ocultar el div cuando se ha terminado la recarga de datos
 			
+					e.target.parentNode.parentNode.parentNode.remove();
 					$(tablee).on( 'draw.dt', function () {
-						e.target.parentNode.parentNode.parentNode.remove();
 						document.getElementById('fondo_proceso_eliminando').classList.remove('fondo_proceso_eliminandoActivo');
 					} );
 				});
