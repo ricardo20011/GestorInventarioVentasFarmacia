@@ -21,7 +21,7 @@ $local = 'http://localhost/farmacia/';
 $public = 'https://www.rickbroken.com/farmacia/';
 
 
-$ruta = $local;
+$ruta = $public;
 
 //error_reporting(0); //No me muestra errores
 

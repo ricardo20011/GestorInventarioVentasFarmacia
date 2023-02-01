@@ -20,16 +20,26 @@ const agregarProducto = document.getElementById('agregar_producto');
 
 
 const expresiones = {
-	codigo: /^\d{1,24}$/, // Letras, numeros, guion y guion_bajo
-    nombre: /^[a-zA-ZÀ-ÿ\s]+$/, // Letras, numeros, guion y guion_bajo
-	concentracion: /^\w{0,40}\s[A-Za-z].+$/, // Letras y espacios, pueden llevar acentos.
-	f_farmaceutica: /^[a-zA-ZÀ-ÿ\s]+$/, 
-	ingreso: /^\d{4}([\-/.])(0?[1-9]|1[1-2])\1(3[01]|[12][0-9]|0?[1-9])$/, 
-	vencimiento: /^\d{4}([\-/.])(0?[1-9]|1[1-2])\1(3[01]|[12][0-9]|0?[1-9])$/, 
-    lote: /^\d{1,24}$/,
-    cantidad: /^\d{1,24}$/,
-    precio: /^\d{0,40}.\d{0,5}.\d{0,5}$/,
-    invima: /^\d.\d.+$/
+	//codigo: /^\d{1,24}$/, // Letras, numeros, guion y guion_bajo
+    //nombre: /^[a-zA-ZÀ-ÿ\s]+$/, // Letras, numeros, guion y guion_bajo
+	//concentracion: /^\w{0,40}\s[A-Za-z].+$/, // Letras y espacios, pueden llevar acentos.
+	//f_farmaceutica: /^[a-zA-ZÀ-ÿ\s]+$/, 
+	//ingreso: /^\d{4}([\-/.])(0?[1-9]|1[1-2])\1(3[01]|[12][0-9]|0?[1-9])$/, 
+	//vencimiento: /^\d{4}([\-/.])(0?[1-9]|1[1-2])\1(3[01]|[12][0-9]|0?[1-9])$/, 
+    //lote: /^\d{1,24}$/,
+    //cantidad: /^\d{1,24}$/,
+    //precio: /^\d{0,40}.\d{0,5}.\d{0,5}$/,
+    //invima: /^\d.\d.+$/
+    codigo: /.*/, // Letras, numeros, guion y guion_bajo
+    nombre: /.*/, // Letras, numeros, guion y guion_bajo
+	concentracion: /.*/, // Letras y espacios, pueden llevar acentos.
+	f_farmaceutica: /.*/, 
+	ingreso: /.*/, 
+	vencimiento: /.*/, 
+    lote: /.*/,
+    cantidad: /.*/,
+    precio: /.*/,
+    invima: /.*/
 }
 
 
