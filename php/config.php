@@ -1,5 +1,7 @@
 <?php 
 
+//
+
 error_reporting(0); //No me muestra errores
 
 // Parametros a configurar para la conexion de la base de datos 
