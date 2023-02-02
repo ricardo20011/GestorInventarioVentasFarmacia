@@ -3,7 +3,7 @@
 error_reporting(0); //No me muestra errores
 
 // Parametros a configurar para la conexion de la base de datos 
-$host = "";    // Valos para Host o IP ser server
+$host = "sss";    // Valos para Host o IP ser server
 $basededatos = "";    // Nombre de la base de datos
 $usuariodb = "";    // Nombre de usuario el cual tiene acceso a la base de datos 
 $clavedb = "";    // Clave del usuario
