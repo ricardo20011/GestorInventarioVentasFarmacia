@@ -8,3 +8,8 @@ Tegnologias utilizadas:
 - CSS
 - JQuery
 - +Librerias
+
+
+Documentacion:
+
+Configurar el archivo php/config.php el cual contiene las variables para personalizar la base de datos.
