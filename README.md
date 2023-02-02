@@ -13,3 +13,5 @@ Tegnologias utilizadas:
 Documentacion:
 
 Configurar el archivo php/config.php el cual contiene las variables para personalizar la base de datos.
+
+EN PROCESO DE DESCARGAR BASES DE DATOS Y ADAPTARLAS PARA PODER SER UTILIZADAS POR CUALQUIERA QUE CLONE EL REPOSITORIO
