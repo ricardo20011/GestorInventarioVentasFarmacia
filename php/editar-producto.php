@@ -4,6 +4,7 @@ session_start();
 require 'config.php';
 require 'funciones.php';
 
+
 $sesion = $_SESSION['usuario'];
 
 $id_producto = $_REQUEST['id'];
