@@ -17,7 +17,7 @@ $tabla_db3 = "temp";      //tabla de usuarios los cuales los valida login.php
 
 // Se establese la ruta en cada variable dependiendo si trabajamos de manera local o por hosting
 $local = 'http://localhost/GestorInventarioVentasFarmacia/';
-$public = 'https://www.example.com/';
+$public = 'https://www.example.com/farmacia/';
 
 //Se establese de que manera queremos trabajar
 $ruta = $local;
