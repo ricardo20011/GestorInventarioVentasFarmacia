@@ -18,4 +18,4 @@ Configurar el archivo php/config.php el cual contiene las variables para persona
 
 
 ### Puedes visitar el DEMO en el apartado de PROYECTOS:
-[Visitar Portafolio](<https://www.rickbroken.com/farmacia/login.php>)
+[Visitar Portafolio](<https://www.rickbroken.com/#/proyectos>)
