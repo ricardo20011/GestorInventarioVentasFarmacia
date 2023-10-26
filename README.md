@@ -15,3 +15,7 @@ Este proyecto es un sistema de inventario y ventas, una herramienta completa par
 ### Documentacion:
 
 Configurar el archivo php/config.php el cual contiene las variables para personalizar la base de datos.
+
+
+### Puedes visitar el DEMO en el apartado de PROYECTOS:
+[Visitar Portafolio](<https://www.rickbroken.com/farmacia/login.php>)
